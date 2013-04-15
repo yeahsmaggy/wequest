@@ -1,0 +1,125 @@
+; Packaging information for wequest
+name = "WeQuest"
+description = "The stuff you need to makes things happen is closer than you think..."
+exclusive = "1"
+core = "7.x"
+; ----------
+; Dependencies
+; ----------
+; Administration
+dependencies[] = admin_menu
+; Chaos tool suite
+dependencies[] = ctools
+dependencies[] = page_manager
+dependencies[] = views_content
+; Core
+dependencies[] = block
+dependencies[] = comment
+dependencies[] = contact
+dependencies[] = dashboard
+dependencies[] = field
+dependencies[] = field_sql_storage
+dependencies[] = field_ui
+dependencies[] = file
+dependencies[] = filter
+dependencies[] = help
+dependencies[] = image
+dependencies[] = list
+dependencies[] = menu
+dependencies[] = node
+dependencies[] = number
+dependencies[] = options
+dependencies[] = overlay
+dependencies[] = path
+dependencies[] = php
+dependencies[] = search
+dependencies[] = system
+dependencies[] = taxonomy
+dependencies[] = text
+dependencies[] = trigger
+dependencies[] = update
+dependencies[] = user
+; Date/Time
+dependencies[] = date
+dependencies[] = date_all_day
+dependencies[] = date_api
+dependencies[] = date_popup
+dependencies[] = date_repeat
+dependencies[] = date_repeat_field
+dependencies[] = date_tools
+dependencies[] = date_views
+; Fields
+dependencies[] = addressfield
+dependencies[] = field_group
+dependencies[] = geofield
+; Geolocation
+dependencies[] = geolocation
+dependencies[] = geolocation_googlemaps
+dependencies[] = geolocation_views
+; Lookup
+dependencies[] = lookup
+; Mail
+dependencies[] = mailing_list
+dependencies[] = pm_block_user
+dependencies[] = privatemsg
+dependencies[] = privatemsg_filter
+dependencies[] = privatemsg_limits
+dependencies[] = privatemsg_rules
+; Media
+dependencies[] = imce
+; Organic groups
+dependencies[] = og
+; Other
+dependencies[] = entity
+dependencies[] = entity_token
+dependencies[] = geophp
+dependencies[] = module_filter
+dependencies[] = pathauto
+dependencies[] = profile2
+dependencies[] = profile2_page
+dependencies[] = taxonomy_dupecheck
+dependencies[] = token
+dependencies[] = wequest_social
+; Panels
+dependencies[] = panels
+dependencies[] = panels_everywhere
+; Panels style plugins
+dependencies[] = panels_style_collapsible
+; Rules
+dependencies[] = rules
+dependencies[] = rules_admin
+dependencies[] = voting_rules
+; Signup
+dependencies[] = signup
+dependencies[] = signup_confirm_email
+dependencies[] = signup_roles
+; Spam control
+dependencies[] = captcha
+dependencies[] = recaptcha
+; Statistics
+dependencies[] = googleanalytics
+; Taxonomy
+dependencies[] = taxonomy_manager
+dependencies[] = term_merge
+; User interface
+dependencies[] = auto_capitalise_terms
+dependencies[] = autocomplete_deluxe
+dependencies[] = imce_wysiwyg
+dependencies[] = wysiwyg
+; Userpoints
+dependencies[] = userpoints
+dependencies[] = userpoints_autoapprove
+dependencies[] = userpoints_donation
+dependencies[] = userpoints_nc
+dependencies[] = userpoints_nc_revision
+dependencies[] = userpoints_nc_visits
+dependencies[] = userpoints_rules
+; Views
+dependencies[] = views
+dependencies[] = views_bulk_operations
+dependencies[] = views_ui
+; Voting
+dependencies[] = fivestar
+dependencies[] = rate
+dependencies[] = votingapi
+
