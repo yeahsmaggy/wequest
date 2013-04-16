@@ -1,4 +1,0 @@
-name = Geoslate
-description = Handles receiving of modified url containing geo-data from akamai and returns a panel containing relevant content
-package = wequest
-core = 7.x
