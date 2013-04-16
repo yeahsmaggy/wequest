@@ -1,0 +1,72 @@
+.carousel-items {
+  position:relative;
+  float:left;
+  overflow:hidden;
+  width:100%;
+    ul {  
+    float:left;
+    overflow:hidden;
+    margin:0;
+    padding:0;
+    list-style:none;
+    }
+    li {
+    position:relative;
+    float:left;  
+    width:100%;
+    a {
+      text-decoration:none;
+    
+    }
+    .is-fade {
+      position:absolute;
+      top:0px;
+      left:0px;
+      display:none;
+    }
+  } 
+}
+
+.carousel-thumbs 
+{
+  float:right;
+    ul {
+    overflow:hidden;
+    margin:0 1px;
+    padding:0;  
+    list-style:none;
+    cursor:pointer;
+    li {
+      position:relative;
+      float:left;
+      overflow:hidden;
+      margin:6px 8px 0 0;
+      width:72px;
+      height:54px;
+    } 
+    a {
+      display:block;
+      float:left; 
+    }
+    .carousel-thumb-active {    
+      @include retina-sprite(icon-carousel-vertical, $padV:0);
+      position:absolute;
+      top:-1px;
+      left:0px;
+      width:72px;
+      height:56px;
+    }
+  }
+}
+
+.logo-mtvod {
+  //@include svg-bkgd($logo-sprite);
+  display:block;  
+  float:left;
+  margin:14px 23px;
+  width:56px;
+  height:54px;
+  //background-position:  0px 0px;
+}
+
+

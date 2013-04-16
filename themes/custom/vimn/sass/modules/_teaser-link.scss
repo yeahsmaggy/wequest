@@ -1,0 +1,67 @@
+// Teaser link
+.teaser-link-wrap {
+	background: #fff;
+	margin: 0;
+	padding: 0.5em 0 1em;
+}
+
+.teaser-link {
+  @include font-stack-futura-bold-oblique;
+  position:relative;
+  text-decoration: none;
+  .teaser-link--arrow {
+    @include retina-sprite(icon-arrow-yellow-small-right); 
+    position:absolute;
+    top:50%;
+    right: 0px;
+    margin-top:-5px;
+    width:12px;
+    height:11px;
+  }
+}
+
+// Yellow arrow
+.teaser-link--yellow-arrow {
+	&,
+	article &,
+	.views-row & {
+	  @include font-size-em(13);
+	  color: $deep-purple;
+	  padding: 2px 19px 0 0;
+	  .teaser-link--arrow {
+	  @include retina-sprite(icon-arrow-yellow-small-right); 
+	  }
+	  &:visited {
+	    color: $deep-purple;
+	  }
+	  &:hover {   
+	    color: $bright-pink;
+	    .teaser-link--arrow {
+	      @include retina-sprite(icon-arrow-pink-small-right); 
+	    }
+	  }
+	}
+}
+
+// Pale purple arrow
+.teaser-link--pale-purple {
+	&,
+	article &,
+	.views-row & {
+	  @include font-size-em(11);
+	  color: $pale-purple;
+	  padding: 4px 19px 0 0;
+	  .teaser-link--arrow {
+	        @include retina-sprite(icon-arrow-purple-small-right); 
+	    }
+	  &:visited {
+	    color: $pale-purple;
+	  }
+	  &:hover {
+	    color: $bright-pink;
+	    .teaser-link--arrow {
+	      @include retina-sprite(icon-arrow-pink-small-right); 
+	      }
+	  }
+	}
+}

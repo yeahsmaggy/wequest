@@ -1,0 +1,126 @@
+// Video list
+.video-list {
+	ul {
+		margin: 0;
+		padding: 0;
+		list-style: none;
+	}
+	li {
+		@include clearfix;
+		position: relative;
+	}
+	.quicklist-add {
+		position: absolute;
+		right: 10px;
+		bottom: 10px;
+	}
+}
+
+.video-list-item {
+	@include box-sizing;
+	display: block;
+	float: left;
+	padding: 0 10px 0 0; /* Don't let item details touch the edge */
+	width: 100%;
+	text-decoration: none;
+}
+
+.video-list-info {
+	position: relative; /* For position absolutely positioned */
+}
+
+.video-list-details {
+	overflow: hidden; // Stops the wrap wrapping underneath the info or image
+}
+
+.video-list-number {
+	@include font-size-em(41);
+	float: left;
+	margin: 0 5px 0 0;
+	line-height: 0.9em;
+	@include font-stack-arial-black;
+}
+
+.video-list-thumb {
+  @include retina-sprite(background-thumb);
+	position: relative;
+	float: left;
+	overflow: hidden;
+	width: 72px;
+	height: 54px;
+	.icon-play {
+  @include retina-sprite(icon-video-play-medium);
+	  position: absolute;
+	  right: 4px;
+	  bottom: 5px;
+	  width: 25px;
+	  height: 25px;
+	}
+}
+
+.video-list-title {
+	@include font-size-em(14);
+	font-weight: bold;
+	line-height: 1.2em;
+}
+
+.video-list-name {
+	@include font-size-em(13);
+}
+
+// Video list horizontal scroll
+.video-list {
+  .cc-prev,
+  .cc-next {
+    position: absolute;
+    top: 0px;
+    z-index: 8888;
+    width: 54px;
+    height: 100%;
+    background:$dark-purple;   
+    cursor: pointer;
+    &:hover {
+      background:$colour-video-main;   
+    }
+  .prev-arrow,
+  .next-arrow {
+    @include retina-sprite(icon-carousel-left);
+    position: absolute; 
+    top: 50%;
+    left: 50%;
+    margin: -10px 0px 0px -5px;
+    width: 10px;
+    height: 20px;
+  }
+  .next-arrow {
+    @include retina-sprite(icon-carousel-right);
+  }   
+  }  
+  .cc-prev {
+    left: 0px;
+  }   
+  .cc-next {
+    right: 0px;
+  }  
+  .cc-prev.is-disabled {
+    background: #392b3a;
+    cursor: default;
+    .prev-arrow {
+    @include retina-sprite(icon-carousel-left-disabled);
+    }    
+  }
+  .cc-next.is-disabled {
+    background: #392b3a;
+    cursor: default;
+    .next-arrow {
+    @include retina-sprite(icon-carousel-right-disabled);
+    }  
+  }   
+    
+  .cc-mask {
+    position:absolute;
+    left:0px;
+    z-index:1;
+    margin-left:54px;  
+  }   
+}  

@@ -1,0 +1,65 @@
+.node-navigation {
+	@include clearfix;
+	margin: 0 0 25px;
+}
+
+.node-navigation-prev,
+.node-navigation-next {
+	float: left;
+	width: 50%;
+	a {
+		display: block;
+		color: #000;
+		&:hover {
+			background-color: $lighter-purple;
+		}
+	}
+	p {
+		overflow: hidden;
+		margin: 0;
+		font-style: italic;
+		line-height: 1.2em; // stops the text wrapping under the thumbnail image
+	}
+}
+
+.node-navigation-prev {
+	text-align: left;
+	a {
+		margin: 0 30px 0 0;
+		padding: 10px 10px 10px 0px;
+		&:hover {
+			.icon-left {
+  			@include retina-sprite(icon-arrow-pink-large-left);
+			}
+		}
+	}
+	.node-navigation-thumb {
+		float: left;
+		margin: 0 10px 0 0;
+	}
+}
+
+.node-navigation-next {
+	float: right;
+	text-align: right;
+	a {
+		margin: 0 0 0 30px;
+		padding: 10px 0px 10px 10px;
+		&:hover {
+			.icon-right {
+  			@include retina-sprite(icon-arrow-pink-large-right);
+			}
+		}
+	}
+	.node-navigation-thumb {
+		float: right;
+		margin: 0 0 0 10px;
+	}
+}
+
+.node-navigation-title {
+	@include font-size-em(16);
+	@include font-stack-futura-bold-oblique;
+	margin: 0 0 5px;
+	line-height: 1em;
+}

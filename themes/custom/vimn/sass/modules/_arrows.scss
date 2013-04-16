@@ -1,0 +1,15 @@
+.icon-left-cyan {
+  @include retina-sprite(icon-arrow-blue-large-left);
+	float:left;
+	margin: 12px;
+	width:25px;
+	height:30px;
+}
+
+.icon-right-cyan {
+  @include retina-sprite(icon-arrow-blue-large-right);
+	float:right;
+	margin: 12px;
+	width:25px;
+	height:30px;
+}

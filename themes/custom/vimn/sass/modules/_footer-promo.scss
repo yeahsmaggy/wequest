@@ -1,0 +1,55 @@
+.footer-promo {
+	color: #fff;
+	padding: 12px 0 17px;
+	.panel-pane {
+		@include font-size-em(11); // TODO: Check font size on designs
+		font-weight: bold;
+		line-height: 1.2em;
+	}
+}
+
+.footer-promo-title {
+	@include font-stack-futura-bold-oblique;
+	margin: 0 0 15px;
+	color: #fff;
+	@include font-size-em(12);
+}
+
+.footer-promo a {
+	color: #fff;
+	text-decoration: none;
+}
+
+// Apps
+.footer-promo--apps {
+	.item-list {
+		padding: 0;
+		position: relative;
+		ul {
+			list-style-image: none;
+			list-style-type: none;
+			position: absolute;
+			z-index: 1;
+			margin: 0 0 0 15px;
+			padding: 0;
+			li {
+				float: left;
+				position: relative;
+				a {
+					display: block;
+					padding: 18px 20px 0 10px;
+					min-height: 40px; // Height of the app icon minus padding
+					img {
+						border: none;
+						float: left;
+						margin: -18px 10px 0 0;
+					}
+				}
+			}
+		}
+		.cc-prev,
+		.cc-next {
+			display: none; // We don't want them shown visually - swipe only to interact
+		}
+	}
+}

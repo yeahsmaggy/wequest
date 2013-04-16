@@ -1,0 +1,22 @@
+.artist-footer-nav {
+  margin: 20px 0 30px;
+}
+
+.artist-footer-nav-content {
+  min-height: 54px; // height of the thumbnail image
+  padding: 5px 0;
+}
+
+.artist-footer-nav-thumb {
+  float: left;
+  margin: 8px 12px 0 0;
+}
+
+.artist-footer-nav-title {
+  @include font-size-em(16);
+  margin: 0 0 2px 0;
+}
+
+.artist-footer-nav .content-tabs--medium ul.tabs {
+  margin: 0 0 8px;
+}

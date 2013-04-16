@@ -1,0 +1,9 @@
+name = Wequest panels
+description = Custom panel layouts
+core = 7.x
+package = Wequest
+
+; Information added by drush on 2013-03-20
+version = "master-dev"
+project = "wequest_modules"
+datestamp = "1363786593"

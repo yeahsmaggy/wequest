@@ -1,0 +1,139 @@
+
+<?php
+/*
+ *
+ code to go on international
+
+ <esi:choose>
+ <esi:when test="$(GEO{'country_code'})">
+ <script src="http://geo.mtv.co.uk/geoslate"></script>
+ </esi:when>
+ <esi:otherwise>
+ // do something else
+ </esi:otherwise>
+ </esi:choose>
+
+ Put details on Akamai to return url with variables included
+
+ http://geo.mtv.co.uk/geoslate is hit, akamai returns
+ AKAMAI: http://origin-geo.mtv.co.uk/geoslate?dregion=$GEO_REGION&referer=$HTTP_REFERER
+ via akamai config
+
+ http_referrer identifies the address of the webpage (i.e. the URI or IRI) that linked to the resource being requested.
+
+ Drupal set up to return iframe that displays panel page.
+ *
+ */
+// get the path
+
+/**
+ * Implements hook_node_view().
+ */
+function wequest_geoslate_node_view($node, $view_mode, $langcode)
+ {
+    if ($node->nid == '1'){
+  //if url is http://localhost:8888/geoslate/node/1&region=en_gb&referer=http://www.mtv.com/shows/
+  global $base_root;
+  $url = $base_root . request_uri();
+  parse_str($url, $urlarray);
+  if($urlarray['region'] == 'en_GB')
+   {
+    $user_visited_link = $urlarray['referer'];
+    $path = parse_url($user_visited_link, PHP_URL_PATH); // gives "/pwsdedtech"
+    //look through the panels and see if any of the panels are set to match this url
+    //dpm(get_class_vars(EntityFieldQuery));
+    $newclass = new Geoslate;
+    $newclass->panelpathurllookup();
+   }
+   }
+  else
+   {
+    return;
+   }
+ }
+//the panel will have its settings on it to be returned if it matches the url
+class Geoslate extends EntityFieldQuery
+ {
+
+  public function __construct()
+   {
+    dpm($this);
+   }
+  public function panelpathurllookup($patharray)
+   {
+
+    //look through all the panel nodes and check the entry path field for matches
+    //only load the ones that have any value set for entry_path
+    //see if any of them match the FULL URL
+
+    $this->entityCondition('entity_type', 'node')
+    ->entityCondition('bundle', 'panel')
+    ->fieldCondition('field_entry_path', 'value', '', '<>');
+    $panels = $this->execute();
+    dpm($panels);
+
+    //$query = new EntityFieldQuery();
+    //$query->entityCondition('entity_type', 'node')
+    //->entityCondition('bundle', 'panel')
+    //->fieldCondition('field_entry_path', 'value', '', '<>');
+    //$panels = $query->execute();
+    //$nodestocheck = array();
+    //foreach($panels['node'] as $panel)
+    // {
+    //  array_push($nodestocheck, $panel->nid);
+    // }
+    //$nodes = entity_load('node', $nodestocheck);
+    //foreach($nodes as $key => $value)
+    // {
+    //  $wrapper = entity_metadata_wrapper('node', $value);
+    //  //dpr($wrapper->field_entry_path->value());
+    //  foreach(($wrapper->field_entry_path->value()) as $url)
+    //   {
+    //    $devtempbasepath = '/wequestuk/' . current_path();
+    //    //remove 'wequestuk' bit for production site
+    //    return 'something';
+    //    //if($url == $devtempbasepath)
+    //    // {
+    //    //  //dpr($value->nid);
+    //    //  $gotourl = 'node/' . $value->nid;
+    //    //  drupal_goto($gotourl, array(), $http_response_code = 302);
+    //    // }
+    //   }
+    // }
+   }
+  public function searchforstringinurl($path)
+   {
+    // look up nodes that have a value for string_match field
+    // for each of these values do a  preg match to see if the value is in the current path url
+    $query = new EntityFieldQuery();
+    $query->entityCondition('entity_type', 'node')->entityCondition('bundle', 'panel')->fieldCondition('field_string_match', 'value', '', '<>');
+    $panels = $query->execute();
+    //dpr($panels);
+    $stringmatchednodes = array();
+    $nodestocheck = array();
+    foreach($panels['node'] as $panel)
+     {
+      array_push($nodestocheck, $panel->nid);
+     }
+    $nodes = entity_load('node', $nodestocheck);
+    foreach($nodes as $key => $value)
+     {
+      $wrapper = entity_metadata_wrapper('node', $value);
+      foreach(($wrapper->field_string_match->value()) as $string)
+       {
+        preg_match('/' . $string . '/', $path, $matches);
+        $wrapper->field_string_match->value();
+        if(!empty($matches))
+         {
+          array_push($stringmatchednodes, $wrapper->nid->value());
+         }
+       }
+     }
+    //this is an array of matches
+    //but maybe there should be only one match?
+    return $stringmatchednodes;
+    //this is going to the first match in the array
+    //if more than one panel node matches
+    //what happens?
+   }
+ }

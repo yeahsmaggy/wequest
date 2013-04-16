@@ -1,0 +1,48 @@
+/*Image replacements*/
+
+.img-replace,
+.img-replace-inner-h2 article h2 {
+	text-indent: -9999em;
+	display: block;
+}
+
+// MTV news
+.img-replace--mtv-news {
+  @include retina-sprite(title-news-large, $sprites: $titles-sprites, $sprites2x: $titles-sprites2x);
+	margin: 20px 0 7px;
+	padding: 0;
+	width: 277px;
+	height: 60px;
+}
+
+.title-news {
+  @include retina-sprite(title-news-large, $sprites: $titles-sprites, $sprites2x: $titles-sprites2x);
+	margin: 20px 0 7px;
+	width: 277px;
+	height: 60px;
+	text-indent: -9999em; // positioned to the right so the tablet theme can cut off the MTV part of the image
+	display: block;
+}
+
+.img-replace--mtv-news-small {
+  @include retina-sprite(title-news-small, $sprites: $titles-sprites, $sprites2x: $titles-sprites2x);
+  margin: 0px 0 -12px;
+  padding: 0;
+  width: 326px;
+  height: 58px;
+  position:relative;
+  z-index:555; 
+}
+
+// Sub page promo
+.img-replace--gradient-shadow--charts {
+	
+}
+
+.img-replace--gradient-shadow--playlists {
+	
+}
+
+.img-replace--gradient-shadow--live-music {
+	
+}

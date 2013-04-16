@@ -1,0 +1,26 @@
+// Footer third
+.network-message {
+	@include font-size-em(11);
+	clear: both;
+	float: left;
+	margin: 15px 0 0;
+	padding: 20px 0 10px;
+	border-top: 1px solid #1f1f1f;
+	color: #666666;
+	//font-family: $verdana;
+	line-height: 1.3em;
+	width: 100%;
+}
+
+.network-message-text {
+	margin: 0;
+}
+
+.network-message-img {
+	float: left;
+	margin: 3px 18px 0 0;
+	width:274px;
+	height:22px;
+  @include retina-sprite(logo-viacom-large, $sprites: $logos-sprites, $sprites2x: $logos-sprites2x);
+  display:block;
+}

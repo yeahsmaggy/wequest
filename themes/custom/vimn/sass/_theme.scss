@@ -1,0 +1,131 @@
+// Mask
+.theme-mask {
+	display: block;
+	background: #fff;
+}
+
+.theme-mask--black {
+	display: block;
+	background: #000;
+}
+
+// Grey background
+.theme-bg-grey {
+	.view-content {
+		background: #b8b8b8;
+		padding: 12px 10px;
+		select#edit-jump {
+			width: 100%;
+		}
+	}
+}
+
+.theme-pale-purple {
+	background: $pale-purple;
+	clear: both;
+	float: left;
+	width: 100%; // Has floated elements inside it, gives it lack of layout
+	margin: 0 0 20px;
+	.pane-title {
+		padding: 10px 10px 2px;
+		margin: 0;
+	}
+}
+
+// Dotted pattern
+.theme-dotted {
+	.view-content {
+		margin: 0 0 20px;
+		padding: 20px 10px 5px;
+		background: url(../images/backgrounds/dot-pattern.png) repeat 0 0;
+	}
+	.view {
+		float: left;
+		position: relative; // for absolutely positions load more links
+		width: 100%;
+	}
+	.pager--ajax,
+	.quicktabs-wrapper {
+		.view-content {
+			margin-bottom: 12px;
+		}
+		.pager-load-more {
+			right: 10px;
+			bottom: 0;
+		}
+	}
+	// Homepage
+	body.front & {
+		.view-content {
+			margin-bottom: 20px;
+			padding-bottom: 20px;
+			.views-row-last {
+				margin-bottom: 10px;
+			}
+		}
+		.teaser-link-wrap {
+			position: absolute;
+			right: 9px;
+			bottom: 20px;
+			padding: 1px 4px 0;
+			line-height: 1em;
+		}		
+	}
+	.view-news-latest {
+  position: relative;
+  .teaser-link-wrap {
+    background:none;
+  }
+    .teaser-link { 
+      @include font-stack-futura-bold-oblique;
+      @include font-size-em(11);
+      float:right;
+      margin:8px 0 0 0;
+      padding:4px 17px 2px 5px;
+      background-color:#fff;
+      color:$pale-purple;
+      .teaser-link--arrow {
+        @include retina-sprite(icon-arrow-purple-tiny-right);
+        top: 11px;
+        right: 4px;
+        width:7px;
+        height:7px;
+      }
+    &:hover {
+      color: $bright-pink;
+      .teaser-link--arrow {
+        @include retina-sprite(icon-arrow-pink-tiny-right);
+      }
+    }
+    }
+  }
+}
+
+.theme-dotted--horizontal-borders {
+	padding: 1px 0;
+}
+
+// Gradient horizontal borders
+.theme-horizontal-grad-borders {
+	padding: 3px 0;
+}
+
+// Gradient horizontal pink yellow
+.theme-horizontal-grad-purple-lightpurple {
+	@include horizontal-gradient-two($purple, $link-light-purple);
+}
+
+// Gradient horizontal pink yellow
+.theme-horizontal-grad-pink-yellow, .carousel--videos {
+	@include horizontal-gradient-two($bright-pink, $bright-yellow);
+}
+
+// Gradient horizontal blue pink
+.theme-horizontal-grad-blue-pink {
+	@include horizontal-gradient-two($blue, $bright-pink);
+}
+
+// Gradient horizontal blue green yellow
+.theme-horizontal-grad-blue-green-yellow {
+	@include horizontal-gradient-three($bright-blue, $green, $bright-yellow);
+}

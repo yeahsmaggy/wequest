@@ -1,0 +1,20 @@
+.exclusive-interview-promo {
+	margin: 0 0 30px;
+}
+
+.exclusive-interview {
+	padding: 5px 13px 0;
+	h2 {
+		@include font-size-em(20);
+		margin: 0;
+		& a {
+			color: #000;
+		}
+		@include font-stack-futura-bold-oblique;
+	}
+	p {
+		@include font-size-em(16);
+		margin: 0 0 13px;
+		@include font-stack-arial-bold;
+	}
+}

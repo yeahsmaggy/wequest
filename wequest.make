@@ -33,6 +33,7 @@ projects[geolocation][subdir] = "contrib"
 
 projects[geolocation_views][version] = "1.x-dev"
 projects[geolocation_views][subdir] = "contrib"
+;could use entity field query instead of contrib module
 
 projects[mailing_list][version] = "1.0-beta1"
 projects[mailing_list][subdir] = "contrib"
@@ -45,6 +46,7 @@ projects[imce][subdir] = "contrib"
 
 projects[og][version] = "1.4"
 projects[og][subdir] = "contrib"
+;organic groups, I didn't full understand it
 
 projects[entity][version] = "1.0-rc3"
 projects[entity][subdir] = "contrib"
@@ -60,6 +62,7 @@ projects[pathauto][subdir] = "contrib"
 
 projects[profile2][version] = "1.2"
 projects[profile2][subdir] = "contrib"
+;profiles 2 could be replaced with extra fields stuff?
 
 projects[taxonomy_dupecheck][version] = "1.1"
 projects[taxonomy_dupecheck][subdir] = "contrib"
@@ -72,9 +75,6 @@ projects[panels][subdir] = "contrib"
 
 projects[panels_everywhere][version] = "1.0-rc1"
 projects[panels_everywhere][subdir] = "contrib"
-
-projects[panels_style_collapsible][version] = "1.0"
-projects[panels_style_collapsible][subdir] = "contrib"
 
 projects[rules][version] = "2.2"
 projects[rules][subdir] = "contrib"
@@ -143,18 +143,14 @@ projects[lookup][subdir] = "contrib"
 
 ; +++++ Themes +++++
 
-; mothership
-projects[mothership][type] = "theme"
-projects[mothership][version] = "2.8"
-projects[mothership][subdir] = "contrib"
-
 ; adminimal_theme
 projects[adminimal_theme][type] = "theme"
 projects[adminimal_theme][version] = "1.x-dev"
 projects[adminimal_theme][subdir] = "contrib"
 
-; omega
-projects[omega][type] = "theme"
-projects[omega][version] = "3.1"
-projects[omega][subdir] = "contrib"
-
+; Using dev version of Zen as this version has been altered for the SMACSS methodology
+projects[zen][subdir] = "contrib"
+projects[zen][type] = theme
+projects[zen][download][type] = "git"
+projects[zen][download][url] = "http://git.drupal.org/project/zen.git"
+projects[zen][download][revision] = "aea4757abc3e5aba5bce8b62064c846193d7e865"

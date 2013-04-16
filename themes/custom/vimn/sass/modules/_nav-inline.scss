@@ -1,0 +1,6 @@
+.nav--inline > ul {
+  @include horizontal-list(7px);
+  &:after {
+    clear: none; // Fix for footer main and secondary menu that started getting a clear: both
+  }
+}

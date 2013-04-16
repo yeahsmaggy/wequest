@@ -1,0 +1,20 @@
+# exclude files added by Drush make
+
+modules/contrib/*
+#modules/wequest*
+themes/contrib/*
+themes/wequest/*
+libraries/*
+themes/wequest/*/.sass-cache/*
+themes/custom/*/.sass-cache/*
+
+# exclude OS generated files
+
+.DS_Store
+.DS_Store?
+._*
+.Spotlight-V100
+.Trashes
+Icon?
+ehthumbs.db
+Thumbs.db

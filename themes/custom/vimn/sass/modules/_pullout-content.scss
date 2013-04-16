@@ -1,0 +1,30 @@
+.pullout-content {
+	float: right;
+	margin: 0 0 28px 28px;
+	width: 155px;
+}
+
+.pullout-content-title {
+	margin: 0;
+}
+
+.pullout-content-list {
+	@include font-size-em(12);
+	margin: 0;
+	padding: 0;
+	list-style-type: none;
+	list-style-image: none;
+	line-height: 1.3em;
+}
+
+.pullout-content-list-item {
+	margin: 0;
+	padding: 13px 0;
+	border-bottom: 1px dotted #000;
+	list-style-type: none;
+	list-style-image: none;
+	a {
+		display: block;
+		font-weight: bold;
+	}	
+}

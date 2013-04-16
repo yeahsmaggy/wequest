@@ -1,0 +1,24 @@
+// Video list - Pink
+.video-list--pink {
+	.video-list-item {
+		@include vertical-gradient-two($off-purple, #fff);
+		border-bottom: 1px solid #fff;
+		color: #000;
+		&:hover {
+			@include vertical-gradient-two(#eed3e3, #fbf4f9);
+			color: $bright-pink;
+			.video-list-number {
+ 	  		@include retina-sprite(icon-video-play-pink-medium, $padH:8, $padV:6);
+				overflow: hidden;
+				padding-top: 50px;
+				min-height: 0;
+				height: 0;
+			}
+		}
+	}
+	.video-list-number {
+		padding-top: 4px;
+		min-height: 46px; /* To account for the space needed to switch to the icon on hover */
+		color: $bright-pink;
+	}
+}

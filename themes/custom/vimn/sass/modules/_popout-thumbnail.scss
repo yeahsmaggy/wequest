@@ -1,0 +1,8 @@
+// Popdown promobox image (via style plugin setting)
+.popout-thumbnail {
+	padding-top: 20px; // Pushes down the pane to account for the image with the negative margin
+}
+
+.preset--popout-promo-image {
+	margin-top: -69px;
+}

@@ -1,0 +1,50 @@
+//140 text right
+
+.content-list  {
+  margin: 0 0 10px;
+  article {
+    @include clearfix;
+    a {
+      display: block;
+      color: #000;
+      &:hover h2 {
+        color: $link-hover-color;
+      }
+      &:hover p {
+        color: $deep-purple;
+      }
+    }
+    img {
+      margin-bottom:5px;
+    }
+    h2 {
+      @include font-size-em(16);
+      padding-right:10px;
+      overflow: hidden;
+      margin: 0 0 7px;
+      line-height: 1.2em; // stops the text wrapping around the image
+      word-wrap: break-word; // works with overflow hidden to ensure text remains visible
+      span {
+        @include font-size-em(12);
+        background:#000;
+        @include font-stack-futura-bold-oblique;
+        display:inline-block;
+        color:#fff;
+        padding:1px 8px 0 3px;
+        line-height:1;
+        margin-right:6px;
+      }
+    }
+    p {
+      @include font-size-em(12);
+      overflow: hidden;
+      margin: 0;
+      line-height: 1.35em; // stops the text wrapping around the image
+      padding-right:10px;
+
+    }
+    .views-row-inner {
+      @include clearfix;
+    }
+  }
+}

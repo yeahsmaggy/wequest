@@ -1,0 +1,100 @@
+.hat {
+    position: relative;
+    float: left;
+    width: 100%;
+    .hat-logo {
+        float: left;
+        margin: 10px;
+        width: 240px;
+        height: 117px;
+    }
+}
+
+// REMOVAL OF PAGE TITLES, the accessible way.. TODO: Need a better and more bulletproof way of doing this
+body.page-music-charts,
+body.page-music-playlists,
+body.page-music-live {
+  h1#page-title {
+    position: absolute !important;
+    overflow: hidden;
+    clip: rect(1px, 1px, 1px, 1px);
+    width: 1px;
+    height: 1px;
+  }
+}
+
+.hat-landing {
+  @include horizontal-gradient-two(#5c485c, #ede9ed);
+  position:relative;
+  margin: 3px 0 40px;
+  width:100%;
+  height:130px;
+  .hat-title {
+    position:absolute;
+    top:0;
+    left:0;
+    z-index:2;
+    margin: 0;
+    padding: 0;
+    width:100%;
+    height:100%;
+    text-indent: -9999em;
+  }
+  .hat-top {
+    position:relative;
+    z-index:10;
+    float:right;
+    margin: 0 200px 0 0;
+    width: 180px;
+    height: 114px;
+    text-transform:uppercase;
+    font-family: $futura-medium;
+    p {
+      @include font-size-em(16);
+      position: absolute;
+      right: 190px;
+      bottom: -10px;
+      width: 220px;
+      color: $deep-purple;
+      text-align: right;
+      letter-spacing: 1px;
+      line-height: 1.2;
+    }
+  }
+  .hat-gradient {
+    @include horizontal-gradient-three(#ff7200, #fe28b0, #a610e6);
+    position:absolute;
+    bottom:0px;
+    left:0px;
+    z-index:1;
+    width:100%;
+    height:6px;
+  }
+}
+  
+.hat-landing-charts {
+  .hat-gradient {
+    @include horizontal-gradient-two(#ff00ff, #24ff23);
+  }
+  .hat-title {
+    @include retina-sprite(title-charts-large, $sprites: $titles-sprites, $sprites2x: $titles-sprites2x); 
+  }
+}
+
+.hat-landing-playlists {
+  .hat-gradient {
+    @include horizontal-gradient-three(#ff7200, #fe28b0, #a610e6);
+  }
+  .hat-title {
+    @include retina-sprite(title-playlists-large, $sprites: $titles-sprites, $sprites2x: $titles-sprites2x); 
+  }
+}
+
+.hat-landing-live {
+  .hat-gradient {
+    @include horizontal-gradient-two(#2e3192, #ed1c24);
+  }
+  .hat-title {
+    @include retina-sprite(title-live-large, $sprites: $titles-sprites, $sprites2x: $titles-sprites2x); 
+  }
+}

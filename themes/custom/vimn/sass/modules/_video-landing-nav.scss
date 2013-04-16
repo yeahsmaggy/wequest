@@ -1,0 +1,42 @@
+.video-landing-nav {
+	ul {
+		margin: 0;
+		padding: 0;
+		list-style: none;
+	}
+	li {
+		float:right;
+		clear:both;
+		margin-bottom:-8px;
+		padding: 0;
+		list-style-type: none;
+		list-style-image: none;
+		&.active {
+			display: none;
+		}
+	}
+	a {
+		text-indent: -9999em;
+	}
+}
+
+.video-landing-nav-chart {
+	z-index:3; 
+	width:130px;
+	height:35px;
+ 	@include retina-sprite(nav-charts, $hover: true, $sprites: $nav-sprites, $sprites2x: $nav-sprites2x);
+} 
+
+.video-landing-nav-playlist { 
+	z-index:3;
+	width:153px;
+	height:35px;
+ 	@include retina-sprite(nav-playlists, $hover: true, $sprites: $nav-sprites, $sprites2x: $nav-sprites2x);
+}
+
+.video-landing-nav-live {
+	z-index:3;
+	width:167px;
+	height:35px;
+ 	@include retina-sprite(nav-live, $hover: true, $sprites: $nav-sprites, $sprites2x: $nav-sprites2x);
+}

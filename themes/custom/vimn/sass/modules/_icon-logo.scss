@@ -1,0 +1,18 @@
+.icon-logo {
+  display: block;
+}
+
+.icon-logo--header {
+  @include retina-sprite(logo-mtv-white-large, $sprites: $logos-sprites, $sprites2x: $logos-sprites2x); 
+  margin: 0 18px 0 0;
+  width: 91px;
+  height: 56px;
+}
+
+.icon-logo--footer {
+  @include retina-sprite(logo-mtv-white-medium, $sprites: $logos-sprites, $sprites2x: $logos-sprites2x); 
+  float: left;
+  margin: 2px 12px 0 0;
+  width: 45px;
+  height: 28px;
+}

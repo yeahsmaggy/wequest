@@ -1,0 +1,54 @@
+// Video footer
+.gallery-footer {
+  @include clearfix;
+  position:relative;
+  float: left;
+  padding: 12px 20px;
+  width: 100%;
+  background: #1F1D1F;
+  @include box-sizing;
+}
+.gallery-footer-social {
+  @include column-first(8);
+  h2 {
+    @include font-stack-futura-bold-oblique;
+    @include font-size-em(16);
+    margin: 6px 15px 0 0;
+    color: $colour-video-main;
+    float:left;
+    line-height:1;
+  }
+}
+
+.gallery-control--display-all {
+    @include font-stack-futura-bold-oblique;
+    position:absolute;
+    top:0px;
+    right:2px;
+    padding:0px 22px 0px 13px;
+    height:20px;
+    border-radius: 0 0 5px 5px;
+    background:$deep-purple;
+    color:#fff;
+    line-height:22px;
+    cursor:pointer;
+
+    .icon-gallery-full, .icon-gallery-less  {
+          @include retina-sprite(icon-arrow-yellow-tiny-down);
+          position:absolute;
+          top:6px;
+          right:7px;
+          width:7px;
+          height:8px;
+        }
+
+    .icon-gallery-less {   
+          @include retina-sprite(icon-arrow-yellow-tiny-up);
+        }
+
+        &:hover {
+          background:$colour-video-main;
+          color:$deep-purple;
+        }
+    @include font-size-em(11);
+}  
