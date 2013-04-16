@@ -1,0 +1,108 @@
+/* Layout rules: smacss.com/book/type-layout */
+
+.l-wrapper {
+	width: 100%;
+}
+
+.l-wrap {
+	margin: auto;
+	max-width: 998px; /*totals 1028px*/
+	padding-left: 15px;
+	padding-right: 15px;
+	position: relative;
+}
+
+.l-content {
+	margin: auto;
+	width: 100%;	
+}
+
+.l-container {
+	float: left;
+	width: 100%;	
+}
+
+.l-header {
+	background: #000;
+}
+
+header {
+	overflow:visible !important;
+}
+
+.l-pulldown {
+	background: #e4e4e4;
+}
+
+.l-leaderboard {
+	background: #CCCCCC;
+	background: rgba(0, 0, 0, 0.2);
+	position:relative;
+	z-index:888;
+}
+
+.l-footer-promo {
+	background-color: #503d51;
+}
+
+.l-footer {
+	background: #262626;
+	padding: 15px 0;
+}
+
+.l-footer-second {
+	background: #000;
+	padding: 20px 0;
+}
+
+.l-inline {
+	display: inline;
+}
+
+.l-inline-block {
+	display: inline-block;
+	zoom: 1;
+	*display: inline;
+}
+
+.l-align-right {
+	text-align: right;
+}
+
+.l-float-left {
+	float: left;
+}
+
+.l-float-right {
+	float: right;
+}
+
+.l-float-none {
+	float: none;
+}
+
+#main {
+	background: #fff;
+}
+
+.l-content-footer {
+	clear: both;
+}
+
+.l-relative {
+	position: relative;
+}
+
+.l-clearboth,
+.clearboth {
+	clear: both;
+}
+
+.pane-page-content,
+.pane-pane-messages {
+	clear: both;
+}
+
+.view-content {
+	@include clearfix; // If rows inside it are floated, this corrects it's position
+}

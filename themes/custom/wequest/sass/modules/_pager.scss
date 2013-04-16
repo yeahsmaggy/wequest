@@ -1,0 +1,68 @@
+ul.pager {
+	.pager-first,
+	.pager-last,
+	.ajax-progress {
+		display: none;
+	}
+}
+
+.pager-item a {
+  @include font-stack-futura-bold-oblique;
+  @include font-size-em(18);
+  display:block;
+  margin:0 2px;
+  width:38px;
+  height:38px;
+  color: $pale-purple;
+  text-align:center;
+  line-height:38px;
+  overflow:hidden;
+  &:hover {
+      color: $bright-pink;
+  }
+}
+
+.pager-current {
+  @include font-stack-futura-bold-oblique;
+  @include font-size-em(18);
+  /*display:block; was breaking the pager in the tablet theme..*/
+  margin:0 2px;
+  width:38px;
+  height:38px;
+  background: $bright-yellow;
+  color: #000;
+  text-align:center;
+  line-height:38px;
+  overflow:hidden;
+
+}
+
+.pager-previous a {
+  @include retina-sprite(icon-arrow-purple-small-left, $padH: 13, $padV: 13); 
+  display:block;
+  margin:0 2px;
+  width:38px;
+  height:38px;
+  //background-position: -367px -138px;
+  text-indent:-5000px;
+  line-height:38px;
+  overflow:hidden;
+  &:hover {
+  @include retina-sprite(icon-arrow-pink-small-left, $padH: 13, $padV: 13); 
+  }
+}
+
+.pager-next a {
+  @include retina-sprite(icon-arrow-purple-small-right, $padH: 13, $padV: 13); 
+  display:block;
+  margin:0 2px;
+  width:38px;
+  height:38px;
+  //background-position: -327px -138px;
+  text-indent:-5000px;
+  line-height:38px;
+  overflow:hidden;
+  &:hover {
+  @include retina-sprite(icon-arrow-pink-small-right, $padH: 13, $padV: 13); 
+  }
+}

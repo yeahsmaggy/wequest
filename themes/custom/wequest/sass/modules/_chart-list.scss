@@ -1,0 +1,31 @@
+// Chart list
+.chart-list {
+	.video-list-info {
+		display: inline;
+		float: left;
+		margin: 0 13px 0 1px;
+	}
+}
+
+.chart-list-position {
+	position: absolute;
+	top: 38px;
+	left: 37px;
+	z-index: 5;
+	width: 15px;
+	height: 15px;
+}
+
+.chart-list-position--none,
+.chart-list-position--up {
+	@include retina-sprite(icon-video-position-up);
+}
+.chart-list-position--down {
+	@include retina-sprite(icon-video-position-down);
+}
+.chart-list-position--flat {
+	@include retina-sprite(icon-video-position-same);
+}
+.chart-list-position--new {
+	@include retina-sprite(icon-video-position-new);
+}

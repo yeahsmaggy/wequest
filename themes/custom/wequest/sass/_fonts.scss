@@ -1,0 +1,4 @@
+@import url("//hello.myfonts.net/count/25c19b");
+@font-face {font-family: 'FuturaBT-BoldItalic'; src: url('fonts/25C19B_1_0.eot');src: url('fonts/25C19B_1_0.eot?#iefix') format('embedded-opentype'),url('fonts/25C19B_1_0.woff') format('woff'),url('fonts/25C19B_1_0.ttf') format('truetype');}
+@font-face {font-family: 'FuturaBT-Book';src: url('fonts/26322E_0_0.eot');src: url('fonts/26322E_0_0.eot?#iefix') format('embedded-opentype'),url('fonts/26322E_0_0.woff') format('woff'),url('fonts/26322E_0_0.ttf') format('truetype');}
+@include font-face("MTV Pharma Bold Condensed", font-files("MTV-Pharma-BoldCn.ttf", "MTV-Pharma-BoldCn.eot", "MTV-Pharma-BoldCn.svg", "MTV-Pharma-BoldCn.woff", "MTV-Pharma-BoldCn.otf"));

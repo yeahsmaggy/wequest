@@ -1,0 +1,23 @@
+.view-search {
+	.view-header {
+		@include font-size-em(12);
+		float: right;
+		margin-top: -35px;
+	}
+}
+
+.search-results-info {
+	@include font-size-em(12);
+	color: $deep-purple;
+}
+
+// Artist search result
+.artist-links {
+	font-weight: bold;
+	a:after {
+		content: " | ";
+	}
+	a:nth-last-of-type(1):after {
+		content: "";
+	}
+}

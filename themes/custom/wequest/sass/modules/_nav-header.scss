@@ -1,0 +1,23 @@
+.nav--header {
+	float: left;
+	padding: 7px 0 0;
+	text-transform: uppercase;
+	font-family: $futura-medium;
+	a,
+	a.active {
+		color: #fff;
+		text-decoration: none;
+		&:hover {
+			color: $cyan;
+		}
+	}
+}
+
+.nav--secondary.nav--header {
+	margin: 0;
+	ul.menu {
+		@include horizontal-list(8px);
+		@include font-size-em(12);
+		letter-spacing: 1px;
+	}
+}

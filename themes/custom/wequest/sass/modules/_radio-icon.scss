@@ -1,0 +1,4 @@
+.nav--header .radio-icon {
+  @include retina-sprite(icon-radio, $padH: 46);
+  padding: 0 23px 0 0;
+} 

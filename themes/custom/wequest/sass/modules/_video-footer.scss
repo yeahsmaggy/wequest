@@ -1,0 +1,34 @@
+// Video footer
+.video-footer {
+	@include clearfix;
+	@include box-sizing;
+	float: left;
+	padding: 12px 20px;
+	width: 100%;
+	background: #1F1D1F;
+}
+
+.video-footer-social {
+	@include column-first(8);
+	h2 {
+		@include font-stack-futura-bold-oblique;
+		@include font-size-em(16);
+		margin: 10px 15px 0 0;
+		color: $colour-video-main;
+		float:left;
+		line-height:1;
+	}
+}
+
+.flux4Widget .share {
+	border:none;
+	padding:0;
+}
+
+.flux4Widget .share .fixed.horizontalView .serviceList .serviceButton.twitter {
+	width: 80px;
+}
+
+.flux4Widget .share .fixed.horizontalView .serviceList .serviceButton.facebook {
+	width: 68px;
+}

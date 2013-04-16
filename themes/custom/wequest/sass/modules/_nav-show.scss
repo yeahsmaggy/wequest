@@ -1,0 +1,121 @@
+.nav-shows {
+  background:$deep-purple;
+  clear: both;
+  width:100%;
+  display:block;
+  float:left;
+  margin: 0 0 20px;
+  ul {
+    margin:0;
+    padding:0;
+    list-style:none;
+    li {
+      float:left;
+    }
+    a {
+      display:block;
+      padding:5px 10px;
+      color:#fff;
+      &:hover,
+      &.active {
+        color:#000;
+        background:$bright-yellow;
+      }
+    }
+  }
+}
+
+// Solo
+.nav-shows--solo {
+	@include box-sizing;
+	background: $pale-purple;
+	padding: 10px 10px 4px;
+	margin: 0;
+	ul {
+		li {
+			@include box-sizing;
+			float: left;
+			width: 50%;
+			padding: 0 0 6px;
+			&:nth-of-type(odd) {
+				padding: 0 3px 6px 0;
+			}
+			&:nth-of-type(even) {
+				padding: 0 0 6px 3px;
+			}
+		}
+		a {
+			background: $deep-purple;
+			font-weight: bold;
+			&:hover {
+				background: #000;
+				color: #fff;
+			}
+			&.active {
+				background: $bright-yellow;
+				color: #000;
+			}
+		}
+	}
+}
+
+// Show menu
+.pane-showmenuonly {
+	clear: both;
+}
+
+// Shows hub homepage menu
+.collapse-pane {
+	.pane-showmenuonly {
+		margin: -51px 0 20px;
+		float: left;
+		width: 100%;
+		.collapse-pane-content {
+			padding: 0;
+		}
+	}
+}
+
+// Show header
+.show-header {
+	@include horizontal-gradient-three($bright-blue, $green, $bright-yellow);
+	float: left;
+	width: 100%;
+	clear: both;
+}
+
+.show-header-title {
+	@include font-stack-futura-bold-oblique;
+	@include font-size-em(17);
+	margin: 0;
+	padding: 5px 0 0;
+	display: inline-block;
+}
+
+.show-header-img {
+	float: left;
+	margin: 0 10px 0 0;
+}
+
+.show-utility {
+	background: $dark-purple;
+	clear: both;
+	float: left;
+	width: 100%;
+	margin: 0 0 20px;
+	padding: 8px 0 0;
+	h1 {
+		@include font-size-em(16);
+		@include font-stack-futura-bold-oblique;
+		padding: 4px 0 0 10px;
+		margin: 0;
+		color: #fff;
+		line-height: 1.1em;
+		display: inline-block;
+	}
+	.collapse-pane-content {
+		padding: 0;
+	}
+}
+
+

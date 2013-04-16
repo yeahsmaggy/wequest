@@ -1,0 +1,372 @@
+.content-list {
+	@include clearfix;
+	margin: 0 0 10px;
+	.pane-title {
+		/* margin: 0; */
+	}
+	article,
+	.views-row {
+		@include clearfix;
+		a {
+			display: block;
+			color: #000;
+			&:hover h2 {
+				color: $link-hover-color;
+			}
+			&:hover p {
+				color: $deep-purple;
+			}
+		}
+		h2 {
+			@include font-size-em(16);
+			overflow: hidden;
+			margin: 0 0 7px;
+			line-height: 1.2em; // stops the text wrapping around the image
+			word-wrap: break-word; // works with overflow hidden to ensure text remains visible
+		}
+		p {
+			@include font-size-em(12);
+			overflow: hidden;
+			margin: 0;
+			padding: 0 5px 5px 0;
+			line-height: 1.35em; // stops the text wrapping around the image
+			a {
+				display: inline;
+			}
+		}
+		.views-row-inner {
+			@include clearfix;
+		}
+	}
+}
+
+.content-list--bottom-dotted-border {
+	margin-bottom:20px !important;
+	padding-bottom:15px;
+	border-bottom:dotted 1px #000;
+}
+
+.content-list--top-dotted-border {
+	margin-top:20px !important;
+	padding-top:15px;
+	border-top:dotted 1px #000;
+}
+
+// Purple
+.content-list--purple {
+	background: $light-pale-purple;
+	article,
+	.views-row {
+		border-top: 1px dotted #000;
+		&:nth-child(1) {
+			border-top: none;
+		}
+	}
+}
+
+// Isolated white
+.content-list--isolated-white {
+	margin: 0;
+	padding: 0 9px;
+	article,
+	.views-row {
+		margin: 0 0 18px 0;
+		.views-row-inner {
+			background: #fff;
+		}
+		h2 {
+			padding: 2px 0 0;
+		}
+	}
+}
+
+// Compact
+.content-list--compact {
+	article,
+	.views-row {
+		h2 {
+			@include font-size-em(14);
+			font-weight: normal;
+			line-height: 1.2em;
+		}
+	}
+}
+
+// Columns - No floated img
+@mixin content-list-vert {
+	.content-list-img {
+		float: none;
+		margin: 0 0 5px;
+	}
+}
+
+// Columns - 2
+.content-list--columns {
+	.theme-dotted & {
+		.views-row-odd {
+			@include column-first(5.8);
+			clear: both;
+		}
+		.views-row-even {
+			@include column-last(5.8);
+			float: right;
+		}
+		.views-row {
+			margin-bottom: 15px;
+		}
+	}
+
+
+	@include row(2);
+	article,
+	.views-row {
+		@include row-column(1, 2);
+		&.views-row-odd {
+			clear: both;
+		}
+		//@include column(1, 2);
+	}
+margin:0;
+	// .pane-title {
+	// 	margin-left: 15px;
+	// }
+	// .title--yellow-tip,
+	// .title--yellow-tip-large,
+	// .title--yellow-tip-link,
+	// .title--yellow-tip-link-large {
+	// 	margin-left: 5px;
+	// }
+
+	// Override for news landing page & music landing page
+	/* body.page-news &,
+	body.page-music & {
+		margin: 0; */
+	/* width: auto; */
+	/* article,
+		.views-row {
+			margin: 0 0 15px; */
+	/* width: 48%; */
+	/* &.views-row-odd {
+				clear: both; */
+	/* }
+			&.views-row-even {
+				float: right; */
+}
+
+
+
+// Columns - 3
+.content-list--columns-three {
+	@include content-list-vert;
+	article,
+	.views-row {
+		@include row-column(1, 3);
+		margin-bottom: 30px; // For Pictures landing page specifically
+		&:nth-of-type(3n+1) {
+			clear: both;
+		}
+	}
+	.pane-title {
+		margin-left: 15px;
+	}
+	.title--yellow-tip,
+	.title--yellow-tip-large,
+	.title--yellow-tip-link,
+	.title--yellow-tip-link-large {
+		margin-left: 5px;
+	}
+	@include row(3);
+}
+
+// Columns - 4
+.content-list--columns-four {
+	@include content-list-vert;
+	article,
+	.views-row {
+		@include row-column(1, 4);
+		margin-bottom: 30px; // For Pictures landing page specifically
+		&:nth-of-type(4n+1) {
+			clear: both;
+		}
+	}
+	.pane-title {
+		margin-left: 15px;
+	}
+	.title--yellow-tip,
+	.title--yellow-tip-large,
+	.title--yellow-tip-link,
+	.title--yellow-tip-link-large {
+		margin-left: 5px;
+	}
+	@include row(4);
+}
+
+// Columns - 5
+.content-list--columns-five {
+	@include content-list-vert;
+	article,
+	.views-row {
+		@include row-column(1, 5);
+		margin-bottom: 30px; // For Pictures landing page specifically
+		&:nth-of-type(5n+1) {
+			clear: both;
+		}
+	}
+	.pane-title {
+		margin-left: 15px;
+	}
+	.title--yellow-tip,
+	.title--yellow-tip-large,
+	.title--yellow-tip-link,
+	.title--yellow-tip-link-large {
+		margin-left: 5px;
+	}
+	@include row(5);
+}
+
+// Columns - 6
+.content-list--columns-six {
+	@include content-list-vert;
+	@include row(6);
+	float:left;
+	article,
+	.views-row {
+		@include row-column(1, 6);
+		margin-bottom: 30px; // For Pictures landing page specifically
+		&:nth-of-type(6n+1) {
+			clear: both;
+		}
+	}
+	.pane-title {
+		margin-left: 15px;
+	}
+	.title--yellow-tip,
+	.title--yellow-tip-large,
+	.title--yellow-tip-link,
+	.title--yellow-tip-link-large {
+		margin-left: 5px;
+	}
+}
+
+// Column layout - 2, 1, 1
+.content-list--columns-2-1-1 {
+	@include content-list-vert;
+	.panel-pane > .view > .view-content,
+	.attachment {
+		@include row-column(2, 4);
+	}
+	.attachment {
+		.view-content {
+			@include row(2);
+			.views-row {
+				@include row-column(1, 2);
+			}
+		}
+	}
+	@include row(4);
+}
+
+// Vertical list
+.content-list--vert {
+	@include content-list-vert;
+	article,
+	.views-row {
+		margin-bottom: 20px;
+		padding-bottom: 15px;
+		border-bottom: 1px dotted #000;
+		&:nth-last-of-type(1) {
+			margin-bottom: 0;
+			padding-bottom: 0;
+			border-bottom: none;
+		}
+	}
+	&.content-list--columns,
+	&.content-list--columns-three,
+	&.content-list--columns-four,
+	&.content-list--columns-five,
+	&.content-list--columns-six {
+		article,
+		.views-row {
+			margin-bottom: 0;
+			padding-bottom: 0;
+			border-bottom: none;
+		}
+	}
+}
+
+// Dotted divider list
+.content-list--bottom-dotted-divider {
+	article,
+	.views-row {
+		margin-bottom: 20px;
+		padding-bottom: 15px;
+		border-bottom: 1px dotted #000;
+			border-bottom: none;
+	}
+	.views-row article {
+		margin-bottom: 0;
+		padding-bottom: 0;
+		// If there is an article inside a views-row, dont apply styles twice
+		border-bottom: none;
+	}
+}
+
+.content-list--isolated-white {
+	article,
+	.views-row {
+		background-color:#fff;
+		.type-tag {
+			margin-top: 5px;
+		}
+	}
+}
+
+// .content-list--bottom-dotted-border {
+// 	.view-content {
+// 		border-bottom: 1px dotted #000;
+// 	}
+// }
+
+
+// Search results
+.content-list {
+	.view-mode-search_result {
+		h2 {
+			padding-top: 0;
+			&,
+			& a {
+				color: $bright-blue;
+			}
+		}
+		.submitted {
+			font-weight: bold;
+			font-style: italic;
+		}
+		.content-img {
+			float: left;
+			margin: 3px 10px 0 0;
+			width: 140px;
+			height: 105px;
+			background: #000;
+		}
+	}
+}
+
+// Teaser
+.content-list {
+	article.node-wequest-article.node-teaser {
+		h2 {
+			@include font-size-em(26);
+			text-transform: uppercase;
+		}
+		p {
+			@include font-size-em(14);
+			margin: 1em 0;
+		}
+		.submitted {
+			@include font-size-em(12);
+			margin: 1em 0 1.5em;
+			font-style: italic;
+		}
+	}
+}

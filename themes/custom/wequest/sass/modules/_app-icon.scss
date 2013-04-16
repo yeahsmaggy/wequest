@@ -1,0 +1,44 @@
+.app-icon {
+  display: block;
+}
+
+// wequestuk News
+.app-icon--wequestuk-news {
+  @include retina-sprite(logo-app-mtv-news, $sprites: $logos-sprites, $sprites2x: $logos-sprites2x);
+  @include border-radius(10px, 10px);
+  @include font-size-em(18);
+  @include font-stack-futura-medium-uppercase;
+  padding:14px 10px 10px 70px;
+  width: 79px;
+  height: 30px;
+  background-color:#f5f5f5;
+  box-shadow:inset -10px -10px 25px rgba(0,0,0,0.1);
+  line-height:1;
+  color:#000;
+}
+
+.app-icon--wequestuk-news-small {
+  @include retina-sprite(logo-app-mtv-news, $sprites: $logos-sprites, $sprites2x: $logos-sprites2x);
+  width:54px;
+  height:54px;
+}
+
+.app-icon--wequestuk-news-large {
+  @include retina-sprite(logo-app-mtv-news-large, $sprites: $logos-sprites, $sprites2x: $logos-sprites2x);
+  width:74px;
+  height:75px;
+}
+
+// Geordie Shore - Tweet Tracker
+.app-icon--gshore-tweettracker-large {
+  @include retina-sprite(logo-app-default, $sprites: $logos-sprites, $sprites2x: $logos-sprites2x);
+  width:74px;
+  height:75px;
+}
+
+// Jackass - Nutball
+.app-icon--jackass-nutball-large {
+  @include retina-sprite(logo-app-default, $sprites: $logos-sprites, $sprites2x: $logos-sprites2x);
+  width:74px;
+  height:75px;
+}

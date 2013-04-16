@@ -1,0 +1,59 @@
+.overlay-container {
+	position: relative;
+}
+
+@mixin overlay-display {
+	position: absolute;
+	z-index: 5;
+}
+
+// Play
+.overlay-play-large {
+  @include retina-sprite(icon-video-play-mahoosive); 
+	@include overlay-display;
+	top: 50%;
+	left: 50%;
+	margin: -48px 0 0 -48px;
+	width: 97px;
+	height: 97px;
+}
+
+.overlay-play-medium,
+.news-bulletin--mobile .overlay-play-large {
+  @include retina-sprite(icon-video-play-massive); 
+	@include overlay-display;
+	top: 50%;
+	left: 50%;
+	margin: -40px 0 0 -40px;
+	width: 81px;
+	height: 80px;
+}
+
+.overlay-play-small {
+  @include retina-sprite(icon-video-play-large); 
+	@include overlay-display;
+	top: 50%;
+	left: 50%;
+	margin: -22px 0 0 -22px;
+	width: 45px;
+	height: 45px;
+}
+
+.overlay-play-thumb {
+  @include retina-sprite(icon-video-play-medium); 
+	@include overlay-display;
+  right: 4px;
+  bottom: 5px;
+  width: 25px;
+  height: 25px;
+}
+
+// Camera
+.overlay-camera-small {
+  @include retina-sprite(icon-picture); 
+	@include overlay-display;
+	right: 4px;
+	bottom: 3px;
+	width: 40px;
+	height: 33px;
+}

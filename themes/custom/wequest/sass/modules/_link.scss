@@ -1,0 +1,20 @@
+// Download on iTunes
+.link--download-itunes {
+  @include retina-sprite(nav-download-on-itunes, $sprites: $nav-sprites, $sprites2x: $nav-sprites2x);
+  display: block;
+  width:80px;
+  height:31px;
+  text-indent: -9999em;
+  &.link--download-itunes--inline-block {
+    display: inline-block;
+  }
+}
+
+// Powered by last.fm
+.link--lastfm {
+  @include retina-sprite(logo-lastfm, $sprites: $logos-sprites, $sprites2x: $logos-sprites2x);
+	display: block;
+	width: 110px;
+	height: 16px;
+	text-indent: -9999em;
+} 

@@ -1,0 +1,17 @@
+// Video list promo
+.video-list--promo {
+	line-height:1.1em;
+	ul {
+		@include border-bottom(1px, dotted, #000);
+		border-top: 4px solid #000;
+	}
+	.video-list-item {
+		padding: 5px 10px 5px 0;
+	}
+	> p {
+		margin-top: 0.3em;
+	}
+	.video-list-name {
+		padding-top:5px;
+	}
+} 

@@ -1,0 +1,10 @@
+// Video list player
+.video-list--player {
+  width: 100%;
+  .video-list-item {
+    padding: 15px 30px 15px 5px; /* Don't let the text touch the quicklist icon */
+  }
+  .video-list-number {
+    margin-top: -5px;
+  }
+}

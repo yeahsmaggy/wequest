@@ -1,0 +1,623 @@
+/* Page titles */
+
+// White text on a purple to white gradient
+@mixin page-title--purple-gradient-settings {
+	@include font-stack-futura-bold-oblique;
+	@include font-size-em(36);
+	color: #fff;
+	display: inline-block;
+	line-height: 0.68em; // Low line height used with top padding to make the gradient the height of the text
+	margin: 20px 0 0px;
+	padding-top: 3px;
+	padding-left: 8px;
+}
+
+.page-title--purple-fade-gradient {
+	@include page-title--purple-gradient-settings;
+	@include horizontal-gradient-three($title-bg-purple, #A997A9, #fff);
+	padding-right: 200px;
+}
+
+.page-title--purple-fade-gradient-long {
+	@include page-title--purple-gradient-settings;
+	@include horizontal-gradient-four($title-bg-purple, $title-bg-purple, #A997A9, #fff);
+	min-width: 600px;
+}
+
+.page-title--blue-green-yellow-gradient {
+	@include font-stack-futura-bold-oblique;
+	@include blue-to-green-to-yellow-horizontal-gradient;
+	@include font-size-em(24);
+	color: #000;
+	line-height: 1em;
+	padding: 9px 9px 5px;
+}
+
+/* Titles */
+
+body.node-type-wequest-page .node-wequest-page h2 {
+	@include font-size-em(16);
+	@include font-stack-futura-bold-oblique;
+	@include horizontal-gradient-two($purple, $link-light-purple);
+	color: #fff;
+	padding: 8px 11px 6px;
+	line-height: 1em;
+}
+
+// Title on a gradient
+.title--on-grad {
+	padding-right: 7px;
+	padding-left: 10px;
+}
+
+// Small title
+.title--small-black {
+	@include font-stack-futura-bold-oblique;
+	@include font-size-em(16);
+	color: #000;
+	line-height: 1.3em;
+	padding: 8px 0 5px;
+}
+
+// Title 13
+.title--13 {
+	@include font-size-em(13);
+	line-height: 1.3em;
+}
+
+// Title 14
+.title--14 {
+	@include font-size-em(14);
+	line-height: 1.3em;
+}
+
+// Title 16
+.title-16 {
+	@include font-size-em(16);
+	line-height: 1.3em;
+}
+
+// Title 17
+.title--17 {
+	@include font-size-em(17);
+	line-height: 1.2em;
+	&.title--on-grad {
+		padding: 7px 10px 7px 7px;
+	}
+}
+
+// Title 18
+.title--18 {
+	@include font-size-em(18);
+	line-height: 1.2em;
+	&.title--on-grad {
+		padding: 7px 10px 5px 7px;
+	}
+}
+
+// Title 20
+.title--20 {
+	@include font-size-em(20);
+	line-height: 1.1em;
+	&.title--on-grad {
+		padding: 4px 10px 4px 7px;
+	}
+}
+
+// Title 22
+.title--22 {
+	@include font-size-em(22);
+	line-height: 1em;
+	&.title--on-grad {
+		padding: 4px 10px 0 7px;
+	}
+}
+
+// Title 24
+.title--24 {
+	@include font-size-em(24);
+	line-height: 1em;
+	&.title--on-grad {
+		padding: 0 10px 0 7px;
+	}
+}
+
+// Title 26
+.title--26 {
+	@include font-size-em(26);
+	line-height: 1em;
+	&.title--on-grad {
+		padding: 0 10px 0 7px;
+	}
+}
+
+// Black title
+.title--black {
+	margin: 0 0 20px;
+	&,
+	& .theme-mask {
+		@include font-stack-futura-bold-oblique;
+		padding: 10px 0;
+		&,
+		& a {
+			color: #000;
+		}
+	}
+}
+
+// Black medium title
+.title--black-medium {
+	margin: 0 0 20px;
+	&,
+	& .theme-mask {
+		@include font-stack-futura-medium-uppercase;
+		padding: 10px 0;
+		&,
+		& a {
+			color: #000;
+		}
+	}
+}
+
+// White title
+.title--white {
+	@include font-stack-futura-bold-oblique;
+	margin: 0 0 20px;
+	padding: 10px 0;
+	&,
+	& a {
+		color: #fff;
+	}
+}
+
+// Pink title
+.title--pink {
+	@include font-stack-futura-bold-oblique;
+	margin: 0 0 20px;
+	padding: 10px 0;
+	&,
+	& a {
+		color: $bright-pink;
+	}
+}
+
+// Blue title - No font change here!
+.title--blue {
+	margin: 0;
+	padding: 10px 0;
+	&,
+	& a {
+		color: $link-color;
+	}
+}
+
+// Purple title
+.title--purple {
+	@include font-stack-futura-bold-oblique;
+	color: $purple;
+	margin: 10px 0;
+}
+
+/* uncommenting as this is causing titles to be displayed incorrectly
+.pane-title {
+	float:left;
+	margin-right:100%;
+}
+*/
+
+// Adds dotted border to top and bottom
+.title--horizontal-dotted-border {
+	border-top: 1px dotted black;
+	border-bottom: 1px dotted black;
+}
+
+// Adds dotted border to bottom
+.title--bottom-dotted-border {
+	padding: 0 0 10px;
+	border-bottom: 1px dotted black;
+}
+
+// Yellow tip title
+.title--yellow-tip {
+	padding: 3px 25px 0px 10px;
+	border-right: 15px solid $bright-yellow;
+	background: #000;
+}
+
+.title--yellow-tip-large {
+	padding: 3px 25px 0px 10px;
+	border-right: 40px solid $bright-yellow;
+	background: #000;
+}
+
+// Yellow tip link title
+.title--yellow-tip-link {
+	position: relative;
+	padding: 0;
+	a {
+		display: block;
+		padding: 3px 25px 0px 10px;
+		border-right: 15px solid $bright-yellow;
+		background: #000;
+	}
+	.title--yellow-tip-link--arrow-right {
+	  @include retina-sprite(icon-arrow-black-narrow-right);
+    top:50%;
+    right:1px;
+    margin-top:-5px;
+		width:11px;
+		height:10px;
+    position:absolute;
+  }
+}
+
+// Yellow tip link title
+.title--yellow-tip-link-large {
+	position: relative;
+	padding: 0;
+	a {
+		display: block;
+		padding: 3px 25px 0px 10px;
+		border-right: 40px solid $bright-yellow;
+		background: #000;
+	}
+	.title--yellow-tip-link--arrow-right {
+	  @include retina-sprite(icon-arrow-black-narrow-right);
+    position:absolute;
+    top:50%;
+    right:14px;
+    margin-top:-5px;
+		width:11px;
+		height:10px;
+  }
+}
+
+// Node title
+.node-title {
+	margin: 0;
+	padding: 10px 100px 0 0;
+}
+
+// Aside block title
+.aside-title {
+	@include font-size-em(14);
+	.gradient-bg-mask {
+		padding: 4px 0;
+	}
+	@include font-stack-futura-bold-oblique;
+}
+
+.aside-title--purple {
+	color: $deep-purple;
+}
+
+// Summary
+.summary {
+	@include font-size-em(16);
+	margin: 0.357142857142857em 0 0.785714em;
+	font-weight: normal;
+	font-style: italic;
+}
+
+// Type tag
+.type-tag {
+	@include font-size-em(13);
+	display: inline;
+	display: inline-block;
+	clear: both;
+	padding: 2px 6px 0 5px;
+	background: #000;
+	color: #fff;
+	line-height: 1.2em;
+	@include font-stack-futura-bold-oblique;
+}
+
+	.type-tag--hide {
+		.type-tag {
+			display: none;
+		}
+		.type-tag--persist {
+			display: inline;
+			display: inline-block;
+		}
+	}
+
+	.type-tag--hide-persist {
+		.type-tag {
+			display: none;
+		}
+	}
+
+	.type-tag--inline {
+		a h2 {
+			display: inline;
+		}
+		.type-tag {
+			margin-right: 5px;
+		}
+	}
+
+// Tag edge
+.tag-overlay {
+	position: relative;
+	.tag-edge {
+		position: absolute;
+		bottom: 0;
+		z-index: 10;
+	}
+	.tag-edge--orange-large {
+		bottom: -15px;
+	}
+}
+
+.tag-edge {
+	@include clearfix;
+	margin: 0 0 7px;
+	.text,
+	.edge {
+		display: inline-block;
+		float: left;
+	}
+	@include font-stack-futura-bold-oblique;
+}
+
+.tag-edge--orange {
+	@include font-size-em(16);
+	line-height: 1.4em;
+	.text {
+		padding: 1px 15px 1px 10px;
+		height: 22px;
+		background: $orange;
+		color: #fff;
+		margin-top:15px;
+		line-height:25px;
+		overflow:hidden;
+
+	}
+	.edge {
+		@include retina-sprite(title-zacbox, $sprites: $titles-sprites, $sprites2x: $titles-sprites2x, $padH: -300, $padV:-3);
+		width: 79px;
+		height: 24px;
+		margin-top:15px;
+	}
+}
+
+.tag-edge--orange-large {
+	@include font-size-em(20);
+	.text {
+		padding: 6px 115px 9px 15px;
+		color: #fff;
+		@include retina-sprite(title-zacbox, $sprites: $titles-sprites, $sprites2x: $titles-sprites2x, $padH: -160);
+
+	}
+	.edge {
+		width: 112px;
+		height: 60px;
+	}
+}
+
+.tag-edge--yellow-large {
+	@include font-size-em(24);
+	margin: 0;
+	line-height: 1.2em;
+	@include retina-sprite(title-news-bulletin, $sprites: $titles-sprites, $sprites2x: $titles-sprites2x);
+
+	.text {
+		float: right;
+		margin: 8px 0 0;
+		padding: 10px 16px 4px 12px;
+		color: $deep-purple;
+		display:block;
+	}
+	.edge {
+
+	}
+}
+
+// Gradient titles
+.blue-pink-gradient-title {
+	@include blue-to-pink-horizontal-gradient;
+	margin: 0;
+	padding: 4px 7px 2px;
+	color: #fff;
+	line-height: 1em;
+	@include font-stack-futura-bold-oblique;
+}
+
+.purple-pink-gradient-border-title {
+	@include blue-to-pink-horizontal-gradient;
+	@include font-size-em(14);
+	margin: 0 0 28px;
+	padding: 3px 0;
+	span {
+		display: block;
+		padding: 4px 0 3px;
+		background: #fff;
+	}
+	@include font-stack-futura-bold-oblique;
+}
+
+.blue-green-yellow-title {
+	@include blue-to-green-to-yellow-horizontal-gradient;
+	@include font-size-em(17);
+	padding: 8px 10px 7px;
+	line-height: 1em;
+	a &,
+	& {
+		color: #000;
+	}
+	@include font-stack-futura-bold-oblique;
+}
+
+// Yellow tipped
+.yellow-tip-black-title {
+	@include font-size-em(20);
+	margin: 0;
+	padding: 3px 12px 2px;
+	border-right: 15px solid $bright-yellow;
+	background: #000;
+	color: #fff;
+	line-height: 1em;
+	@include font-stack-futura-bold-oblique;
+}
+
+a.yellow-tip-black-title {
+	display: block;
+	&:hover {
+		color: #fff;
+	}
+}
+
+.yellow-tip-black-title--inline {
+	display: inline;
+	clear: both;
+	padding-bottom: 3px;
+}
+
+// Yellow tipped with arrow
+.yellow-tip-title {
+	@include font-size-em(20);
+	position:relative;
+	margin: 0;
+	padding: 0 38px 0 0;
+	background: $bright-yellow;
+	line-height: 1em;
+	.yellow-tip-black-title-arrow-content,
+	& a {
+		display: block;
+		padding: 3px 12px 2px;
+		background: #000;
+		&,
+		&:hover {
+			color: #fff;
+		}
+	}
+	.yellow-tip-black-title-arrow--right {
+		@include retina-sprite(icon-arrow-black-narrow-right);
+    position:absolute;
+    top:50%;
+    right:13px;
+    margin-top:-5px;
+		width:11px;
+		height:10px;
+  	}
+	@include font-stack-futura-bold-oblique;
+}
+
+.yellow-tip-black-title-arrow--down {
+	@include retina-sprite(icon-arrow-black-medium-down);
+  background-position: -290px -150px;
+}
+
+// Free tag
+.tag-free {
+	@include font-size-em(12);
+	@include font-stack-futura-bold-oblique;
+	background: red;
+	color: #fff;
+	line-height: 1.3em;
+	margin-top: 10px;
+	position: relative;
+	text-align: center;
+	padding-top:3px;
+	z-index: 3;
+	&:before {
+		content: "";
+		position: absolute;
+		top: -6px;
+		left: 50%;
+		margin-left: -6px;
+    z-index: 5;
+    @include triangle(up, red, 6px);
+	}
+}
+
+// Collapse pane title
+.collapse-pane {
+	position: relative;
+	.content-list {
+		margin-bottom: 1px;
+	}
+}
+
+.collapse--purple-yellow {
+	@include font-size-em(16);
+	font-family: Arial, Helvetica, sans-serif;
+	font-weight: normal;
+	text-transform: none;
+	background-color: $bright-yellow;
+	color: #000;
+	line-height: 1em;
+	padding: 14px 35px 14px 10px;
+	.arrow-indicator {
+		@include retina-sprite(icon-arrow-black-medium-up);
+		width: 13px;
+		height: 10px;
+		display: block;
+		position: absolute;
+		top: 18px;
+		right: 14px;
+	}
+	&.is-collapsed {
+		background-color: $deep-purple;
+		color: #fff;
+		.arrow-indicator {
+			@include retina-sprite(icon-arrow-yellow-medium-down);
+		}
+	}
+}
+
+.collapse--pale-purple--compact,
+body.page-subject .pane-showmenu h2.collapse--pale-purple--compact.pane-title {
+	@include font-size-em(14);
+	@include font-stack-futura-medium-uppercase;
+	background: $pale-purple;
+	color: #000;
+	border-radius: 3px 3px 0 0;
+	cursor: pointer;
+	float: right;
+	padding: 8px 30px 6px 10px;
+	margin: 0 10px 0 0;
+	line-height: 1.23em;
+	position: relative;
+	.arrow-indicator {
+		@include retina-sprite(icon-arrow-black-medium-up);
+		display: block;
+		position: absolute;
+		top: 50%;
+		right: 10px;
+		width: 13px;
+		height: 10px;
+		margin: -5px 0 0;
+	}
+	&.is-collapsed {
+		.arrow-indicator {
+			@include retina-sprite(icon-arrow-black-medium-down);
+		}
+	}
+}
+
+// Element bold
+.element-bold {
+	font-weight: bold;
+}
+
+// Form elements TODO: Move these somehwere better
+.filter-label {
+	color: $deep-purple;
+	font-weight: normal;
+	margin: 0 15px 0 0;
+	text-transform: uppercase;
+}
+
+.views-exposed-form--default {
+	border-bottom: 1px dotted #000;
+	margin: 0 0 1.5em;
+	padding: 0 0 2em;
+	.filter-label,
+	.views-widget {
+		float: left;
+	}
+}
+
+

@@ -1,0 +1,42 @@
+.embedded-content {
+	a {
+		display: block;
+		color: #000;
+	}
+	h2,
+	a h2 {
+		@include font-size-em(16);
+		color: #000;
+		line-height: 1.2em;
+		margin: 0;
+	}
+	p,
+	a p {
+		@include font-size-em(12);
+		color: #000;
+		line-height: 1.3em;
+		margin: 0.5em 0;
+	}
+}
+
+// Embedded video
+.view-mode-embed {
+	margin: 0 0 20px;
+	.wequest-video-embed {
+	  .wequest-video-player,
+	  .wequest-video-player > div {
+	    height: 426px;
+	  }
+	}
+}
+
+.embedded-content-thumbnail {
+	float:left;
+	margin:0 10px 10px 0;
+}
+
+// Mobile
+.embedded-content--mobile {
+	min-height: 105px; // set the min height to the same height as the thumbnail
+}
+

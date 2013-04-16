@@ -1,0 +1,149 @@
+/* Welcome to Compass.
+ * In this file you should write your main styles. (or centralize your imports)
+ * Import this file using the following HTML or equivalent:
+ * <link href="/stylesheets/screen.css" media="screen, projection" rel="stylesheet" type="text/css" /> */
+ @import"compass/reset";
+ @import'normalize';
+ @import'fonts';
+ @import'variables';
+ @import'mixins';
+ html {
+    background:url(../images/bg-stripe.png) repeat top left;
+}
+body {
+    font-size:100%;
+    font-family:arial;
+    color:white;
+}
+#page-wrapper {width: 300px;
+margin: 0 auto;}
+#overlay {
+      @include horizontal-gradient-two(#c8b7c8, #503d51);
+   -moz-border-radius: 10px;
+   -webkit-border-radius: 10px;
+   border-radius: 10px;
+   width:300px;
+   height:370px;
+   margin: 0 auto;
+   margin-top:20px;
+   overflow:hidden;position:static;
+}
+.overlay-title {
+    font-family:FuturaSB-BoldItalic;
+    text-transform:uppercase;
+    font-size:1.5em;
+    position: relative;
+    top: 90px;
+}
+ul {
+    li {
+        float:left;
+        padding:5px;
+    }
+}
+a {
+    text-decoration: none;
+    color:white;
+    text-decoration:none;
+    &:hover {
+        color: $deep-purple;
+        text-decoration: underline;
+    }
+}
+header {text-align:center;
+height:120px;
+}
+#site-logo {
+    background:url(../images/mobile-logo.png) no-repeat top center;
+    height: 100px;
+    margin-top: -20px;
+}
+.video-item {
+    height:140px;
+    float:left;
+    width:300px;
+}
+.video-image {
+    float:left;
+    height:105px;
+    width:140px;
+    background:#efefef;
+    margin:10px;
+}
+.video-title {
+    color:$link-light-purple;
+    font-size:1em;
+    margin-top:10px;
+    margin-bottom:0px;
+}
+.video-subtitle {
+    font-size:0.9em;
+    font-weight:normal;
+    color:$light-grey;
+    margin-top:5px;
+}
+section {
+}
+section {
+    height: 230px;
+    width:300px;
+    background:#161017;
+}
+#related-content {
+    display:inline;
+    width:300px;
+    padding:10px;
+}
+.section-title {
+    @include horizontal-gradient-three(#01aeee, #77cd80, #fef201);
+    font-family: FuturaSB-BoldItalic;
+    text-transform: uppercase;
+    color: black;
+    padding: 3px 5px 0px 3px;
+    font-size: 1.3em;
+    display: block;
+    text-align: center;
+
+    width: 180px;
+    margin:0 auto;
+    margin-top: 10px;
+        margin-bottom: 10px;
+}
+.section-title-lower {
+    margin-top: 10px;
+}
+
+.slider-buttons {
+   width: 60px;
+   margin: 0 auto;
+}
+.close-button {
+    height: 50px;
+    width: 50px;
+    padding: 0px;
+    background: url(../images/close-button.png) no-repeat top left;
+    position:relative;
+    top: 43px;
+right: -13px;
+    float:right;
+}
+.slider-buttons a {
+    background: url(../images/grey-bullet.png) no-repeat top left;
+    display: block;
+    height: 10px;
+    width: 10px;
+    float: left;
+    display: inline;
+    margin-left: 5px;
+}
+.slider-buttons a.selected {
+    background: url(../images/yellow-bullet.png) no-repeat top left
+}
+.triangle-bg {
+   margin:0 auto;
+   width:0px;
+   height: 0px;
+   border-style: solid;
+   border-width: 18px 18px 0 18px;
+   border-color: #8a798b transparent transparent transparent;
+   }

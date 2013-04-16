@@ -1,0 +1,17 @@
+.leaderboard {
+	@include clearfix;
+	position: relative;
+	z-index: 1;
+	padding: 7px 0 1px;
+	text-align: center; // ensure navigation appears and is clickable over the top of ads
+	.advert-banner {
+		overflow: hidden;
+		margin: 0 auto;
+		z-index:1;
+		position:relative;
+		table,
+		p {
+			margin: 0;
+		}
+	}
+}

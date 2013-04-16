@@ -1,0 +1,115 @@
+// Video wrapper
+.video-wrapper {
+  margin: 0 0 30px;
+}
+
+// Video player
+.video-player {
+  @include clearfix;
+  @include row-full(12);
+  position: relative;
+  clear: both;
+  background: #000;
+  z-index:111;
+}
+
+// Video player enlarged
+.video-player.is-expanded {
+  .wequest-video-player,
+  .wequest-video-player > div {
+    margin-bottom:30px;
+    height: 544px;
+  }
+  .video-list {
+    position: relative;
+    .item-list {
+      margin: 0 54px;
+      li {
+        float: left;
+        clear: none;
+      }
+      .video-list-item {
+        padding: 20px 15px 15px;
+        height: 100%;
+        border-right: 1px dotted #404040;
+      }
+      .video-list-number {
+        margin-right: 12px;
+      }
+      .video-list-info,
+      .video-list-details {
+        @include box-sizing;
+        clear: both;
+        width: 100%;
+      }
+      .video-list-details {
+        padding: 10px 15px 0 0;
+      }
+    }
+  }
+}
+
+// Video player standard
+.video-player.is-standard {
+  .wequest-video-player {
+    @include column-marginless(8);
+  }
+  .wequest-video-player,
+  .wequest-video-player > div {
+    margin-bottom:30px;
+    height: 426px;
+  }
+}
+
+// wequest video player
+.wequest-video-player {
+  position: relative;
+  background: #000;
+}
+
+// Scrollable video list
+.video-player .scroll-container {
+  position: relative;
+  overflow: hidden;
+  .video-list--player {
+    height: 456px;
+  }
+}
+
+.video-player .scroll-content {
+  @include box-sizing;
+  position: absolute;
+  top: 0;
+  left: 0;
+  padding: 0 20px 0 0;
+  width: 100%;
+}
+
+.video-player .slider-wrap {
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: 20px;
+  background-color: #1F1D1F;
+}
+
+.video-player .slider-vertical {
+  position: relative;
+  height: 100%;
+}
+
+.video-player .ui-slider-range {
+  position: absolute;
+  width: 100%;
+  background-color: #1F1D1F;
+}
+
+.video-player .ui-slider-handle {
+  position: absolute;
+  display: block;
+  margin: 0 auto;
+  width: 20px;
+  height: 10px;
+  outline: medium none;
+  background-color: #353235;
+}

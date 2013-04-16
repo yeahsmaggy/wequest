@@ -1,0 +1,78 @@
+.tab-gallery {
+  @include font-size-em(12);
+  @include border-top-right-radius(2px);
+  @include font-stack-futura-medium-uppercase;
+  position:relative;
+  float:right;
+  margin-left:2px;
+  padding:0 10px 0 40px;
+  height:26px;
+  background:$dark-purple;
+  color:#999;
+  line-height:28px;
+  &:hover {
+    background:$colour-video-main;
+    color:#fff;
+  }
+  @include border-top-left-radius(2px);
+}
+
+.tab-gallery.is-active, tab-gallery.is-active:hover {
+  background:#000;
+  color:#999;
+}
+
+.icon-gallery-list  {
+  @include retina-sprite(icon-gallery-view-list);
+}
+
+.icon-gallery-carousel, .tab-gallery--carousel.is-active:hover .icon-gallery-carousel  {
+  @include retina-sprite(icon-gallery-view-carousel);
+  position:absolute;
+  top:9px;
+  left:10px;
+  width:22px;
+  height:10px;
+}
+
+.tab-gallery--carousel:hover .icon-gallery-carousel {
+  @include retina-sprite(icon-gallery-view-carousel--hover);
+}
+
+.icon-gallery-list, .tab-gallery--list.is-active:hover .icon-gallery-list  {
+  @include retina-sprite(icon-gallery-view-list);
+  position:absolute;
+  top:9px;
+  left:10px;
+  width:13px;
+  height:10px;
+}
+
+.tab-gallery--list:hover .icon-gallery-list {
+  @include retina-sprite(icon-gallery-view-list--hover);
+}
+
+// Gallery node (list)
+.gallery-page-title {
+	float: left;
+	margin-top: 0;
+	max-width: 415px; //TODO: make responsive for tablet theme and remove from mobile
+}
+
+.field-name-wequest-gallery-items {
+	clear: both;
+	float: left;
+	width: 100%;
+	.field-collection-view {
+		background: #000;
+		margin: 0 0 45px;
+		.field-name-wequest-gallery-item-caption {
+			background: #1f1d20;
+			color: #9a989b;
+			font-weight: bold;
+			padding: 5px 10px;
+		}
+	}
+}
+
+

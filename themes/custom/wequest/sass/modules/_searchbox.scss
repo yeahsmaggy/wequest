@@ -1,0 +1,110 @@
+.searchbox {
+	.form-item {
+		float: left;
+		margin: 0;
+	}
+}
+
+#views-exposed-form-solr-search-panel-pane-1 .form-item {
+	margin: 0;
+}
+
+.searchbox-input {
+	@include retina-sprite(icon-search-small, $padH: 8, $padV:8);
+	background-repeat:no-repeat;
+	float: left;
+	margin: 0;
+	padding: 5px 8px 3px 28px;
+	width: 190px;
+	height: 20px;
+	outline:none;
+	border: none;
+	border-radius: 0;
+	background-color:#fff;
+	color: #808080;
+	font-family:arial;
+	-moz-appearance: textfield;
+	-webkit-appearance: textfield;
+	appearance: textfield;
+	&::-webkit-input-placeholder {
+		font-family: $futura-medium;
+		text-transform:uppercase;
+	}
+	&:-moz-placeholder { /* Firefox 18- */
+		font-family: $futura-medium;
+		text-transform:uppercase;
+	}
+	&::-moz-placeholder {  /* Firefox 19+ */
+		font-family: $futura-medium;
+		text-transform:uppercase;
+	}
+	&:-ms-input-placeholder {  
+		font-family: $futura-medium;
+		text-transform:uppercase;
+	}
+	&:focus {
+		&::-webkit-input-placeholder {
+			color:transparent;
+		}
+		&:-moz-placeholder { /* Firefox 18- */
+			color:transparent;
+		}
+		&::-moz-placeholder {  /* Firefox 19+ */
+			color:transparent;
+		}
+		&:-ms-input-placeholder {  
+			color:transparent;
+		}
+	}
+}
+
+.searchbox-bttn {
+	@include font-size-em(12);
+	float: left;
+	@include font-stack-arial-black;
+	margin: 0 0 0 1px;
+	padding: 0;
+	width: 35px;
+	height: 28px;
+	border: none;
+	border-radius: 0;
+	background: $cyan;
+	text-transform: uppercase;
+	font-weight: bold;
+	&:hover {
+		background: #686868;
+		color: $cyan;
+	}
+}
+
+.searchbox--header {
+	float: right;
+	padding: 9px 0 0;
+}
+
+.searchbox--footer {
+	float: right;
+	padding: 5px 0 0;
+}
+
+.searchbox--content {
+	clear: both;
+	float: left;
+	margin: 10px 0 20px;
+	width: 100%;
+	.searchbox-input {
+		@include retina-sprite(icon-search-large, $padH: 9, $padV:9);
+		@include font-size-em(26);
+		color: $deep-purple;
+		border: 1px solid #CCCCCC;
+		padding: 5px 8px 3px 46px;
+		height: 31px;
+		text-transform: none;
+	}
+	.searchbox-bttn {
+		@include font-size-em(14);
+		height: 41px;
+		padding: 4px 0 0;
+		width: 48px;
+	}
+}
