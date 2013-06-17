@@ -136,11 +136,6 @@ projects[rate][subdir] = "contrib"
 projects[votingapi][version] = "2.6"
 projects[votingapi][subdir] = "contrib"
 
-; +++++ TODO modules without versions +++++
-
-projects[lookup][version] = "" ; TODO add version
-projects[lookup][subdir] = "contrib"
-
 ; +++++ Themes +++++
 
 ; adminimal_theme
