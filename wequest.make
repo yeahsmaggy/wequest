@@ -100,9 +100,6 @@ projects[taxonomy_manager][subdir] = "contrib"
 projects[term_merge][version] = "2.0-beta2"
 projects[term_merge][subdir] = "contrib"
 
-projects[auto_capitalise_terms][version] = "2.0-beta2"
-projects[auto_capitalise_terms][subdir] = "contrib"
-
 projects[autocomplete_deluxe][version] = "2.0-beta2"
 projects[autocomplete_deluxe][subdir] = "contrib"
 
