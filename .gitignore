@@ -4,7 +4,7 @@ modules/contrib/*
 #modules/wequest*
 themes/contrib/*
 themes/wequest/*
-libraries/*
+#libaries/*
 themes/wequest/*/.sass-cache/*
 themes/custom/*/.sass-cache/*
 
