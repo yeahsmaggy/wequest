@@ -1,0 +1,4 @@
+name = Lookup
+description = Lookup.
+core = 7.x
+package = Lookup

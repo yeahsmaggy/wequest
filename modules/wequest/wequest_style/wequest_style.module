@@ -1,0 +1,14 @@
+<?php
+
+
+/**
+ * Implements hook_entity_info_alter().
+ */
+function wequest_style_entity_info_alter(&$entity_info) {
+  // Set the controller class for nodes to an alternate implementation of the
+  // DrupalEntityController interface.
+  /*
+   *$entity_info['node']['controller class'] = 'MyCustomNodeController';
+   */
+ $entity_info['node']['view modes']['teaser_test'] = array('label' => 'Teaser Test display', 'custom settings' => 'TRUE');
+}
