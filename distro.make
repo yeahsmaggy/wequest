@@ -12,9 +12,9 @@ projects[drupal][version] = 7.22
 ;apply patches projects[drupal][patch][1216776] = "http://drupal.org/files/1216776-contextual-links-nested-23-d7.patch"
 
 ; Install profile
-projects[wequest_site][type] = "profile"
-projects[wequest_site][download][type] = "git"
-projects[wequest_site][download][url] = "git@github.com:yeahsmaggy/wequest.git"
-projects[wequest_site][download][branch] = "master"
+projects[wequest][type] = "profile"
+projects[wequest][download][type] = "git"
+projects[wequest][download][url] = "git@github.com:yeahsmaggy/wequest.git"
+projects[wequest][download][branch] = "master"
 
 
