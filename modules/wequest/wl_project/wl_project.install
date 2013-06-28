@@ -1,0 +1,424 @@
+<?php
+/**
+ * Implements hook_install().
+ */
+function wl_project_install() {
+  //you need to include this translation function
+  $t = get_t();
+  //watchdog('wl_project', 'install', NULL, WATCHDOG_EMERGENCY, NULL);
+  // define the type
+  $type = array(
+    'type' => 'project',
+    'name' => $t('Project'),
+    'base' => 'node_content',
+    'title_label' => $t('Title'),
+    'custom' => FALSE,
+    'locked' => TRUE
+  );
+  // set default values for anything not explicitly defined in the above array
+  $content_type = node_type_set_defaults($type);
+  // add the body field to the content type
+  //node_add_body_field($content_type, 'Body');
+  // create the content type
+  node_type_save($content_type);
+  //create all the fields
+  foreach (_wl_project_fields() as $field) {
+    field_create_field($field);
+  }
+  //create all the instances
+  foreach (_wl_project_instances() as $instance) {
+    $instance['entity_type'] = 'node';
+    $instance['bundle'] = 'project';
+    field_create_instance($instance);
+  }
+}
+function _wl_project_fields() {
+  //create an array of all the fields
+  //I haven't include the date field because this will probably be part of the sign
+  // who is the organise needs to be an auto lookup field on people who are associated with this project.
+  // There needs to be a field collection or entity reference field that references users who are associated with this project.
+  // Users needs to be able to associate themselves with a project.
+  // Projects are separate from events. Events are instances of a project in progress
+  $t = get_t();
+  $fields = array(
+    'field_project_description' => array(
+      'field_name' => 'field_project_description',
+      'type' => 'text_long'
+    ),
+    'field_author_is_facilitator' => array(
+      'settings' => array(
+        'allowed_values' => array(
+          'The author is the organiser' => 'The author is the organiser',
+          'The project needs an organiser' => 'The project needs an organiser'
+        ),
+        'allowed_values_function' => '',
+        'profile2_private' => FALSE
+      ),
+      'translatable' => '0',
+      'field_name' => 'field_author_is_facilitator',
+      'type' => 'list_text',
+      'active' => '1',
+      'locked' => '0',
+      'cardinality' => '-1'
+    ),
+    'field_project_image' => array(
+      'translatable' => '0',
+      'settings' => array(
+        'uri_scheme' => 'public',
+        'default_image' => 0,
+        'profile2_private' => FALSE
+      ),
+      'field_name' => 'field_project_image',
+      'type' => 'image',
+      'active' => '1',
+      'locked' => '0',
+      'cardinality' => '3'
+    ),
+    'field_project_skills' => array(
+      'translatable' => '0',
+      'settings' => array(
+        'allowed_values' => array(
+          0 => array(
+            'vocabulary' => 'tags',
+            'parent' => '0'
+          )
+        ),
+        'profile2_private' => FALSE
+      ),
+      'field_name' => 'field_project_skills',
+      'type' => 'taxonomy_term_reference',
+      'active' => '1',
+      'locked' => '0',
+      'cardinality' => '-1'
+    ),
+    'field_project_resources' => array(
+      'translatable' => '0',
+      'settings' => array(
+        'allowed_values' => array(
+          0 => array(
+            'vocabulary' => 'tags',
+            'parent' => '0'
+          )
+        ),
+        'profile2_private' => 0
+      ),
+      'field_name' => 'field_project_resources',
+      'type' => 'taxonomy_term_reference',
+      'active' => '1',
+      'locked' => '0',
+      'cardinality' => '-1'
+    ),
+    'field_rate' => array(
+      'translatable' => '0',
+      'settings' => array(
+        'axis' => 'vote',
+        'profile2_private' => FALSE
+      ),
+      'field_name' => 'field_rate',
+      'type' => 'fivestar',
+      'active' => '1',
+      'locked' => '0',
+      'cardinality' => '1'
+    ),
+    'field_geolocation' => array(
+      'translatable' => '0',
+      'settings' => array(
+        'profile2_private' => 0
+      ),
+      'field_name' => 'field_geolocation',
+      'type' => 'geolocation_latlng',
+      'active' => '1',
+      'locked' => '0',
+      'cardinality' => '1'
+    )
+  );
+  return $fields;
+}
+function _wl_project_instances() {
+  $t = get_t();
+  $instances = array(
+    'field_project_description' => array(
+      'field_name' => 'field_project_description',
+      'label' => $t('Project description'),
+      'widget' => array(
+        'type' => 'text_textarea',
+        'settings' => array(
+          'rows' => 15
+        )
+      ),
+      'settings' => array(
+        'text_processing' => 1
+      ),
+      'display' => array(
+        'default' => array(
+          'label' => 'hidden',
+          'type' => 'text_default'
+        ),
+        'search_result' => array(
+          'label' => 'hidden',
+          'type' => 'text_trimmed',
+          'settings' => array(
+            'trim_length' => 120
+          )
+        ),
+        'teaser' => array(
+          'label' => 'hidden',
+          'type' => 'text_trimmed',
+          'settings' => array(
+            'trim_length' => 200
+          ),
+          'weight' => 1
+        )
+      )
+    ),
+    'field_author_is_facilitator' => array(
+      'field_name' => 'field_author_is_facilitator',
+      'default_value' => NULL,
+      'description' => 'Are you the main organiser of this event?',
+      'display' => array(
+        'default' => array(
+          'label' => 'hidden',
+          'settings' => array(),
+          'type' => 'hidden',
+          'weight' => 10
+        ),
+        'teaser' => array(
+          'label' => 'above',
+          'settings' => array(),
+          'type' => 'hidden',
+          'weight' => 0
+        ),
+        'teaser_test' => array(
+          'type' => 'hidden',
+          'label' => 'above',
+          'settings' => array(),
+          'weight' => 0
+        )
+      ),
+      'label' => 'Who is the organiser?',
+      'required' => 0,
+      'settings' => array(
+        'user_register_form' => FALSE
+      ),
+      'widget' => array(
+        'active' => 1,
+        'module' => 'options',
+        'settings' => array(),
+        'type' => 'options_buttons',
+        'weight' => 5
+      )
+    ),
+    'field_project_image' => array(
+      'label' => 'Image',
+      'widget' => array(
+        'weight' => '4',
+        'type' => 'image_image',
+        'active' => 1,
+        'settings' => array(
+          'progress_indicator' => 'throbber',
+          'preview_image_style' => 'thumbnail'
+        )
+      ),
+      'settings' => array(
+        'file_directory' => '',
+        'file_extensions' => 'png gif jpg jpeg',
+        'max_filesize' => '2048',
+        'max_resolution' => '320x320',
+        'min_resolution' => '',
+        'alt_field' => 1,
+        'title_field' => 1,
+        'default_image' => 0,
+        'user_register_form' => FALSE
+      ),
+      'display' => array(
+        'default' => array(
+          'label' => 'hidden',
+          'type' => 'image',
+          'weight' => '1',
+          'settings' => array(
+            'image_style' => '',
+            'image_link' => ''
+          )
+        ),
+        'teaser' => array(
+          'type' => 'hidden',
+          'label' => 'above',
+          'settings' => array(),
+          'weight' => 0
+        )
+      ),
+      'required' => 0,
+      'description' => '',
+      'field_name' => 'field_project_image'
+    ),
+    'field_project_skills' => array(
+      'label' => 'Project Skills',
+      'widget' => array(
+        'weight' => '1',
+        'type' => 'autocomplete_deluxe_taxonomy',
+        'active' => 0,
+        'settings' => array(
+          'size' => 60,
+          'autocomplete_path' => 'taxonomy/autocomplete',
+          'autocomplete_deluxe_path' => 'autocomplete_deluxe/taxonomy'
+        )
+      ),
+      'settings' => array(
+        'user_register_form' => FALSE
+      ),
+      'display' => array(
+        'default' => array(
+          'label' => 'above',
+          'type' => 'taxonomy_term_reference_link',
+          'weight' => '2',
+          'settings' => array()
+        ),
+        'teaser' => array(
+          'type' => 'hidden',
+          'label' => 'above',
+          'settings' => array(),
+          'weight' => 0
+        )
+      ),
+      'required' => 0,
+      'description' => 'Do you need any particular skills to get this project going? (Notifications will automatically be sent to other users that have specified this skill in their profile). Comma separated list.',
+      'default_value' => NULL,
+      'field_name' => 'field_project_skills'
+    ),
+    'field_rate' => array(
+      'label' => 'Rate',
+      'widget' => array(
+        'weight' => '8',
+        'type' => 'exposed',
+        'active' => 1,
+        'settings' => array()
+      ),
+      'settings' => array(
+        'stars' => '5',
+        'allow_clear' => 1,
+        'target' => 'none',
+        'user_register_form' => FALSE
+      ),
+      'display' => array(
+        'default' => array(
+          'label' => 'hidden',
+          'type' => 'fivestar_formatter_default',
+          'weight' => '9',
+          'settings' => array(
+            'widget' => array(
+              'fivestar_widget' => NULL
+            ),
+            'style' => 'average',
+            'text' => 'average',
+            'expose' => TRUE
+          )
+        ),
+        'teaser' => array(
+          'type' => 'hidden',
+          'label' => 'above',
+          'settings' => array(),
+          'weight' => 0
+        )
+      ),
+      'required' => 0,
+      'description' => '',
+      'default_value' => NULL,
+      'field_name' => 'field_rate'
+    ),
+    'field_project_resources' => array(
+      'label' => 'Project Resources',
+      'widget' => array(
+        'weight' => '2',
+        'type' => 'autocomplete_deluxe_taxonomy',
+        'active' => 0,
+        'settings' => array(
+          'size' => 60,
+          'autocomplete_path' => 'taxonomy/autocomplete',
+          'autocomplete_deluxe_path' => 'autocomplete_deluxe/taxonomy'
+        )
+      ),
+      'settings' => array(
+        'user_register_form' => FALSE
+      ),
+      'display' => array(
+        'default' => array(
+          'label' => 'above',
+          'type' => 'taxonomy_term_reference_link',
+          'weight' => '3',
+          'settings' => array()
+        ),
+        'teaser' => array(
+          'type' => 'hidden',
+          'label' => 'above',
+          'settings' => array(),
+          'weight' => 0
+        )
+      ),
+      'required' => 0,
+      'description' => 'Enter the resources you need to make your project happen.',
+      'default_value' => NULL,
+      'field_name' => 'field_project_resources'
+    ),
+    'field_geolocation' => array(
+      'label' => 'Geolocation',
+      'widget' => array(
+        'type' => 'geolocation_googlemap',
+        'weight' => '11',
+        'settings' => array()
+      ),
+      'settings' => array(
+        'user_register_form' => FALSE
+      ),
+      'display' => array(
+        'default' => array(
+          'label' => 'above',
+          'type' => 'geolocation_googlemaps_static',
+          'weight' => '6',
+          'settings' => array(
+            'map_dimensions' => '300x300',
+            'marker_icon' => '',
+            'map_imageformat' => 'png8',
+            'map_maptype' => 'roadmap',
+            'map_zoomlevel' => '15'
+          )
+        ),
+        'teaser' => array(
+          'type' => 'hidden',
+          'label' => 'above',
+          'settings' => array(),
+          'weight' => 0
+        )
+      ),
+      'required' => FALSE,
+      'description' => '',
+      'field_name' => 'field_geolocation',
+      'entity_type' => 'node',
+      'bundle' => 'project',
+      'default_value' => NULL
+    )
+  );
+  return $instances;
+}
+function wl_project_uninstall() {
+  //uninstall the module
+  //watchdog('wl_project', 'uninstall', NULL, WATCHDOG_EMERGENCY, NULL);
+  // Gather all the example content that might have been created while this
+  // module was enabled.  Simple selects still use db_query().
+  // http://api.drupal.org/api/function/db_query/7
+  $sql = 'SELECT nid FROM {node} n WHERE n.type = :type';
+  $result = db_query($sql, array(
+    ':type' => 'wl_project'
+  ));
+  $nids = array();
+  foreach ($result as $row) {
+    $nids[] = $row->nid;
+  }
+  node_delete_multiple($nids);
+  foreach (array_keys(_wl_project_fields()) as $field) {
+    field_delete_field($field);
+  }
+  node_type_delete('project');
+  // Purge all field information
+  // http://api.drupal.org/api/function/field_purge_batch/7
+  field_purge_batch(1000);
+}

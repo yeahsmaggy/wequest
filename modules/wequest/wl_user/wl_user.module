@@ -1,0 +1,321 @@
+<?php
+
+
+function wl_user_enable() {
+//this module is currently adding fields to the user profile to extend it instead of using the bizarre profile2 module
+//we have to be careful with adding and removing fields with this module due to losing user data
+
+  watchdog('wl_user', 'enable', NULL, WATCHDOG_EMERGENCY, NULL);
+  //you need to include this translation function
+  $t = get_t();
+  //watchdog('wl_user', 'install', NULL, WATCHDOG_EMERGENCY, NULL);
+  //create all the fields
+  foreach (_wl_user_fields() as $field) {
+    field_create_field($field);
+  }
+  //create all the instances
+  foreach (_wl_user_instances() as $instance) {
+    $instance['entity_type'] = 'user';
+    $instance['bundle'] = 'user';
+    field_create_instance($instance);
+  }
+}
+function _wl_user_fields() {
+  $t = get_t();
+  $fields = array(
+    'field_user_quest' => array(
+      'field_name' => 'field_user_quest',
+      'type' => 'text_long'
+    ),
+    'field_user_image' => array(
+      'translatable' => '0',
+      'settings' => array(
+        'uri_scheme' => 'public',
+        'default_image' => 0,
+        'profile2_private' => FALSE
+      ),
+      'field_name' => 'field_user_image',
+      'type' => 'image',
+      'active' => '1',
+      'locked' => '0',
+      'cardinality' => '3'
+    ),
+    'field_project_skills' => array(
+      'translatable' => '0',
+      'settings' => array(
+        'allowed_values' => array(
+          0 => array(
+            'vocabulary' => 'tags',
+            'parent' => '0'
+          )
+        ),
+        'profile2_private' => FALSE
+      ),
+      'field_name' => 'field_project_skills',
+      'type' => 'taxonomy_term_reference',
+      'active' => '1',
+      'locked' => '0',
+      'cardinality' => '-1'
+    ),
+    'field_project_resources' => array(
+      'translatable' => '0',
+      'settings' => array(
+        'allowed_values' => array(
+          0 => array(
+            'vocabulary' => 'tags',
+            'parent' => '0'
+          )
+        ),
+        'profile2_private' => 0
+      ),
+      'field_name' => 'field_project_resources',
+      'type' => 'taxonomy_term_reference',
+      'active' => '1',
+      'locked' => '0',
+      'cardinality' => '-1'
+    ),
+    'field_geolocation' => array(
+      'translatable' => '0',
+      'settings' => array(
+        'profile2_private' => 0
+      ),
+      'field_name' => 'field_geolocation',
+      'type' => 'geolocation_latlng',
+      'active' => '1',
+      'locked' => '0',
+      'cardinality' => '1'
+    )
+  );
+  return $fields;
+}
+function _wl_user_instances() {
+  $t = get_t();
+  $instances = array(
+    'field_user_quest' => array(
+      'field_name' => 'field_user_quest',
+      'label' => $t('User quest'),
+      'widget' => array(
+        'type' => 'text_textarea',
+        'settings' => array(
+          'rows' => 15
+        )
+      ),
+      'settings' => array(
+        'text_processing' => 1
+      ),
+      'display' => array(
+        'default' => array(
+          'label' => 'hidden',
+          'type' => 'text_default'
+        ),
+        'search_result' => array(
+          'label' => 'hidden',
+          'type' => 'text_trimmed',
+          'settings' => array(
+            'trim_length' => 120
+          )
+        ),
+        'teaser' => array(
+          'label' => 'hidden',
+          'type' => 'text_trimmed',
+          'settings' => array(
+            'trim_length' => 200
+          ),
+          'weight' => 1
+        )
+      )
+    ),
+    'field_user_image' => array(
+      'label' => 'Image',
+      'widget' => array(
+        'weight' => '4',
+        'type' => 'image_image',
+        'active' => 1,
+        'settings' => array(
+          'progress_indicator' => 'throbber',
+          'preview_image_style' => 'thumbnail'
+        )
+      ),
+      'settings' => array(
+        'file_directory' => '',
+        'file_extensions' => 'png gif jpg jpeg',
+        'max_filesize' => '2048',
+        'max_resolution' => '320x320',
+        'min_resolution' => '',
+        'alt_field' => 1,
+        'title_field' => 1,
+        'default_image' => 0,
+        'user_register_form' => FALSE
+      ),
+      'display' => array(
+        'default' => array(
+          'label' => 'hidden',
+          'type' => 'image',
+          'weight' => '1',
+          'settings' => array(
+            'image_style' => '',
+            'image_link' => ''
+          )
+        ),
+        'teaser' => array(
+          'type' => 'hidden',
+          'label' => 'above',
+          'settings' => array(),
+          'weight' => 0
+        )
+      ),
+      'required' => 0,
+      'description' => '',
+      'field_name' => 'field_user_image'
+    ),
+    'field_project_skills' => array(
+      'label' => 'Project Skills',
+      'widget' => array(
+        'weight' => '1',
+        'type' => 'autocomplete_deluxe_taxonomy',
+        'active' => 0,
+        'settings' => array(
+          // Here you inform either or not you want this field showing up on the registration form.
+          'user_register_form' => 1,
+          'size' => 60,
+          'autocomplete_path' => 'taxonomy/autocomplete',
+          'autocomplete_deluxe_path' => 'autocomplete_deluxe/taxonomy'
+        )
+      ),
+      'settings' => array(
+        'user_register_form' => FALSE
+      ),
+      'display' => array(
+        'default' => array(
+          'label' => 'above',
+          'type' => 'taxonomy_term_reference_link',
+          'weight' => '2',
+          'settings' => array()
+        ),
+        'teaser' => array(
+          'type' => 'hidden',
+          'label' => 'above',
+          'settings' => array(),
+          'weight' => 0
+        )
+      ),
+      'required' => 0,
+      'description' => 'Do you have any particular skills you can offer to others?',
+      'default_value' => NULL,
+      'field_name' => 'field_project_skills'
+    ),
+    'field_rate' => array(
+      'label' => 'Rate',
+      'widget' => array(
+        'weight' => '8',
+        'type' => 'exposed',
+        'active' => 1,
+        'settings' => array()
+      ),
+      'settings' => array(
+        'stars' => '5',
+        'allow_clear' => 1,
+        'target' => 'none',
+        'user_register_form' => FALSE
+      ),
+      'display' => array(
+        'default' => array(
+          'label' => 'hidden',
+          'type' => 'fivestar_formatter_default',
+          'weight' => '9',
+          'settings' => array(
+            'widget' => array(
+              'fivestar_widget' => NULL
+            ),
+            'style' => 'average',
+            'text' => 'average',
+            'expose' => TRUE
+          )
+        ),
+        'teaser' => array(
+          'type' => 'hidden',
+          'label' => 'above',
+          'settings' => array(),
+          'weight' => 0
+        )
+      ),
+      'required' => 0,
+      'description' => '',
+      'default_value' => NULL,
+      'field_name' => 'field_rate'
+    ),
+    'field_project_resources' => array(
+      'label' => 'Project Resources',
+      'widget' => array(
+        'weight' => '2',
+        'type' => 'autocomplete_deluxe_taxonomy',
+        'active' => 0,
+        'settings' => array(
+          // Here you inform either or not you want this field showing up on the registration form.
+          'user_register_form' => 1,
+          'size' => 60,
+          'autocomplete_path' => 'taxonomy/autocomplete',
+          'autocomplete_deluxe_path' => 'autocomplete_deluxe/taxonomy'
+        )
+      ),
+      'settings' => array(
+        'user_register_form' => FALSE
+      ),
+      'display' => array(
+        'default' => array(
+          'label' => 'above',
+          'type' => 'taxonomy_term_reference_link',
+          'weight' => '3',
+          'settings' => array()
+        ),
+        'teaser' => array(
+          'type' => 'hidden',
+          'label' => 'above',
+          'settings' => array(),
+          'weight' => 0
+        )
+      ),
+      'required' => 0,
+      'description' => 'Enter the resources you need to make your project happen.',
+      'default_value' => NULL,
+      'field_name' => 'field_project_resources'
+    ),
+    'field_geolocation' => array(
+      'label' => 'Geolocation',
+      'widget' => array(
+        'type' => 'geolocation_googlemap',
+        'weight' => '11',
+        'settings' => array()
+      ),
+      'settings' => array(
+        'user_register_form' => FALSE
+      ),
+      'display' => array(
+        'default' => array(
+          'label' => 'above',
+          'type' => 'geolocation_googlemaps_static',
+          'weight' => '6',
+          'settings' => array(
+            // Here you inform either or not you want this field showing up on the registration form.
+            'user_register_form' => 1,
+            'map_dimensions' => '300x300',
+            'marker_icon' => '',
+            'map_imageformat' => 'png8',
+            'map_maptype' => 'roadmap',
+            'map_zoomlevel' => '15'
+          )
+        ),
+        'teaser' => array(
+          'type' => 'hidden',
+          'label' => 'above',
+          'settings' => array(),
+          'weight' => 0
+        )
+      ),
+      'required' => FALSE,
+      'description' => '',
+      'field_name' => 'field_geolocation'
+    )
+  );
+  return $instances;
+}
