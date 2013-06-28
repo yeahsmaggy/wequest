@@ -1,4 +1,4 @@
 name = Wl User
 description = Handles user profiles
 core = 7.x
-Package = WL
+package = WL
