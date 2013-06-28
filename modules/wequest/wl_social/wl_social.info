@@ -1,0 +1,4 @@
+name = WL social
+description = Handles social plugins
+core = 7.x
+package = WL

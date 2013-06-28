@@ -1,0 +1,4 @@
+name = WL style
+description = Handles custom styling display modes view modes etc
+core = 7.x
+package = WL

@@ -1,0 +1,4 @@
+name = WL Lookup
+description = WL Handles cross lookup of user skills / resources with project skills / resources.
+core = 7.x
+package = WL
