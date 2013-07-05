@@ -110,4 +110,22 @@ function wequest_install() {
   node_access_needs_rebuild(FALSE);
   // ignore any other install messages
   drupal_get_messages();
+
+//create provider role
+$role = new stdClass();
+$role->name = 'provider';
+$role->weight = 5;
+user_role_save($role);
+
+  $grant = array('access content', 'access comments', 'create resource', 'create skill');
+user_role_grant_permissions($role->rid, $grant);
+
+//create creator role
+$role = new stdClass();
+$role->name = 'creator';
+$role->weight = 5;
+user_role_save($role);
+
+  $grant = array('access content', 'access comments', 'create project');
+user_role_grant_permissions($role->rid, $grant);
 }

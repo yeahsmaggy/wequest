@@ -34,6 +34,9 @@ projects[geolocation][subdir] = "contrib"
 projects[geolocation_views][version] = "1.x-dev"
 projects[geolocation_views][subdir] = "contrib"
 
+projects[geolocation_proximity][version] = "2.0"
+projects[geolocation_proximity][subdir] = "contrib"
+
 projects[privatemsg][version] = "1.3"
 projects[privatemsg][subdir] = "contrib"
 
@@ -108,6 +111,12 @@ projects[rate][subdir] = "contrib"
 
 projects[votingapi][version] = "2.11"
 projects[votingapi][subdir] = "contrib"
+
+projects[entityreference][version] = "3.10"
+projects[entityreference][subdir] = "contrib"
+
+projects[nodeaccess_userreference][version] = "3.10"
+projects[nodeaccess_userreference][subdir] = "contrib"
 
 ; +++++ Themes +++++
 

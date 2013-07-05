@@ -58,6 +58,7 @@ dependencies[] = geolocation
 dependencies[] = geolocation_googlemaps
 dependencies[] = geolocation_html5
 dependencies[] = geolocation_views
+dependencies[] = geolocation_proximity
 ; Mail
 dependencies[] = privatemsg
 dependencies[] = privatemsg_filter
