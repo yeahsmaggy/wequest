@@ -11,14 +11,12 @@ function wl_project_install() {
     'type' => 'project',
     'name' => $t('Project'),
     'base' => 'node_content',
-    'title_label' => $t('Title'),
+    'title_label' => $t('Name of Project'),
     'custom' => FALSE,
     'locked' => TRUE
   );
   // set default values for anything not explicitly defined in the above array
   $content_type = node_type_set_defaults($type);
-  // add the body field to the content type
-  //node_add_body_field($content_type, 'Body');
   // create the content type
   node_type_save($content_type);
   //create all the fields
@@ -33,17 +31,16 @@ function wl_project_install() {
   }
 }
 function _wl_project_fields() {
-  //create an array of all the fields
-  //I haven't include the date field because this will probably be part of the sign
-  // who is the organise needs to be an auto lookup field on people who are associated with this project.
-  // There needs to be a field collection or entity reference field that references users who are associated with this project.
-  // Users needs to be able to associate themselves with a project.
-  // Projects are separate from events. Events are instances of a project in progress
   $t = get_t();
   $fields = array(
     'field_project_description' => array(
+      'translatable' => '0',
+      'settings' => array(),
       'field_name' => 'field_project_description',
-      'type' => 'text_long'
+      'type' => 'text_long',
+      'active' => '1',
+      'locked' => '0',
+      'cardinality' => '1'
     ),
     'field_author_is_facilitator' => array(
       'settings' => array(
@@ -74,40 +71,6 @@ function _wl_project_fields() {
       'locked' => '0',
       'cardinality' => '3'
     ),
-    'field_project_skills' => array(
-      'translatable' => '0',
-      'settings' => array(
-        'allowed_values' => array(
-          0 => array(
-            'vocabulary' => 'tags',
-            'parent' => '0'
-          )
-        ),
-        'profile2_private' => FALSE
-      ),
-      'field_name' => 'field_project_skills',
-      'type' => 'taxonomy_term_reference',
-      'active' => '1',
-      'locked' => '0',
-      'cardinality' => '-1'
-    ),
-    'field_project_resources' => array(
-      'translatable' => '0',
-      'settings' => array(
-        'allowed_values' => array(
-          0 => array(
-            'vocabulary' => 'tags',
-            'parent' => '0'
-          )
-        ),
-        'profile2_private' => 0
-      ),
-      'field_name' => 'field_project_resources',
-      'type' => 'taxonomy_term_reference',
-      'active' => '1',
-      'locked' => '0',
-      'cardinality' => '-1'
-    ),
     'field_rate' => array(
       'translatable' => '0',
       'settings' => array(
@@ -119,17 +82,6 @@ function _wl_project_fields() {
       'active' => '1',
       'locked' => '0',
       'cardinality' => '1'
-    ),
-    'field_geolocation' => array(
-      'translatable' => '0',
-      'settings' => array(
-        'profile2_private' => 0
-      ),
-      'field_name' => 'field_geolocation',
-      'type' => 'geolocation_latlng',
-      'active' => '1',
-      'locked' => '0',
-      'cardinality' => '1'
     )
   );
   return $fields;
@@ -138,28 +90,32 @@ function _wl_project_instances() {
   $t = get_t();
   $instances = array(
     'field_project_description' => array(
-      'field_name' => 'field_project_description',
-      'label' => $t('Project description'),
+      'label' => 'Project',
       'widget' => array(
         'type' => 'text_textarea',
         'settings' => array(
           'rows' => 15
-        )
+        ),
+        'weight' => '3'
       ),
       'settings' => array(
-        'text_processing' => 1
+        'text_processing' => 1,
+        'user_register_form' => FALSE
       ),
       'display' => array(
         'default' => array(
           'label' => 'hidden',
-          'type' => 'text_default'
+          'type' => 'text_default',
+          'settings' => array(),
+          'weight' => 0
         ),
         'search_result' => array(
           'label' => 'hidden',
           'type' => 'text_trimmed',
           'settings' => array(
             'trim_length' => 120
-          )
+          ),
+          'weight' => 0
         ),
         'teaser' => array(
           'label' => 'hidden',
@@ -167,12 +123,17 @@ function _wl_project_instances() {
           'settings' => array(
             'trim_length' => 200
           ),
-          'weight' => 1
+          'weight' => 20
         )
-      )
+      ),
+      'required' => FALSE,
+      'description' => '',
+      'field_name' => 'field_project_description',
+      'entity_type' => 'node',
+      'bundle' => 'project',
+      'default_value' => NULL
     ),
     'field_author_is_facilitator' => array(
-      'field_name' => 'field_author_is_facilitator',
       'default_value' => NULL,
       'description' => 'Are you the main organiser of this event?',
       'display' => array(
@@ -201,17 +162,19 @@ function _wl_project_instances() {
         'user_register_form' => FALSE
       ),
       'widget' => array(
-        'active' => 1,
-        'module' => 'options',
-        'settings' => array(),
+        'weight' => '4',
         'type' => 'options_buttons',
-        'weight' => 5
-      )
+        'active' => 1,
+        'settings' => array()
+      ),
+      'field_name' => 'field_author_is_facilitator',
+      'entity_type' => 'node',
+      'bundle' => 'project'
     ),
     'field_project_image' => array(
       'label' => 'Image',
       'widget' => array(
-        'weight' => '4',
+        'weight' => '2',
         'type' => 'image_image',
         'active' => 1,
         'settings' => array(
@@ -249,46 +212,14 @@ function _wl_project_instances() {
       ),
       'required' => 0,
       'description' => '',
-      'field_name' => 'field_project_image'
-    ),
-    'field_project_skills' => array(
-      'label' => 'Project Skills',
-      'widget' => array(
-        'weight' => '1',
-        'type' => 'autocomplete_deluxe_taxonomy',
-        'active' => 0,
-        'settings' => array(
-          'size' => 60,
-          'autocomplete_path' => 'taxonomy/autocomplete',
-          'autocomplete_deluxe_path' => 'autocomplete_deluxe/taxonomy'
-        )
-      ),
-      'settings' => array(
-        'user_register_form' => FALSE
-      ),
-      'display' => array(
-        'default' => array(
-          'label' => 'above',
-          'type' => 'taxonomy_term_reference_link',
-          'weight' => '2',
-          'settings' => array()
-        ),
-        'teaser' => array(
-          'type' => 'hidden',
-          'label' => 'above',
-          'settings' => array(),
-          'weight' => 0
-        )
-      ),
-      'required' => 0,
-      'description' => 'Do you need any particular skills to get this project going? (Notifications will automatically be sent to other users that have specified this skill in their profile). Comma separated list.',
-      'default_value' => NULL,
-      'field_name' => 'field_project_skills'
+      'field_name' => 'field_project_image',
+      'entity_type' => 'node',
+      'bundle' => 'project'
     ),
     'field_rate' => array(
       'label' => 'Rate',
       'widget' => array(
-        'weight' => '8',
+        'weight' => '1',
         'type' => 'exposed',
         'active' => 1,
         'settings' => array()
@@ -323,78 +254,9 @@ function _wl_project_instances() {
       'required' => 0,
       'description' => '',
       'default_value' => NULL,
-      'field_name' => 'field_rate'
-    ),
-    'field_project_resources' => array(
-      'label' => 'Project Resources',
-      'widget' => array(
-        'weight' => '2',
-        'type' => 'autocomplete_deluxe_taxonomy',
-        'active' => 0,
-        'settings' => array(
-          'size' => 60,
-          'autocomplete_path' => 'taxonomy/autocomplete',
-          'autocomplete_deluxe_path' => 'autocomplete_deluxe/taxonomy'
-        )
-      ),
-      'settings' => array(
-        'user_register_form' => FALSE
-      ),
-      'display' => array(
-        'default' => array(
-          'label' => 'above',
-          'type' => 'taxonomy_term_reference_link',
-          'weight' => '3',
-          'settings' => array()
-        ),
-        'teaser' => array(
-          'type' => 'hidden',
-          'label' => 'above',
-          'settings' => array(),
-          'weight' => 0
-        )
-      ),
-      'required' => 0,
-      'description' => 'Enter the resources you need to make your project happen.',
-      'default_value' => NULL,
-      'field_name' => 'field_project_resources'
-    ),
-    'field_geolocation' => array(
-      'label' => 'Geolocation',
-      'widget' => array(
-        'type' => 'geolocation_googlemap',
-        'weight' => '11',
-        'settings' => array()
-      ),
-      'settings' => array(
-        'user_register_form' => FALSE
-      ),
-      'display' => array(
-        'default' => array(
-          'label' => 'above',
-          'type' => 'geolocation_googlemaps_static',
-          'weight' => '6',
-          'settings' => array(
-            'map_dimensions' => '300x300',
-            'marker_icon' => '',
-            'map_imageformat' => 'png8',
-            'map_maptype' => 'roadmap',
-            'map_zoomlevel' => '15'
-          )
-        ),
-        'teaser' => array(
-          'type' => 'hidden',
-          'label' => 'above',
-          'settings' => array(),
-          'weight' => 0
-        )
-      ),
-      'required' => FALSE,
-      'description' => '',
-      'field_name' => 'field_geolocation',
+      'field_name' => 'field_rate',
       'entity_type' => 'node',
-      'bundle' => 'project',
-      'default_value' => NULL
+      'bundle' => 'project'
     )
   );
   return $instances;

@@ -1,0 +1,420 @@
+<?php
+/**
+ * Implements hook_install().
+ */
+function wl_resource_install() {
+  //you need to include this translation function
+  $t = get_t();
+  // define the type
+  $type = array(
+    'type' => 'resource',
+    'name' => $t('Resource'),
+    'base' => 'node_content',
+    'title_label' => $t('Name of Resource'),
+    'custom' => FALSE,
+    'locked' => TRUE
+  );
+  // set default values for anything not explicitly defined in the above array
+  $content_type = node_type_set_defaults($type);
+  // create the content type
+  node_type_save($content_type);
+  //create all the fields
+  // foreach (_wl_resource_fields() as $field) {
+  //   field_create_field($field);
+  // }
+  // //create all the instances
+  // foreach (_wl_resource_instances() as $instance) {
+  //   $instance['entity_type'] = 'node';
+  //   $instance['bundle'] = 'resource';
+  //   field_create_instance($instance);
+  // }
+  $field = array(
+    'translatable' => '0',
+    'settings' => array(),
+    'field_name' => 'body',
+    'type' => 'text_with_summary',
+    'active' => '1',
+    'locked' => '0',
+    'cardinality' => '1'
+  );
+  field_create_field($field);
+  $instance = array(
+    'label' => 'Body',
+    'widget' => array(
+      'type' => 'text_textarea_with_summary',
+      'settings' => array(
+        'rows' => 20,
+        'summary_rows' => 5
+      ),
+      'weight' => '1'
+    ),
+    'settings' => array(
+      'display_summary' => TRUE,
+      'text_processing' => 1,
+      'user_register_form' => FALSE
+    ),
+    'display' => array(
+      'default' => array(
+        'label' => 'hidden',
+        'type' => 'hidden',
+        'weight' => '5',
+        'settings' => array()
+      ),
+      'teaser' => array(
+        'label' => 'hidden',
+        'type' => 'text_summary_or_trimmed',
+        'settings' => array(
+          'trim_length' => 600
+        ),
+        'weight' => 0
+      )
+    ),
+    'required' => FALSE,
+    'description' => '',
+    'field_name' => 'body',
+    'entity_type' => 'node',
+    'bundle' => 'resource',
+    'default_value' => NULL
+  );
+  field_create_instance($instance);
+  $field = array(
+    'translatable' => '0',
+    'settings' => array(),
+    'field_name' => 'field_resource_description',
+    'type' => 'text_long',
+    'active' => '1',
+    'locked' => '0',
+    'cardinality' => '1'
+  );
+  field_create_field($field);
+  $instance = array(
+    'label' => 'Resource Description',
+    'widget' => array(
+      'weight' => '3',
+      'type' => 'text_textarea',
+      'active' => 1,
+      'settings' => array(
+        'rows' => '5'
+      )
+    ),
+    'settings' => array(
+      'text_processing' => '0',
+      'user_register_form' => FALSE
+    ),
+    'display' => array(
+      'default' => array(
+        'label' => 'above',
+        'type' => 'text_default',
+        'weight' => '0',
+        'settings' => array()
+      ),
+      'teaser' => array(
+        'type' => 'hidden',
+        'label' => 'above',
+        'settings' => array(),
+        'weight' => 0
+      )
+    ),
+    'required' => 0,
+    'description' => 'Please provide information about the resource you can offer.',
+    'default_value' => NULL,
+    'field_name' => 'field_resource_description',
+    'entity_type' => 'node',
+    'bundle' => 'resource'
+  );
+  field_create_instance($instance);
+  $field = array(
+    'translatable' => '0',
+    'settings' => array(
+      'allowed_values' => array(
+        0 => array(
+          'vocabulary' => '',
+          'parent' => '0'
+        )
+      )
+    ),
+    'field_name' => 'field_resource_type',
+    'type' => 'taxonomy_term_reference',
+    'active' => '1',
+    'locked' => '0',
+    'cardinality' => '1'
+  );
+  field_create_field($field);
+  $instance = array(
+    'label' => 'Resource Type',
+    'widget' => array(
+      'type' => 'autocomplete_deluxe_taxonomy',
+      'weight' => '4',
+      'settings' => array(
+        'size' => 60,
+        'autocomplete_deluxe_path' => 'autocomplete_deluxe/taxonomy'
+      )
+    ),
+    'settings' => array(
+      'user_register_form' => FALSE
+    ),
+    'display' => array(
+      'default' => array(
+        'label' => 'above',
+        'type' => 'taxonomy_term_reference_link',
+        'weight' => '1',
+        'settings' => array()
+      ),
+      'teaser' => array(
+        'type' => 'hidden',
+        'label' => 'above',
+        'settings' => array(),
+        'weight' => 0
+      )
+    ),
+    'required' => FALSE,
+    'description' => '',
+    'field_name' => 'field_resource_type',
+    'entity_type' => 'node',
+    'bundle' => 'resource',
+    'default_value' => NULL
+  );
+  field_create_instance($instance);
+  $field = array(
+    'translatable' => '0',
+    'settings' => array(
+      'allowed_values' => array(
+        'New ' => ' New',
+        'New other (see details) ' => ' New other (see details)',
+        'Refurbished ' => ' Refurbished',
+        'Used ' => ' Used',
+        'For parts or not working ' => ' For parts or not working'
+      ),
+      'allowed_values_function' => ''
+    ),
+    'field_name' => 'field_resource_condition',
+    'type' => 'list_text',
+    'active' => '1',
+    'locked' => '0',
+    'cardinality' => '-1'
+  );
+  field_create_field($field);
+  $instance = array(
+    'label' => 'Resource Condition',
+    'widget' => array(
+      'weight' => '5',
+      'type' => 'options_select',
+      'active' => 1,
+      'settings' => array()
+    ),
+    'settings' => array(
+      'user_register_form' => FALSE
+    ),
+    'display' => array(
+      'default' => array(
+        'label' => 'above',
+        'type' => 'list_default',
+        'weight' => '2',
+        'settings' => array()
+      ),
+      'teaser' => array(
+        'type' => 'hidden',
+        'label' => 'above',
+        'settings' => array(),
+        'weight' => 0
+      )
+    ),
+    'required' => 0,
+    'description' => 'Please select the condition of the resource',
+    'default_value' => NULL,
+    'field_name' => 'field_resource_condition',
+    'entity_type' => 'node',
+    'bundle' => 'resource'
+  );
+  field_create_instance($instance);
+  $field = array(
+    'translatable' => '0',
+    'settings' => array(),
+    'field_name' => 'field_resource_quantity',
+    'type' => 'number_integer',
+    'active' => '1',
+    'locked' => '0',
+    'cardinality' => '1'
+  );
+  field_create_field($field);
+  $instance = array(
+    'label' => 'Resource Quantity',
+    'widget' => array(
+      'weight' => '6',
+      'type' => 'number',
+      'active' => 0,
+      'settings' => array()
+    ),
+    'settings' => array(
+      'min' => '0',
+      'max' => '',
+      'prefix' => '',
+      'suffix' => '',
+      'user_register_form' => FALSE
+    ),
+    'display' => array(
+      'default' => array(
+        'label' => 'above',
+        'type' => 'number_integer',
+        'weight' => '3',
+        'settings' => array(
+          'thousand_separator' => ' ',
+          'decimal_separator' => '.',
+          'scale' => 0,
+          'prefix_suffix' => TRUE
+        )
+      ),
+      'teaser' => array(
+        'type' => 'hidden',
+        'label' => 'above',
+        'settings' => array(),
+        'weight' => 0
+      )
+    ),
+    'required' => 0,
+    'description' => 'How many items?',
+    'default_value' => NULL,
+    'field_name' => 'field_resource_quantity',
+    'entity_type' => 'node',
+    'bundle' => 'resource'
+  );
+  field_create_instance($instance);
+  $field = array(
+    'translatable' => '0',
+    'settings' => array(
+      'allowed_values' => array(),
+      'allowed_values_function' => ''
+    ),
+    'field_name' => 'field_resource_manufacturer',
+    'type' => 'list_text',
+    'active' => '1',
+    'locked' => '0',
+    'cardinality' => '-1'
+  );
+  field_create_field($field);
+  $instance = array(
+    'label' => 'Resource Manufacturer',
+    'widget' => array(
+      'weight' => '7',
+      'type' => 'options_select',
+      'active' => 1,
+      'settings' => array()
+    ),
+    'settings' => array(
+      'user_register_form' => FALSE
+    ),
+    'display' => array(
+      'default' => array(
+        'label' => 'above',
+        'type' => 'list_default',
+        'weight' => '4',
+        'settings' => array()
+      ),
+      'teaser' => array(
+        'type' => 'hidden',
+        'label' => 'above',
+        'settings' => array(),
+        'weight' => 0
+      )
+    ),
+    'required' => 0,
+    'description' => 'Please add the manufacturer of the resource, if available, here.',
+    'default_value' => NULL,
+    'field_name' => 'field_resource_manufacturer',
+    'entity_type' => 'node',
+    'bundle' => 'resource'
+  );
+  field_create_instance($instance);
+}
+// function _wl_resource_fields() {
+//  $t = get_t();
+//   $fields = array(
+//   );
+//   return $fields;
+// }
+// function _wl_resource_instances() {
+//   $t = get_t();
+//   $instances = array(
+//   );
+//   return $instances;
+// }
+function _wl_resource_vocabularies() {
+  $t = get_t();
+  //this might want to include other categories for the resource like
+  //manufacturer. People can add more manufacturers...
+  //What should be a taxonomy term and what should be a select list?
+  return array(
+    'wl_resource_resource' => array(
+      'name' => $t('Resource category'),
+      'machine_name' => 'wl_resource_resource',
+      'module' => 'wl_resource',
+      'terms' => array(
+        'Brick',
+        'Drill',
+        'Hammer',
+        '3D Printer',
+        'Laptop',
+        'Arduino',
+        'Resin',
+        'Lubricant',
+        'Tape',
+        'Concrete',
+        'Sand',
+        'Water',
+        'Silicon',
+        'Spirit',
+        'Glue',
+        'Card',
+        'Zinc'
+      )
+    )
+  );
+}
+function wl_resource_uninstall() {
+  $sql = 'SELECT nid FROM {node} n WHERE n.type = :type';
+  $result = db_query($sql, array(
+    ':type' => 'wl_resource'
+  ));
+  $nids = array();
+  foreach ($result as $row) {
+    $nids[] = $row->nid;
+  }
+  node_delete_multiple($nids);
+  // foreach (array_keys(_wl_resource_fields()) as $field) {
+  //   field_delete_field($field);
+  // }
+  node_type_delete('resource');
+  // delete the content type
+  variable_del('node_preview_resource');
+  // node type rebuilds
+  node_types_rebuild();
+  // rebuild the menus
+  menu_rebuild();
+  // Purge all field information
+  // http://api.drupal.org/api/function/field_purge_batch/7
+  field_purge_batch(1000);
+}
+/**
+ * Create and optionally populate a vocabulary
+ */
+function _wl_resource_create_vocabulary($vocabulary) {
+  // Skip if vocabulary already exists
+  if (taxonomy_vocabulary_machine_name_load($vocabulary['machine_name'])) {
+    return true;
+  }
+  taxonomy_vocabulary_save((object) array(
+    'name' => $vocabulary['name'],
+    'machine_name' => $vocabulary['machine_name'],
+    'module' => $vocabulary['module'],
+    'namespace' => $vocabulary['namespace']
+  ));
+  $new_vocabulary = taxonomy_vocabulary_machine_name_load($vocabulary['machine_name']);
+  foreach ($vocabulary['terms'] as $term) {
+    taxonomy_term_save((object) array(
+      'name' => $term,
+      'vid' => $new_vocabulary->vid,
+      'namespace' => $vocabulary['namespace']
+    ));
+  }
+  return true;
+}

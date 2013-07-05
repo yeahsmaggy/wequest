@@ -1,0 +1,394 @@
+<?php
+/**
+ * Implements hook_install().
+ */
+function wl_skill_install() {
+  //you need to include this translation function
+  $t = get_t();
+  //watchdog('wl_skill', 'install', NULL, WATCHDOG_EMERGENCY, NULL);
+  // define the type
+  $type = array(
+    'type' => 'skill',
+    'name' => $t('Skill'),
+    'base' => 'node_content',
+    'title_label' => $t('Name of Skill'),
+    'custom' => FALSE,
+    'locked' => TRUE
+  );
+  // set default values for anything not explicitly defined in the above array
+  $content_type = node_type_set_defaults($type);
+  // add the body field to the content type
+  //node_add_body_field($content_type, 'Body');
+  // create the content type
+  node_type_save($content_type);
+  //create all the fields
+  foreach (_wl_skill_fields() as $field) {
+    field_create_field($field);
+  }
+  //create all the instances
+  foreach (_wl_skill_instances() as $instance) {
+    $instance['entity_type'] = 'node';
+    $instance['bundle'] = 'skill';
+    field_create_instance($instance);
+  }
+  //create the vocabulary
+  //
+  foreach (_wl_skill_vocabularies() as $vocabulary) {
+    _wl_skill_create_vocabulary($vocabulary);
+  }
+}
+function _wl_skill_fields() {
+  //create an array of all the fields
+  //I haven't include the date field because this will probably be part of the sign
+  // who is the organise needs to be an auto lookup field on people who are associated with this skill.
+  // There needs to be a field collection or entity reference field that references users who are associated with this skill.
+  // Users needs to be able to associate themselves with a skill.
+  // skills are separate from events. Events are instances of a skill in progress
+  $t = get_t();
+  $fields = array(
+    'field_skill_description' => array(
+      'translatable' => '0',
+      'settings' => array(),
+      'field_name' => 'field_skill_description',
+      'type' => 'text_long',
+      'active' => '1',
+      'locked' => '0',
+      'cardinality' => '1'
+    ),
+    'field_skill_image' => array(
+      'translatable' => '0',
+      'settings' => array(
+        'uri_scheme' => 'public',
+        'default_image' => 0,
+        'profile2_private' => FALSE
+      ),
+      'field_name' => 'field_skill_image',
+      'type' => 'image',
+      'active' => '1',
+      'locked' => '0',
+      'cardinality' => '3'
+    ),
+    'field_skill_categories' => array(
+      'settings' => array(
+        'allowed_values' => array(
+          0 => array(
+            'vocabulary' => 'wl_skill_skill',
+            'parent' => 0
+          )
+        )
+      ),
+      'translatable' => '0',
+      'field_name' => 'field_skill_categories',
+      'type' => 'taxonomy_term_reference',
+      'active' => '1',
+      'locked' => '0',
+      'cardinality' => '-1'
+    ),
+    'field_experience_level' => array(
+      'translatable' => '0',
+      'settings' => array(
+        'allowed_values' => array(
+          'Expert ' => ' Expert',
+          'Advanced ' => ' Advanced',
+          'Intermediate ' => ' Intermediate',
+          'Beginner ' => ' Beginner'
+        ),
+        'allowed_values_function' => ''
+      )
+    ),
+    'field_experience_level' => array(
+      'field_name' => 'field_experience_level',
+      'type' => 'list_text',
+      'active' => '1',
+      'locked' => '0',
+      'cardinality' => '-1'
+    ),
+    'field_time_practicing' => array(
+      'translatable' => '0',
+      'settings' => array(),
+      'field_name' => 'field_time_practicing',
+      'type' => 'number_integer',
+      'active' => '1',
+      'locked' => '0',
+      'cardinality' => '1'
+    )
+  );
+  return $fields;
+}
+function _wl_skill_instances() {
+  $t = get_t();
+  $instances = array(
+    'field_skill_description' => array(
+      'label' => 'Description',
+      'widget' => array(
+        'weight' => '31',
+        'type' => 'text_textarea',
+        'active' => 1,
+        'settings' => array(
+          'rows' => '7'
+        )
+      ),
+      'settings' => array(
+        'text_processing' => '1',
+        'user_register_form' => FALSE
+      ),
+      'display' => array(
+        'default' => array(
+          'label' => 'hidden',
+          'type' => 'text_default',
+          'settings' => array(),
+          'weight' => 0
+        ),
+        'search_result' => array(
+          'label' => 'hidden',
+          'type' => 'text_trimmed',
+          'settings' => array(
+            'trim_length' => 120
+          ),
+          'weight' => 0
+        ),
+        'teaser' => array(
+          'label' => 'hidden',
+          'type' => 'text_trimmed',
+          'settings' => array(
+            'trim_length' => 200
+          ),
+          'weight' => 1
+        )
+      ),
+      'required' => 0,
+      'description' => 'Please describe your skill',
+      'default_value' => NULL,
+      'field_name' => 'field_skill_description'
+    ),
+    'field_skill_image' => array(
+      'label' => 'Image',
+      'widget' => array(
+        'weight' => '4',
+        'type' => 'image_image',
+        'active' => 1,
+        'settings' => array(
+          'progress_indicator' => 'throbber',
+          'preview_image_style' => 'thumbnail'
+        )
+      ),
+      'settings' => array(
+        'file_directory' => '',
+        'file_extensions' => 'png gif jpg jpeg',
+        'max_filesize' => '2048',
+        'max_resolution' => '320x320',
+        'min_resolution' => '',
+        'alt_field' => 1,
+        'title_field' => 1,
+        'default_image' => 0,
+        'user_register_form' => FALSE
+      ),
+      'display' => array(
+        'default' => array(
+          'label' => 'hidden',
+          'type' => 'image',
+          'weight' => '1',
+          'settings' => array(
+            'image_style' => '',
+            'image_link' => ''
+          )
+        ),
+        'teaser' => array(
+          'type' => 'hidden',
+          'label' => 'above',
+          'settings' => array(),
+          'weight' => 0
+        )
+      ),
+      'required' => 0,
+      'description' => '',
+      'field_name' => 'field_skill_image'
+    ),
+    'field_skill_categories' => array(
+      'label' => 'Skill tags',
+      'description' => 'You can add multiple tags using a comma separated list',
+      'cardinality' => -1,
+      'widget' => array(
+        'type' => 'taxonomy_autocomplete',
+        'settings' => array(
+          'size' => 60,
+          'autocomplete_path' => 'taxonomy/autocomplete'
+        ),
+        'weight' => '32'
+      ),
+      'settings' => array(
+        'allowed_values' => array(
+          0 => array(
+            'vocabulary' => 'wl_skill_skill',
+            'parent' => 0
+          )
+        ),
+        'user_register_form' => FALSE
+      ),
+      'display' => array(
+        'default' => array(
+          'label' => 'hidden',
+          'type' => 'hidden',
+          'settings' => array(),
+          'weight' => 2
+        ),
+        'teaser' => array(
+          'type' => 'hidden',
+          'label' => 'above',
+          'settings' => array(),
+          'weight' => 0
+        )
+      ),
+      'required' => FALSE,
+      'field_name' => 'field_skill_categories',
+      'entity_type' => 'node',
+      'bundle' => 'skill',
+      'default_value' => NULL
+    ),
+    'field_experience_level' => array(
+      'label' => 'Experience level',
+      'widget' => array(
+        'weight' => '33',
+        'type' => 'options_select',
+        'active' => 1,
+        'settings' => array()
+      ),
+      'settings' => array(
+        'user_register_form' => FALSE
+      ),
+      'display' => array(
+        'default' => array(
+          'label' => 'above',
+          'type' => 'list_default',
+          'settings' => array(),
+          'weight' => 3
+        ),
+        'teaser' => array(
+          'type' => 'hidden',
+          'label' => 'above',
+          'settings' => array(),
+          'weight' => 0
+        )
+      ),
+      'required' => 0,
+      'description' => '',
+      'default_value' => NULL,
+      'field_name' => 'field_experience_level',
+      'entity_type' => 'node',
+      'bundle' => 'skill'
+    ),
+    'field_time_practicing' => array(
+      'label' => 'Time practicing',
+      'widget' => array(
+        'weight' => '34',
+        'type' => 'number',
+        'active' => 0,
+        'settings' => array()
+      ),
+      'settings' => array(
+        'min' => '0',
+        'max' => '100',
+        'prefix' => '',
+        'suffix' => '',
+        'user_register_form' => FALSE
+      ),
+      'display' => array(
+        'default' => array(
+          'label' => 'above',
+          'type' => 'number_integer',
+          'settings' => array(
+            'thousand_separator' => ' ',
+            'decimal_separator' => '.',
+            'scale' => 0,
+            'prefix_suffix' => TRUE
+          ),
+          'weight' => 4
+        ),
+        'teaser' => array(
+          'type' => 'hidden',
+          'label' => 'above',
+          'settings' => array(),
+          'weight' => 0
+        )
+      ),
+      'required' => 0,
+      'description' => 'How long have you been practicing this skill?',
+      'default_value' => NULL,
+      'field_name' => 'field_time_practicing'
+    )
+  );
+  return $instances;
+}
+function _wl_skill_vocabularies() {
+  $t = get_t();
+  return array(
+    'wl_skill_skill' => array(
+      'name' => $t('Skill category'),
+      'machine_name' => 'wl_skill_skill',
+      'module' => 'wl_skill',
+      'terms' => array(
+        'Running',
+        'Carpentry',
+        'Skiing',
+        'Rowing',
+        '3D Printing',
+        'Metalworking',
+        'Teaching',
+        'Crowd control'
+      )
+    )
+  );
+}
+function wl_skill_uninstall() {
+  //uninstall the module
+  //watchdog('wl_skill', 'uninstall', NULL, WATCHDOG_EMERGENCY, NULL);
+  // Gather all the example content that might have been created while this
+  // module was enabled.  Simple selects still use db_query().
+  // http://api.drupal.org/api/function/db_query/7
+  $sql = 'SELECT nid FROM {node} n WHERE n.type = :type';
+  $result = db_query($sql, array(
+    ':type' => 'wl_skill'
+  ));
+  $nids = array();
+  foreach ($result as $row) {
+    $nids[] = $row->nid;
+  }
+  node_delete_multiple($nids);
+  foreach (array_keys(_wl_skill_fields()) as $field) {
+    field_delete_field($field);
+  }
+  foreach (array_keys(_wl_skill_vocabularies()) as $vocabulary) {
+    foreach ($vocabulary['terms'] as $term) {
+      taxonomy_term_delete($termid);
+    }
+    taxonomy_vocabulary_delete($vocabulary->vid);
+  }
+  node_type_delete('skill');
+  // Purge all field information
+  // http://api.drupal.org/api/function/field_purge_batch/7
+  field_purge_batch(1000);
+}
+/**
+ * Create and optionally populate a vocabulary
+ */
+function _wl_skill_create_vocabulary($vocabulary) {
+  // Skip if vocabulary already exists
+  if (taxonomy_vocabulary_machine_name_load($vocabulary['machine_name'])) {
+    return true;
+  }
+  taxonomy_vocabulary_save((object) array(
+    'name' => $vocabulary['name'],
+    'machine_name' => $vocabulary['machine_name'],
+    'module' => $vocabulary['module'],
+    'namespace' => $vocabulary['namespace']
+  ));
+  $new_vocabulary = taxonomy_vocabulary_machine_name_load($vocabulary['machine_name']);
+  foreach ($vocabulary['terms'] as $term) {
+    taxonomy_term_save((object) array(
+      'name' => $term,
+      'vid' => $new_vocabulary->vid,
+      'namespace' => $vocabulary['namespace']
+    ));
+  }
+  return true;
+}
