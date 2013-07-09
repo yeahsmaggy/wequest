@@ -1,0 +1,4 @@
+name = Wl Event
+description = Handles user profiles
+core = 7.x
+package = WL

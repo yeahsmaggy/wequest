@@ -266,6 +266,56 @@ function wl_user_install() {
   );
   field_create_instance($instance);
 }
+// $field = array(
+//   'translatable' => '0',
+//   'settings' => array(
+//     'allowed_values' => array(
+//       'Yes ' => ' Yes',
+//       'No ' => ' No',
+//     ),
+//     'allowed_values_function' => '',
+//   ),
+//   'field_name' => 'field_public_profile',
+//   'type' => 'list_text',
+//   'active' => '1',
+//   'locked' => '0',
+//   'cardinality' => '1',
+// );
+// field_create_field($field);
+
+// $instance = array(
+//   'label' => 'public profile',
+//   'widget' => array(
+//     'weight' => '12',
+//     'type' => 'options_buttons',
+//     'active' => 1,
+//     'settings' => array(),
+//   ),
+//   'settings' => array(
+//     'user_register_form' => 1,
+//   ),
+//   'display' => array(
+//     'default' => array(
+//       'label' => 'above',
+//       'type' => 'list_default',
+//       'settings' => array(),
+//       'weight' => 7,
+//     ),
+//   ),
+//   'required' => 1,
+//   'description' => '',
+//   'default_value' => array(
+//     0 => array(
+//       'value' => 'Yes ',
+//     ),
+//   ),
+//   'field_name' => 'field_public_profile',
+//   'entity_type' => 'user',
+//   'bundle' => 'user',
+// );
+// field_create_instance($instance);
+
+
 // function _wl_user_fields() {
 //   $t = get_t();
 //   $fields = array(

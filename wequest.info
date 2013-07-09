@@ -86,6 +86,8 @@ dependencies[] = voting_rules
 dependencies[] = signup
 dependencies[] = signup_confirm_email
 dependencies[] = signup_roles
+; Entity
+dependencies[] = registration
 ; User interface
 dependencies[] = autocomplete_deluxe
 dependencies[] = imce_wysiwyg

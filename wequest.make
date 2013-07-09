@@ -115,6 +115,9 @@ projects[votingapi][subdir] = "contrib"
 projects[entityreference][version] = "3.10"
 projects[entityreference][subdir] = "contrib"
 
+projects[registration][version] = "1.1"
+projects[registration][subdir] = "contrib"
+
 projects[nodeaccess_userreference][version] = "3.10"
 projects[nodeaccess_userreference][subdir] = "contrib"
 

@@ -1,0 +1,16 @@
+<?php
+/**
+ * Implements hook_form_FORM_ID_alter().
+ */
+function wl_event_form_taxonomy_form_term_alter(&$form, &$form_state, $form_id) {
+  // We will get our term id argument from the from build itself.
+  $term_id  = $form['#term']['tid'];
+  // This is the path we will create in hook_menu().
+  $new_path = "wl_event/autocomplete/{$term_id}";
+  // Maximum number of descrete values (deltas) that are present.
+  $max_delta = $form['field_myfield_nref']['und']['#max_delta'];
+  // Hijack the autocomplete callback for each of our values.
+  for($x=0; $x&lt;=$max_delta; $x++) {
+    $form['field_myfield_nref']['und'][$x]['nid']['#autocomplete_path'] = $new_path;
+  }
+}
