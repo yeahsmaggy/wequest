@@ -380,6 +380,12 @@ function wl_resource_uninstall() {
     $nids[] = $row->nid;
   }
   node_delete_multiple($nids);
+
+  $instances = field_info_instances('node', 'wl_resource');
+  foreach ($instances as $instance) {
+    field_delete_field($instance);
+  }
+
   // foreach (array_keys(_wl_resource_fields()) as $field) {
   //   field_delete_field($field);
   // }

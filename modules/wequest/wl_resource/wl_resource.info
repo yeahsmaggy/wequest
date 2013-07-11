@@ -1,4 +1,4 @@
-name = Wl Project
-description = Handles Projects
+name = Wl Resource
+description = Handles Resources
 core = 7.x
 package = WL

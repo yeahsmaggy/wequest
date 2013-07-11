@@ -111,6 +111,22 @@ function wequest_install() {
   // ignore any other install messages
   drupal_get_messages();
 
+ // Enable VIMN modules
+  module_enable(array(
+    'wl_project',
+    'wl_event',
+    'wl_skill',
+    'wl_resource',
+    'wl_user',
+    'wl_social',
+    'wl_lookup',
+    'wl_style',
+     'wl_variables',
+  ));
+
+  // Clear the cache
+  menu_rebuild();
+
 //create provider role
 $role = new stdClass();
 $role->name = 'provider';

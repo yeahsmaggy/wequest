@@ -1,16 +1,55 @@
 <?php
 /**
- * Implements hook_form_FORM_ID_alter().
+ * Implements hook_form_alter().
  */
-function wl_event_form_taxonomy_form_term_alter(&$form, &$form_state, $form_id) {
-  // We will get our term id argument from the from build itself.
-  $term_id  = $form['#term']['tid'];
-  // This is the path we will create in hook_menu().
-  $new_path = "wl_event/autocomplete/{$term_id}";
-  // Maximum number of descrete values (deltas) that are present.
-  $max_delta = $form['field_myfield_nref']['und']['#max_delta'];
-  // Hijack the autocomplete callback for each of our values.
-  for($x=0; $x&lt;=$max_delta; $x++) {
-    $form['field_myfield_nref']['und'][$x]['nid']['#autocomplete_path'] = $new_path;
-  }
+// function wl_event_form_alter(&$form, &$form_state, $form_id) {
+//    *if (isset($form['type']) && $form['type']['#value'] . '_node_settings' == $form_id) {
+//    *  $form['workflow']['upload_' . $form['type']['#value']] = array(
+//    *    '#type' => 'radios',
+//    *    '#title' => t('Attachments'),
+//    *    '#default_value' => variable_get('upload_' . $form['type']['#value'], 1),
+//    *    '#options' => array(t('Disabled'), t('Enabled')),
+//    * );
+//    *}
+//   $form[''] = array(
+//     '#type' => '',
+//     '#title' => t(''),
+//     '#default_value' => $settings[''],
+//     '#required' => ,
+//     '#element_validate' => array(''),
+//     '#description' => t(''),
+//   );
+// }
+/**
+ * Implements hook_menu().
+ */
+function wl_event_menu() {
+  $items = array();
+  $items['wl_event/user/%'] = array(
+    'title' => t('franchise json callback'),
+    'page callback' => '_wl_event_userlookup',
+    'page arguments' => array(
+      0,
+      1,
+      2
+    ),
+    'access arguments' => array(
+      'publish content'
+    ),
+    'type' => MENU_CALLBACK
+  );
+  return $items;
 }
+function _wl_event_userlookup($arg1, $arg2, $arg3) {
+  $query = new EntityFieldQuery();
+  $query->entityCondition('entity_type', 'node')
+  ->entityCondition('bundle', 'project')
+  ->propertyCondition('status', 1)
+  ->propertyCondition('uid', $arg3, '=');
+  $results = $query->execute();
+  header('Content-Type: application/json');
+  $data = drupal_json_encode($results);
+  echo $data;
+}
+
+
