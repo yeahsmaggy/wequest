@@ -26,7 +26,7 @@
 function wl_event_menu() {
   $items = array();
   $items['wl_event/user/%'] = array(
-    'title' => t('franchise json callback'),
+    'title' => t('project call back'),
     'page callback' => '_wl_event_userlookup',
     'page arguments' => array(
       0,
