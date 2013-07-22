@@ -1,0 +1,4 @@
+name = wl_variables
+description = Handles variables
+core = 7.x
+package = WL

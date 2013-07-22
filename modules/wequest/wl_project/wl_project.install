@@ -29,494 +29,473 @@ function wl_project_install() {
   //   $instance['bundle'] = 'project';
   //   field_create_instance($instance);
   // }
-}
-
-$field = array(
-  'translatable' => '0',
-  'settings' => array(),
-  'field_name' => 'field_project_description',
-  'type' => 'text_long',
-  'active' => '1',
-  'locked' => '0',
-  'cardinality' => '1',
-);
-field_create_field($field);
-
-$instance = array(
-  'label' => 'Project',
-  'widget' => array(
-    'type' => 'text_textarea',
-    'settings' => array(
-      'rows' => 15,
-    ),
-    'weight' => '3',
-  ),
-  'settings' => array(
-    'text_processing' => 1,
-    'user_register_form' => FALSE,
-  ),
-  'display' => array(
-    'default' => array(
-      'label' => 'hidden',
-      'type' => 'text_default',
-      'weight' => '0',
-      'settings' => array(),
-    ),
-    'search_result' => array(
-      'label' => 'hidden',
-      'type' => 'text_trimmed',
-      'settings' => array(
-        'trim_length' => 120,
-      ),
-      'weight' => 0,
-    ),
-    'teaser' => array(
-      'label' => 'hidden',
-      'type' => 'text_trimmed',
-      'settings' => array(
-        'trim_length' => 200,
-      ),
-      'weight' => 20,
-    ),
-  ),
-  'required' => FALSE,
-  'description' => '',
-  'default_value' => NULL,
-  'field_name' => 'field_project_description',
-  'entity_type' => 'node',
-  'bundle' => 'project',
-);
-field_create_instance($instance);
-
-$field = array(
-  'settings' => array(
-    'allowed_values' => array(
-      'The author is the organiser' => 'The author is the organiser',
-      'The project needs an organiser' => 'The project needs an organiser',
-    ),
-    'allowed_values_function' => '',
-    'profile2_private' => FALSE,
-  ),
-  'translatable' => '0',
-  'field_name' => 'field_author_is_facilitator',
-  'type' => 'list_text',
-  'active' => '1',
-  'locked' => '0',
-  'cardinality' => '-1',
-);
-field_create_field($field);
-
-$instance = array(
-  'default_value' => NULL,
-  'description' => 'Are you the main organiser of this event?',
-  'display' => array(
-    'default' => array(
-      'label' => 'hidden',
-      'type' => 'hidden',
-      'weight' => '10',
-      'settings' => array(),
-    ),
-    'teaser' => array(
-      'label' => 'above',
-      'settings' => array(),
-      'type' => 'hidden',
-      'weight' => 0,
-    ),
-    'teaser_test' => array(
-      'type' => 'hidden',
-      'label' => 'above',
-      'settings' => array(),
-      'weight' => 0,
-    ),
-  ),
-  'label' => 'Who is the organiser?',
-  'required' => 0,
-  'settings' => array(
-    'user_register_form' => FALSE,
-  ),
-  'widget' => array(
-    'weight' => '4',
-    'type' => 'options_buttons',
-    'active' => 1,
+  //}
+  $field = array(
+    'translatable' => '0',
     'settings' => array(),
-  ),
-  'field_name' => 'field_author_is_facilitator',
-  'entity_type' => 'node',
-  'bundle' => 'project',
-);
-field_create_instance($instance);
-
-$field = array(
-  'translatable' => '0',
-  'settings' => array(
-    'uri_scheme' => 'public',
-    'default_image' => 0,
-    'profile2_private' => FALSE,
-  ),
-  'field_name' => 'field_project_image',
-  'type' => 'image',
-  'active' => '1',
-  'locked' => '0',
-  'cardinality' => '3',
-);
-field_create_field($field);
-
-$instance = array(
-  'label' => 'Image',
-  'widget' => array(
-    'weight' => '2',
-    'type' => 'image_image',
-    'active' => 1,
-    'settings' => array(
-      'progress_indicator' => 'throbber',
-      'preview_image_style' => 'thumbnail',
-    ),
-  ),
-  'settings' => array(
-    'file_directory' => '',
-    'file_extensions' => 'png gif jpg jpeg',
-    'max_filesize' => '2048',
-    'max_resolution' => '320x320',
-    'min_resolution' => '',
-    'alt_field' => 1,
-    'title_field' => 1,
-    'default_image' => 0,
-    'user_register_form' => FALSE,
-  ),
-  'display' => array(
-    'default' => array(
-      'label' => 'hidden',
-      'type' => 'image',
-      'weight' => '1',
+    'field_name' => 'field_project_description',
+    'type' => 'text_long',
+    'active' => '1',
+    'locked' => '0',
+    'cardinality' => '1'
+  );
+  field_create_field($field);
+  $instance = array(
+    'label' => 'Project',
+    'widget' => array(
+      'type' => 'text_textarea',
       'settings' => array(
-        'image_style' => '',
-        'image_link' => '',
+        'rows' => 15
       ),
+      'weight' => '3'
     ),
-    'teaser' => array(
-      'type' => 'hidden',
-      'label' => 'above',
-      'settings' => array(),
-      'weight' => 0,
+    'settings' => array(
+      'text_processing' => 1,
+      'user_register_form' => FALSE
     ),
-  ),
-  'required' => 0,
-  'description' => '',
-  'field_name' => 'field_project_image',
-  'entity_type' => 'node',
-  'bundle' => 'project',
-);
-field_create_instance($instance);
-
-$field = array(
-  'translatable' => '0',
-  'settings' => array(
-    'axis' => 'vote',
-    'profile2_private' => FALSE,
-  ),
-  'field_name' => 'field_rate',
-  'type' => 'fivestar',
-  'active' => '1',
-  'locked' => '0',
-  'cardinality' => '1',
-);
-field_create_field($field);
-
-$instance = array(
-  'label' => 'Rate',
-  'widget' => array(
-    'weight' => '1',
-    'type' => 'exposed',
-    'active' => 1,
-    'settings' => array(),
-  ),
-  'settings' => array(
-    'stars' => '5',
-    'allow_clear' => 1,
-    'target' => 'none',
-    'user_register_form' => FALSE,
-  ),
-  'display' => array(
-    'default' => array(
-      'label' => 'hidden',
-      'type' => 'fivestar_formatter_default',
-      'weight' => '9',
-      'settings' => array(
-        'widget' => array(
-          'fivestar_widget' => NULL,
+    'display' => array(
+      'default' => array(
+        'label' => 'hidden',
+        'type' => 'text_default',
+        'weight' => '0',
+        'settings' => array()
+      ),
+      'search_result' => array(
+        'label' => 'hidden',
+        'type' => 'text_trimmed',
+        'settings' => array(
+          'trim_length' => 120
         ),
-        'style' => 'average',
-        'text' => 'average',
-        'expose' => TRUE,
+        'weight' => 0
       ),
+      'teaser' => array(
+        'label' => 'hidden',
+        'type' => 'text_trimmed',
+        'settings' => array(
+          'trim_length' => 200
+        ),
+        'weight' => 20
+      )
     ),
-    'teaser' => array(
-      'type' => 'hidden',
-      'label' => 'above',
-      'settings' => array(),
-      'weight' => 0,
+    'required' => FALSE,
+    'description' => '',
+    'default_value' => NULL,
+    'field_name' => 'field_project_description',
+    'entity_type' => 'node',
+    'bundle' => 'project'
+  );
+  field_create_instance($instance);
+  $field = array(
+    'settings' => array(
+      'allowed_values' => array(
+        'The author is the organiser' => 'The author is the organiser',
+        'The project needs an organiser' => 'The project needs an organiser'
+      ),
+      'allowed_values_function' => '',
+      'profile2_private' => FALSE
     ),
-  ),
-  'required' => 0,
-  'description' => '',
-  'default_value' => NULL,
-  'field_name' => 'field_rate',
-  'entity_type' => 'node',
-  'bundle' => 'project',
-);
-field_create_instance($instance);
-
-$field = array(
-  'translatable' => '0',
-  'settings' => array(
-    'allowed_values' => array(
-      'Active ' => ' Active',
-      'Archived ' => ' Archived',
+    'translatable' => '0',
+    'field_name' => 'field_author_is_facilitator',
+    'type' => 'list_text',
+    'active' => '1',
+    'locked' => '0',
+    'cardinality' => '-1'
+  );
+  field_create_field($field);
+  $instance = array(
+    'default_value' => NULL,
+    'description' => 'Are you the main organiser of this event?',
+    'display' => array(
+      'default' => array(
+        'label' => 'hidden',
+        'type' => 'hidden',
+        'weight' => '10',
+        'settings' => array()
+      ),
+      'teaser' => array(
+        'label' => 'above',
+        'settings' => array(),
+        'type' => 'hidden',
+        'weight' => 0
+      ),
+      'teaser_test' => array(
+        'type' => 'hidden',
+        'label' => 'above',
+        'settings' => array(),
+        'weight' => 0
+      )
     ),
-    'allowed_values_function' => '',
-  ),
-  'field_name' => 'field_status',
-  'type' => 'list_text',
-  'active' => '1',
-  'locked' => '0',
-  'cardinality' => '1',
-);
-field_create_field($field);
-
-$instance = array(
-  'label' => 'Status',
-  'widget' => array(
-    'weight' => '5',
-    'type' => 'options_select',
-    'active' => 1,
-    'settings' => array(),
-  ),
-  'settings' => array(
-    'user_register_form' => FALSE,
-  ),
-  'display' => array(
-    'default' => array(
-      'label' => 'above',
-      'type' => 'list_default',
-      'weight' => '11',
-      'settings' => array(),
+    'label' => 'Who is the organiser?',
+    'required' => 0,
+    'settings' => array(
+      'user_register_form' => FALSE
     ),
-    'teaser' => array(
-      'type' => 'hidden',
-      'label' => 'above',
-      'settings' => array(),
-      'weight' => 0,
+    'widget' => array(
+      'weight' => '4',
+      'type' => 'options_buttons',
+      'active' => 1,
+      'settings' => array()
     ),
-  ),
-  'required' => 0,
-  'description' => '',
-  'default_value' => NULL,
-  'field_name' => 'field_status',
-  'entity_type' => 'node',
-  'bundle' => 'project',
-);
-field_create_instance($instance);
-
-$field = array(
-  'translatable' => '0',
-  'settings' => array(
-    'hide_blank_items' => 1,
-    'path' => '',
-  ),
-  'field_name' => 'field_project_gallery',
-  'type' => 'field_collection',
-  'active' => '1',
-  'locked' => '0',
-  'cardinality' => '5',
-);
-field_create_field($field);
-
-$instance = array(
-  'label' => 'Project gallery',
-  'widget' => array(
-    'weight' => '31',
-    'type' => 'field_collection_hidden',
-    'active' => 0,
-    'settings' => array(),
-  ),
-  'settings' => array(
-    'user_register_form' => FALSE,
-  ),
-  'display' => array(
-    'default' => array(
-      'label' => 'above',
-      'type' => 'field_collection_view',
-      'weight' => '12',
+    'field_name' => 'field_author_is_facilitator',
+    'entity_type' => 'node',
+    'bundle' => 'project'
+  );
+  field_create_instance($instance);
+  $field = array(
+    'translatable' => '0',
+    'settings' => array(
+      'uri_scheme' => 'public',
+      'default_image' => 0,
+      'profile2_private' => FALSE
+    ),
+    'field_name' => 'field_project_image',
+    'type' => 'image',
+    'active' => '1',
+    'locked' => '0',
+    'cardinality' => '3'
+  );
+  field_create_field($field);
+  $instance = array(
+    'label' => 'Image',
+    'widget' => array(
+      'weight' => '2',
+      'type' => 'image_image',
+      'active' => 1,
       'settings' => array(
-        'edit' => 'Edit',
-        'delete' => 'Delete',
-        'add' => 'Add',
-        'description' => TRUE,
-        'view_mode' => 'full',
+        'progress_indicator' => 'throbber',
+        'preview_image_style' => 'thumbnail'
+      )
+    ),
+    'settings' => array(
+      'file_directory' => '',
+      'file_extensions' => 'png gif jpg jpeg',
+      'max_filesize' => '2048',
+      'max_resolution' => '320x320',
+      'min_resolution' => '',
+      'alt_field' => 1,
+      'title_field' => 1,
+      'default_image' => 0,
+      'user_register_form' => FALSE
+    ),
+    'display' => array(
+      'default' => array(
+        'label' => 'hidden',
+        'type' => 'image',
+        'weight' => '1',
+        'settings' => array(
+          'image_style' => '',
+          'image_link' => ''
+        )
       ),
+      'teaser' => array(
+        'type' => 'hidden',
+        'label' => 'above',
+        'settings' => array(),
+        'weight' => 0
+      )
     ),
-    'teaser' => array(
-      'type' => 'hidden',
-      'label' => 'above',
-      'settings' => array(),
-      'weight' => 0,
-    ),
-  ),
-  'required' => 0,
-  'description' => '',
-  'default_value' => NULL,
-  'field_name' => 'field_project_gallery',
-  'entity_type' => 'node',
-  'bundle' => 'project',
-);
-field_create_instance($instance);
-
-//field collection items
-$field = array(
-  'translatable' => '0',
-  'settings' => array(
-    'max_length' => '255',
-  ),
-  'field_name' => 'field_project_image_title',
-  'type' => 'text',
-  'active' => '1',
-  'locked' => '0',
-  'cardinality' => '1',
-);
-field_create_field($field);
-
-$instance = array(
-  'label' => 'project_image_title',
-  'widget' => array(
-    'weight' => '1',
-    'type' => 'text_textfield',
-    'active' => 1,
+    'required' => 0,
+    'description' => '',
+    'field_name' => 'field_project_image',
+    'entity_type' => 'node',
+    'bundle' => 'project'
+  );
+  field_create_instance($instance);
+  $field = array(
+    'translatable' => '0',
     'settings' => array(
-      'size' => '60',
+      'axis' => 'vote',
+      'profile2_private' => FALSE
     ),
-  ),
-  'settings' => array(
-    'text_processing' => '0',
-    'user_register_form' => FALSE,
-  ),
-  'display' => array(
-    'default' => array(
-      'label' => 'above',
-      'type' => 'text_default',
-      'settings' => array(),
-      'weight' => 0,
+    'field_name' => 'field_rate',
+    'type' => 'fivestar',
+    'active' => '1',
+    'locked' => '0',
+    'cardinality' => '1'
+  );
+  field_create_field($field);
+  $instance = array(
+    'label' => 'Rate',
+    'widget' => array(
+      'weight' => '1',
+      'type' => 'exposed',
+      'active' => 1,
+      'settings' => array()
     ),
-  ),
-  'required' => 0,
-  'description' => '',
-  'default_value' => NULL,
-  'field_name' => 'field_project_image_title',
-  'entity_type' => 'field_collection_item',
-  'bundle' => 'field_project_gallery',
-);
-field_create_instance($instance);
-
-$field = array(
-  'translatable' => '0',
-  'settings' => array(
-    'uri_scheme' => 'public',
-    'default_image' => 0,
-  ),
-  'field_name' => 'field_project_image_image',
-  'type' => 'image',
-  'active' => '1',
-  'locked' => '0',
-  'cardinality' => '1',
-);
-field_create_field($field);
-
-$instance = array(
-  'label' => 'project_image_image',
-  'widget' => array(
-    'weight' => '2',
-    'type' => 'image_image',
-    'active' => 1,
     'settings' => array(
-      'progress_indicator' => 'throbber',
-      'preview_image_style' => 'medium',
+      'stars' => '5',
+      'allow_clear' => 1,
+      'target' => 'none',
+      'user_register_form' => FALSE
     ),
-  ),
-  'settings' => array(
-    'file_directory' => '',
-    'file_extensions' => 'png gif jpg jpeg',
-    'max_filesize' => '',
-    'max_resolution' => '',
-    'min_resolution' => '',
-    'alt_field' => 0,
-    'title_field' => 0,
-    'default_image' => 0,
-    'user_register_form' => FALSE,
-  ),
-  'display' => array(
-    'default' => array(
-      'label' => 'above',
-      'type' => 'image',
+    'display' => array(
+      'default' => array(
+        'label' => 'hidden',
+        'type' => 'fivestar_formatter_default',
+        'weight' => '9',
+        'settings' => array(
+          'widget' => array(
+            'fivestar_widget' => NULL
+          ),
+          'style' => 'average',
+          'text' => 'average',
+          'expose' => TRUE
+        )
+      ),
+      'teaser' => array(
+        'type' => 'hidden',
+        'label' => 'above',
+        'settings' => array(),
+        'weight' => 0
+      )
+    ),
+    'required' => 0,
+    'description' => '',
+    'default_value' => NULL,
+    'field_name' => 'field_rate',
+    'entity_type' => 'node',
+    'bundle' => 'project'
+  );
+  field_create_instance($instance);
+  $field = array(
+    'translatable' => '0',
+    'settings' => array(
+      'allowed_values' => array(
+        'Active ' => ' Active',
+        'Archived ' => ' Archived'
+      ),
+      'allowed_values_function' => ''
+    ),
+    'field_name' => 'field_status',
+    'type' => 'list_text',
+    'active' => '1',
+    'locked' => '0',
+    'cardinality' => '1'
+  );
+  field_create_field($field);
+  $instance = array(
+    'label' => 'Status',
+    'widget' => array(
+      'weight' => '5',
+      'type' => 'options_select',
+      'active' => 1,
+      'settings' => array()
+    ),
+    'settings' => array(
+      'user_register_form' => FALSE
+    ),
+    'display' => array(
+      'default' => array(
+        'label' => 'above',
+        'type' => 'list_default',
+        'weight' => '11',
+        'settings' => array()
+      ),
+      'teaser' => array(
+        'type' => 'hidden',
+        'label' => 'above',
+        'settings' => array(),
+        'weight' => 0
+      )
+    ),
+    'required' => 0,
+    'description' => '',
+    'default_value' => NULL,
+    'field_name' => 'field_status',
+    'entity_type' => 'node',
+    'bundle' => 'project'
+  );
+  field_create_instance($instance);
+  $field = array(
+    'translatable' => '0',
+    'settings' => array(
+      'hide_blank_items' => 1,
+      'path' => ''
+    ),
+    'field_name' => 'field_project_gallery',
+    'type' => 'field_collection',
+    'active' => '1',
+    'locked' => '0',
+    'cardinality' => '5'
+  );
+  field_create_field($field);
+  $instance = array(
+    'label' => 'Project gallery',
+    'widget' => array(
+      'weight' => '31',
+      'type' => 'field_collection_hidden',
+      'active' => 0,
+      'settings' => array()
+    ),
+    'settings' => array(
+      'user_register_form' => FALSE
+    ),
+    'display' => array(
+      'default' => array(
+        'label' => 'above',
+        'type' => 'field_collection_view',
+        'weight' => '12',
+        'settings' => array(
+          'edit' => 'Edit',
+          'delete' => 'Delete',
+          'add' => 'Add',
+          'description' => TRUE,
+          'view_mode' => 'full'
+        )
+      ),
+      'teaser' => array(
+        'type' => 'hidden',
+        'label' => 'above',
+        'settings' => array(),
+        'weight' => 0
+      )
+    ),
+    'required' => 0,
+    'description' => '',
+    'default_value' => NULL,
+    'field_name' => 'field_project_gallery',
+    'entity_type' => 'node',
+    'bundle' => 'project'
+  );
+  field_create_instance($instance);
+  //field collection items
+  $field = array(
+    'translatable' => '0',
+    'settings' => array(
+      'max_length' => '255'
+    ),
+    'field_name' => 'field_project_image_title',
+    'type' => 'text',
+    'active' => '1',
+    'locked' => '0',
+    'cardinality' => '1'
+  );
+  field_create_field($field);
+  $instance = array(
+    'label' => 'project_image_title',
+    'widget' => array(
+      'weight' => '1',
+      'type' => 'text_textfield',
+      'active' => 1,
       'settings' => array(
-        'image_style' => '',
-        'image_link' => '',
-      ),
-      'weight' => 1,
+        'size' => '60'
+      )
     ),
-  ),
-  'required' => 0,
-  'description' => '',
-  'field_name' => 'field_project_image_image',
-  'entity_type' => 'field_collection_item',
-  'bundle' => 'field_project_gallery',
-);
-field_create_instance($instance);
-
-$field = array(
-  'translatable' => '0',
-  'settings' => array(
-    'max_length' => '255',
-  ),
-  'field_name' => 'field_project_image_caption',
-  'type' => 'text',
-  'active' => '1',
-  'locked' => '0',
-  'cardinality' => '1',
-);
-field_create_field($field);
-
-$instance = array(
-  'label' => 'project_image_caption',
-  'widget' => array(
-    'weight' => '3',
-    'type' => 'text_textfield',
-    'active' => 1,
     'settings' => array(
-      'size' => '60',
+      'text_processing' => '0',
+      'user_register_form' => FALSE
     ),
-  ),
-  'settings' => array(
-    'text_processing' => '0',
-    'user_register_form' => FALSE,
-  ),
-  'display' => array(
-    'default' => array(
-      'label' => 'above',
-      'type' => 'text_default',
-      'settings' => array(),
-      'weight' => 2,
+    'display' => array(
+      'default' => array(
+        'label' => 'above',
+        'type' => 'text_default',
+        'settings' => array(),
+        'weight' => 0
+      )
     ),
-  ),
-  'required' => 0,
-  'description' => '',
-  'default_value' => NULL,
-  'field_name' => 'field_project_image_caption',
-  'entity_type' => 'field_collection_item',
-  'bundle' => 'field_project_gallery',
-);
-field_create_instance($instance);
-
-
-
+    'required' => 0,
+    'description' => '',
+    'default_value' => NULL,
+    'field_name' => 'field_project_image_title',
+    'entity_type' => 'field_collection_item',
+    'bundle' => 'field_project_gallery'
+  );
+  field_create_instance($instance);
+  $field = array(
+    'translatable' => '0',
+    'settings' => array(
+      'uri_scheme' => 'public',
+      'default_image' => 0
+    ),
+    'field_name' => 'field_project_image_image',
+    'type' => 'image',
+    'active' => '1',
+    'locked' => '0',
+    'cardinality' => '1'
+  );
+  field_create_field($field);
+  $instance = array(
+    'label' => 'project_image_image',
+    'widget' => array(
+      'weight' => '2',
+      'type' => 'image_image',
+      'active' => 1,
+      'settings' => array(
+        'progress_indicator' => 'throbber',
+        'preview_image_style' => 'medium'
+      )
+    ),
+    'settings' => array(
+      'file_directory' => '',
+      'file_extensions' => 'png gif jpg jpeg',
+      'max_filesize' => '',
+      'max_resolution' => '',
+      'min_resolution' => '',
+      'alt_field' => 0,
+      'title_field' => 0,
+      'default_image' => 0,
+      'user_register_form' => FALSE
+    ),
+    'display' => array(
+      'default' => array(
+        'label' => 'above',
+        'type' => 'image',
+        'settings' => array(
+          'image_style' => '',
+          'image_link' => ''
+        ),
+        'weight' => 1
+      )
+    ),
+    'required' => 0,
+    'description' => '',
+    'field_name' => 'field_project_image_image',
+    'entity_type' => 'field_collection_item',
+    'bundle' => 'field_project_gallery'
+  );
+  field_create_instance($instance);
+  $field = array(
+    'translatable' => '0',
+    'settings' => array(
+      'max_length' => '255'
+    ),
+    'field_name' => 'field_project_image_caption',
+    'type' => 'text',
+    'active' => '1',
+    'locked' => '0',
+    'cardinality' => '1'
+  );
+  field_create_field($field);
+  $instance = array(
+    'label' => 'project_image_caption',
+    'widget' => array(
+      'weight' => '3',
+      'type' => 'text_textfield',
+      'active' => 1,
+      'settings' => array(
+        'size' => '60'
+      )
+    ),
+    'settings' => array(
+      'text_processing' => '0',
+      'user_register_form' => FALSE
+    ),
+    'display' => array(
+      'default' => array(
+        'label' => 'above',
+        'type' => 'text_default',
+        'settings' => array(),
+        'weight' => 2
+      )
+    ),
+    'required' => 0,
+    'description' => '',
+    'default_value' => NULL,
+    'field_name' => 'field_project_image_caption',
+    'entity_type' => 'field_collection_item',
+    'bundle' => 'field_project_gallery'
+  );
+  field_create_instance($instance);
 }
 function wl_project_uninstall() {
   //uninstall the module

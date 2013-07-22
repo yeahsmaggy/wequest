@@ -1,0 +1,42 @@
+<?php
+/**
+ * @file
+ * Code for the wl_variables feature.
+ */
+
+//include_once 'wl_variables.features.inc';
+/**
+ * Implements hook_menu
+ */
+function wl_variables_menu() {
+  $items['export/variables'] = array(
+    'title' => 'Export variables',
+    'page callback' => 'wl_variables_export_variables',
+    'access arguments' => array('administer site configuration'),
+    'type' => MENU_CALLBACK,
+  );
+  return $items;
+}
+
+/**
+ * Implements hook_init
+ */
+function wl_variables_export_variables(){
+
+  // Fetch and export variables from the database.
+  $query = db_select('variable');
+  $query->fields('variable');
+  $result = $query->execute();
+
+  $output = array();
+  $output[] = '<pre>';
+  foreach($result as $row){
+    $output[] = "variable_set('".$row->name."', ".var_export(unserialize($row->value), 1).");";
+  }
+  $output[] = '</pre>';
+
+  print implode(PHP_EOL, $output);
+
+  drupal_exit();
+
+}

@@ -144,4 +144,538 @@ user_role_save($role);
 
   $grant = array('access content', 'access comments', 'create project');
 user_role_grant_permissions($role->rid, $grant);
+
+
+variable_set('additional_settings__active_tab_event', 'edit-submission');
+variable_set('additional_settings__active_tab_resource', 'edit-comment');
+variable_set('admin_theme', 'adminimal');
+variable_set('clean_url', true);
+variable_set('comment_anonymous_event', 0);
+variable_set('comment_default_mode_event', 1);
+variable_set('comment_default_per_page_event', '50');
+variable_set('comment_event', '2');
+variable_set('comment_form_location_event', 1);
+variable_set('comment_preview_event', '1');
+variable_set('comment_subject_field_event', 1);
+variable_set('cron_key', 'jZTMC0bI7vnExb8q6OVgU2KIXZW83FU8wtLJJd2Ri7A');
+variable_set('cron_last', 1374493664);
+variable_set('css_js_query_string', 'mqc63j');
+variable_set('ctools_last_cron', 1374491565);
+variable_set('date_api_version', '7.2');
+variable_set('date_default_timezone', 'Europe/London');
+variable_set('date_format_privatemsg_current_day', 'g:i a');
+variable_set('date_format_privatemsg_current_year', 'M j');
+variable_set('date_format_privatemsg_years', 'n/j/y');
+variable_set('default_nodes_main', '10');
+variable_set('drupal_http_request_fails', true);
+variable_set('drupal_private_key', 'X4z3dUXx0VETYYuVQcNKtUhrBOoedlKynzBeKOQlLGo');
+variable_set('entityreference:base-tables', array (
+  'comment' =>
+  array (
+    0 => 'comment',
+    1 => 'cid',
+  ),
+  'field_collection_item' =>
+  array (
+    0 => 'field_collection_item',
+    1 => 'item_id',
+  ),
+  'node' =>
+  array (
+    0 => 'node',
+    1 => 'nid',
+  ),
+  'group' =>
+  array (
+    0 => 'og',
+    1 => 'gid',
+  ),
+  'og_membership_type' =>
+  array (
+    0 => 'og_membership_type',
+    1 => 'id',
+  ),
+  'og_membership' =>
+  array (
+    0 => 'og_membership',
+    1 => 'id',
+  ),
+  'privatemsg_message' =>
+  array (
+    0 => 'pm_message',
+    1 => 'mid',
+  ),
+  'registration' =>
+  array (
+    0 => 'registration',
+    1 => 'registration_id',
+  ),
+  'registration_type' =>
+  array (
+    0 => 'registration_type',
+    1 => 'id',
+  ),
+  'registration_state' =>
+  array (
+    0 => 'registration_state',
+    1 => 'registration_state_id',
+  ),
+  'file' =>
+  array (
+    0 => 'file_managed',
+    1 => 'fid',
+  ),
+  'taxonomy_term' =>
+  array (
+    0 => 'taxonomy_term_data',
+    1 => 'tid',
+  ),
+  'taxonomy_vocabulary' =>
+  array (
+    0 => 'taxonomy_vocabulary',
+    1 => 'vid',
+  ),
+  'user' =>
+  array (
+    0 => 'users',
+    1 => 'uid',
+  ),
+  'wysiwyg_profile' =>
+  array (
+    0 => 'wysiwyg',
+    1 => 'format',
+  ),
+  'rules_config' =>
+  array (
+    0 => 'rules_config',
+    1 => 'id',
+  ),
+));
+variable_set('field_bundle_settings_field_collection_item__field_project_gallery', array (
+  'view_modes' =>
+  array (
+  ),
+  'extra_fields' =>
+  array (
+    'form' =>
+    array (
+    ),
+    'display' =>
+    array (
+    ),
+  ),
+));
+variable_set('field_bundle_settings_node__event', array (
+  'view_modes' =>
+  array (
+  ),
+  'extra_fields' =>
+  array (
+    'form' =>
+    array (
+      'title' =>
+      array (
+        'weight' => '0',
+      ),
+      'path' =>
+      array (
+        'weight' => '5',
+      ),
+    ),
+    'display' =>
+    array (
+    ),
+  ),
+));
+variable_set('field_bundle_settings_node__project', array (
+  'view_modes' =>
+  array (
+    'teaser' =>
+    array (
+      'custom_settings' => true,
+    ),
+    'full' =>
+    array (
+      'custom_settings' => false,
+    ),
+    'rss' =>
+    array (
+      'custom_settings' => false,
+    ),
+    'search_index' =>
+    array (
+      'custom_settings' => false,
+    ),
+    'search_result' =>
+    array (
+      'custom_settings' => false,
+    ),
+    'token' =>
+    array (
+      'custom_settings' => false,
+    ),
+  ),
+  'extra_fields' =>
+  array (
+    'form' =>
+    array (
+      'title' =>
+      array (
+        'weight' => '-5',
+      ),
+      'path' =>
+      array (
+        'weight' => '30',
+      ),
+    ),
+    'display' =>
+    array (
+      'signup' =>
+      array (
+        'default' =>
+        array (
+          'weight' => '10',
+          'visible' => true,
+        ),
+      ),
+    ),
+  ),
+));
+variable_set('field_bundle_settings_registration__participant', array (
+));
+variable_set('field_bundle_settings_relation__membership', array (
+  'view_modes' =>
+  array (
+  ),
+  'extra_fields' =>
+  array (
+    'form' =>
+    array (
+    ),
+    'display' =>
+    array (
+    ),
+  ),
+));
+variable_set('field_bundle_settings_user__user', array (
+  'view_modes' =>
+  array (
+  ),
+  'extra_fields' =>
+  array (
+    'form' =>
+    array (
+      'privatemsg' =>
+      array (
+        'weight' => '5',
+      ),
+      'account' =>
+      array (
+        'weight' => '-10',
+      ),
+      'timezone' =>
+      array (
+        'weight' => '6',
+      ),
+      'overlay_control' =>
+      array (
+        'weight' => '5',
+      ),
+      'contact' =>
+      array (
+        'weight' => '5',
+      ),
+      'wysiwyg' =>
+      array (
+        'weight' => '5',
+      ),
+    ),
+    'display' =>
+    array (
+    ),
+  ),
+));
+variable_set('file_temporary_path', '/tmp');
+variable_set('filter_fallback_format', 'plain_text');
+variable_set('imce_profiles', array (
+  1 =>
+  array (
+    'name' => 'User-1',
+    'usertab' => 1,
+    'filesize' => 0,
+    'quota' => 0,
+    'tuquota' => 0,
+    'extensions' => '*',
+    'dimensions' => '1200x1200',
+    'filenum' => 0,
+    'directories' =>
+    array (
+      0 =>
+      array (
+        'name' => '.',
+        'subnav' => 1,
+        'browse' => 1,
+        'upload' => 1,
+        'thumb' => 1,
+        'delete' => 1,
+        'resize' => 1,
+      ),
+    ),
+    'thumbnails' =>
+    array (
+      0 =>
+      array (
+        'name' => 'Small',
+        'dimensions' => '90x90',
+        'prefix' => 'small_',
+        'suffix' => '',
+      ),
+      1 =>
+      array (
+        'name' => 'Medium',
+        'dimensions' => '120x120',
+        'prefix' => 'medium_',
+        'suffix' => '',
+      ),
+      2 =>
+      array (
+        'name' => 'Large',
+        'dimensions' => '180x180',
+        'prefix' => 'large_',
+        'suffix' => '',
+      ),
+    ),
+  ),
+  2 =>
+  array (
+    'name' => 'Sample profile',
+    'usertab' => 1,
+    'filesize' => 1,
+    'quota' => 2,
+    'tuquota' => 0,
+    'extensions' => 'gif png jpg jpeg',
+    'dimensions' => '800x600',
+    'filenum' => 1,
+    'directories' =>
+    array (
+      0 =>
+      array (
+        'name' => 'u%uid',
+        'subnav' => 0,
+        'browse' => 1,
+        'upload' => 1,
+        'thumb' => 1,
+        'delete' => 0,
+        'resize' => 0,
+      ),
+    ),
+    'thumbnails' =>
+    array (
+      0 =>
+      array (
+        'name' => 'Thumb',
+        'dimensions' => '90x90',
+        'prefix' => 'thumb_',
+        'suffix' => '',
+      ),
+    ),
+  ),
+));
+variable_set('install_profile', 'wequest');
+variable_set('install_task', 'done');
+variable_set('install_time', 1371722537);
+variable_set('menu_expanded', array (
+));
+variable_set('menu_masks', array (
+  0 => 501,
+  1 => 493,
+  2 => 251,
+  3 => 250,
+  4 => 247,
+  5 => 246,
+  6 => 245,
+  7 => 126,
+  8 => 125,
+  9 => 124,
+  10 => 123,
+  11 => 122,
+  12 => 121,
+  13 => 117,
+  14 => 64,
+  15 => 63,
+  16 => 62,
+  17 => 61,
+  18 => 60,
+  19 => 59,
+  20 => 58,
+  21 => 56,
+  22 => 44,
+  23 => 32,
+  24 => 31,
+  25 => 30,
+  26 => 29,
+  27 => 28,
+  28 => 27,
+  29 => 26,
+  30 => 24,
+  31 => 21,
+  32 => 15,
+  33 => 14,
+  34 => 13,
+  35 => 12,
+  36 => 11,
+  37 => 10,
+  38 => 7,
+  39 => 6,
+  40 => 5,
+  41 => 3,
+  42 => 2,
+  43 => 1,
+));
+variable_set('menu_options_event', array (
+  0 => 'main-menu',
+));
+variable_set('menu_options_resource', array (
+  0 => 'main-menu',
+));
+variable_set('menu_parent_event', 'main-menu:0');
+variable_set('menu_parent_resource', 'main-menu:0');
+variable_set('node_admin_theme', 1);
+variable_set('node_cron_last', '1373386336');
+variable_set('node_options_event', array (
+  0 => 'status',
+  1 => 'promote',
+));
+variable_set('node_options_project', array (
+  0 => 'status',
+));
+variable_set('node_options_resource', array (
+  0 => 'status',
+  1 => 'promote',
+));
+variable_set('node_preview_event', '1');
+variable_set('node_submitted_event', 1);
+variable_set('node_submitted_project', 1);
+variable_set('node_submitted_resource', 1);
+variable_set('pathauto_blog_pattern', 'blogs/[user:name]');
+variable_set('pathauto_forum_pattern', '[term:vocabulary]/[term:name]');
+variable_set('pathauto_node_pattern', 'content/[node:title]');
+variable_set('pathauto_punctuation_hyphen', 1);
+variable_set('pathauto_taxonomy_term_pattern', '[term:vocabulary]/[term:name]');
+variable_set('pathauto_user_pattern', 'users/[user:name]');
+variable_set('path_alias_whitelist', array (
+  'node' => true,
+  'taxonomy' => true,
+  'user' => true,
+));
+variable_set('privatemsg_filter_inbox_tag', '1');
+variable_set('rules_empty_sets', array (
+  'field_collection_item_insert' => 0,
+  'field_collection_item_update' => 1,
+  'field_collection_item_presave' => 2,
+  'field_collection_item_delete' => 3,
+  'field_collection_item_view' => 4,
+  'group_insert' => 5,
+  'group_update' => 6,
+  'group_presave' => 7,
+  'group_delete' => 8,
+  'og_membership_insert' => 9,
+  'og_membership_update' => 10,
+  'og_membership_presave' => 11,
+  'og_membership_delete' => 12,
+  'registration_insert' => 13,
+  'registration_update' => 14,
+  'registration_presave' => 15,
+  'registration_delete' => 16,
+  'registration_view' => 17,
+  'og_user_approved' => 18,
+  'og_user_blocked' => 19,
+  'og_user_delete' => 20,
+  'userpoints_event_points_awarded_before' => 21,
+  'userpoints_event_points_awarded_after' => 22,
+  'voting_rules_insert_node' => 23,
+  'voting_rules_delete_node' => 24,
+  'voting_rules_results_node' => 25,
+  'voting_rules_insert_user' => 26,
+  'voting_rules_delete_user' => 27,
+  'voting_rules_results_user' => 28,
+  'voting_rules_insert_comment' => 29,
+  'voting_rules_delete_comment' => 30,
+  'voting_rules_results_comment' => 31,
+  'voting_rules_insert_entity' => 32,
+  'voting_rules_delete_entity' => 33,
+  'voting_rules_results_entity' => 34,
+  'node_update' => 35,
+  'node_presave' => 36,
+  'node_view' => 37,
+  'node_delete' => 38,
+  'init' => 39,
+  'cron' => 40,
+  'watchdog' => 41,
+  'user_insert' => 42,
+  'user_update' => 43,
+  'user_presave' => 44,
+  'user_view' => 45,
+  'user_delete' => 46,
+  'user_login' => 47,
+  'user_logout' => 48,
+  'comment_insert' => 49,
+  'comment_update' => 50,
+  'comment_presave' => 51,
+  'comment_view' => 52,
+  'comment_delete' => 53,
+  'taxonomy_term_insert' => 54,
+  'taxonomy_term_update' => 55,
+  'taxonomy_term_presave' => 56,
+  'taxonomy_term_delete' => 57,
+  'taxonomy_vocabulary_insert' => 58,
+  'taxonomy_vocabulary_update' => 59,
+  'taxonomy_vocabulary_presave' => 60,
+  'taxonomy_vocabulary_delete' => 61,
+));
+variable_set('save_continue_event', 'Save and add fields');
+variable_set('save_continue_resource', 'Save and add fields');
+variable_set('signup_date_field_event', '0');
+variable_set('signup_date_field_resource', '0');
+variable_set('signup_node_default_state_event', 'disabled');
+variable_set('signup_node_default_state_resource', 'disabled');
+variable_set('site_403', '');
+variable_set('site_404', '');
+variable_set('site_default_country', '');
+variable_set('site_frontpage', 'node');
+variable_set('site_mail', 'admin@example.com');
+variable_set('site_name', 'WhiteLabel');
+variable_set('site_slogan', '');
+variable_set('theme_default', 'bootstrap');
+variable_set('update_last_check', 1374493671);
+variable_set('update_last_email_notification', 1374491556);
+variable_set('update_notify_emails', array (
+  0 => 'admin@example.com',
+));
+variable_set('userpoints_category_default_vid', '1');
+variable_set('userpoints_nc_category_event', '0');
+variable_set('userpoints_nc_category_resource', '0');
+variable_set('userpoints_nc_comment_category_event', '0');
+variable_set('userpoints_nc_comment_category_resource', '0');
+variable_set('userpoints_nc_comment_delete_deduct_event', 1);
+variable_set('userpoints_nc_comment_delete_deduct_resource', 1);
+variable_set('userpoints_nc_comment_enabled_event', 1);
+variable_set('userpoints_nc_comment_enabled_resource', 1);
+variable_set('userpoints_nc_comment_ownership_deduct_event', 1);
+variable_set('userpoints_nc_comment_ownership_deduct_resource', 1);
+variable_set('userpoints_nc_comment_points_event', '0');
+variable_set('userpoints_nc_comment_points_resource', '0');
+variable_set('userpoints_nc_delete_deduct_event', 1);
+variable_set('userpoints_nc_delete_deduct_resource', 1);
+variable_set('userpoints_nc_enabled_event', 1);
+variable_set('userpoints_nc_enabled_resource', 1);
+variable_set('userpoints_nc_ownership_deduct_event', 1);
+variable_set('userpoints_nc_ownership_deduct_resource', 1);
+variable_set('userpoints_nc_points_event', '0');
+variable_set('userpoints_nc_points_resource', '0');
+variable_set('user_admin_role', '3');
+variable_set('views_block_hashes', array (
+  '9cf22433e0efbd8b206c8e4c2edb177c' => 'workbench_recent_content-block_1',
+));
+
 }
