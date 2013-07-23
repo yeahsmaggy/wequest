@@ -1,0 +1,10 @@
+name = VIMN panels
+description = Custom panel layouts
+core = 7.x
+package = VIMN
+
+; Information added by drush on 2013-03-20
+version = "master-dev"
+project = "vimn_modules"
+datestamp = "1363786593"
+

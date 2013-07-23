@@ -1,13 +1,13 @@
 <?php
   !function_exists('profiler_v2') ? require_once('libraries/profiler/profiler.inc') : FALSE;
-  profiler_v2('wequest');
+  profiler_v2('wl');
 /**
  * Implements hook_install().
  *
  * Perform actions to set up the site for this profile.
  */
-function wequest_install() {
-  // Enable some wequest blocks.
+function wl_install() {
+  // Enable some wl blocks.
   $default_theme = 'bootstrap';
   $admin_theme = 'adminimal';
   // disable all themes
@@ -145,7 +145,6 @@ user_role_save($role);
   $grant = array('access content', 'access comments', 'create project');
 user_role_grant_permissions($role->rid, $grant);
 
-
 variable_set('additional_settings__active_tab_event', 'edit-submission');
 variable_set('additional_settings__active_tab_resource', 'edit-comment');
 variable_set('admin_theme', 'adminimal');
@@ -158,9 +157,9 @@ variable_set('comment_form_location_event', 1);
 variable_set('comment_preview_event', '1');
 variable_set('comment_subject_field_event', 1);
 variable_set('cron_key', 'jZTMC0bI7vnExb8q6OVgU2KIXZW83FU8wtLJJd2Ri7A');
-variable_set('cron_last', 1374493664);
-variable_set('css_js_query_string', 'mqc63j');
-variable_set('ctools_last_cron', 1374491565);
+variable_set('cron_last', 1374585448);
+variable_set('css_js_query_string', 'mqe5h7');
+variable_set('ctools_last_cron', 1374585454);
 variable_set('date_api_version', '7.2');
 variable_set('date_default_timezone', 'Europe/London');
 variable_set('date_format_privatemsg_current_day', 'g:i a');
@@ -268,6 +267,30 @@ variable_set('field_bundle_settings_field_collection_item__field_project_gallery
 variable_set('field_bundle_settings_node__event', array (
   'view_modes' =>
   array (
+    'teaser' =>
+    array (
+      'custom_settings' => true,
+    ),
+    'full' =>
+    array (
+      'custom_settings' => false,
+    ),
+    'rss' =>
+    array (
+      'custom_settings' => false,
+    ),
+    'search_index' =>
+    array (
+      'custom_settings' => false,
+    ),
+    'search_result' =>
+    array (
+      'custom_settings' => false,
+    ),
+    'token' =>
+    array (
+      'custom_settings' => false,
+    ),
   ),
   'extra_fields' =>
   array (
@@ -284,6 +307,14 @@ variable_set('field_bundle_settings_node__event', array (
     ),
     'display' =>
     array (
+      'signup' =>
+      array (
+        'default' =>
+        array (
+          'weight' => '5',
+          'visible' => true,
+        ),
+      ),
     ),
   ),
 ));
@@ -481,56 +512,60 @@ variable_set('imce_profiles', array (
     ),
   ),
 ));
-variable_set('install_profile', 'wequest');
+variable_set('install_profile', 'wl');
 variable_set('install_task', 'done');
 variable_set('install_time', 1371722537);
 variable_set('menu_expanded', array (
 ));
 variable_set('menu_masks', array (
-  0 => 501,
-  1 => 493,
-  2 => 251,
-  3 => 250,
-  4 => 247,
-  5 => 246,
-  6 => 245,
-  7 => 126,
-  8 => 125,
-  9 => 124,
-  10 => 123,
-  11 => 122,
-  12 => 121,
-  13 => 117,
-  14 => 64,
-  15 => 63,
-  16 => 62,
-  17 => 61,
-  18 => 60,
-  19 => 59,
-  20 => 58,
-  21 => 56,
-  22 => 44,
-  23 => 32,
-  24 => 31,
-  25 => 30,
-  26 => 29,
-  27 => 28,
-  28 => 27,
-  29 => 26,
-  30 => 24,
-  31 => 21,
-  32 => 15,
-  33 => 14,
-  34 => 13,
-  35 => 12,
-  36 => 11,
-  37 => 10,
-  38 => 7,
-  39 => 6,
-  40 => 5,
-  41 => 3,
-  42 => 2,
-  43 => 1,
+  0 => 507,
+  1 => 506,
+  2 => 501,
+  3 => 493,
+  4 => 253,
+  5 => 252,
+  6 => 251,
+  7 => 250,
+  8 => 247,
+  9 => 246,
+  10 => 245,
+  11 => 126,
+  12 => 125,
+  13 => 124,
+  14 => 123,
+  15 => 122,
+  16 => 121,
+  17 => 117,
+  18 => 64,
+  19 => 63,
+  20 => 62,
+  21 => 61,
+  22 => 60,
+  23 => 59,
+  24 => 58,
+  25 => 56,
+  26 => 44,
+  27 => 32,
+  28 => 31,
+  29 => 30,
+  30 => 29,
+  31 => 28,
+  32 => 27,
+  33 => 26,
+  34 => 24,
+  35 => 21,
+  36 => 15,
+  37 => 14,
+  38 => 13,
+  39 => 12,
+  40 => 11,
+  41 => 10,
+  42 => 7,
+  43 => 6,
+  44 => 5,
+  45 => 3,
+  46 => 2,
+  47 => 1,
 ));
 variable_set('menu_options_event', array (
   0 => 'main-menu',
@@ -593,45 +628,44 @@ variable_set('rules_empty_sets', array (
   'og_user_delete' => 20,
   'userpoints_event_points_awarded_before' => 21,
   'userpoints_event_points_awarded_after' => 22,
-  'voting_rules_insert_node' => 23,
-  'voting_rules_delete_node' => 24,
-  'voting_rules_results_node' => 25,
-  'voting_rules_insert_user' => 26,
-  'voting_rules_delete_user' => 27,
-  'voting_rules_results_user' => 28,
-  'voting_rules_insert_comment' => 29,
-  'voting_rules_delete_comment' => 30,
-  'voting_rules_results_comment' => 31,
-  'voting_rules_insert_entity' => 32,
-  'voting_rules_delete_entity' => 33,
-  'voting_rules_results_entity' => 34,
-  'node_update' => 35,
-  'node_presave' => 36,
-  'node_view' => 37,
-  'node_delete' => 38,
-  'init' => 39,
-  'cron' => 40,
-  'watchdog' => 41,
-  'user_insert' => 42,
-  'user_update' => 43,
-  'user_presave' => 44,
-  'user_view' => 45,
-  'user_delete' => 46,
-  'user_login' => 47,
-  'user_logout' => 48,
-  'comment_insert' => 49,
-  'comment_update' => 50,
-  'comment_presave' => 51,
-  'comment_view' => 52,
-  'comment_delete' => 53,
-  'taxonomy_term_insert' => 54,
-  'taxonomy_term_update' => 55,
-  'taxonomy_term_presave' => 56,
-  'taxonomy_term_delete' => 57,
-  'taxonomy_vocabulary_insert' => 58,
-  'taxonomy_vocabulary_update' => 59,
-  'taxonomy_vocabulary_presave' => 60,
-  'taxonomy_vocabulary_delete' => 61,
+  'voting_rules_delete_node' => 23,
+  'voting_rules_results_node' => 24,
+  'voting_rules_insert_user' => 25,
+  'voting_rules_delete_user' => 26,
+  'voting_rules_results_user' => 27,
+  'voting_rules_insert_comment' => 28,
+  'voting_rules_delete_comment' => 29,
+  'voting_rules_results_comment' => 30,
+  'voting_rules_insert_entity' => 31,
+  'voting_rules_delete_entity' => 32,
+  'voting_rules_results_entity' => 33,
+  'node_update' => 34,
+  'node_presave' => 35,
+  'node_view' => 36,
+  'node_delete' => 37,
+  'init' => 38,
+  'cron' => 39,
+  'watchdog' => 40,
+  'user_insert' => 41,
+  'user_update' => 42,
+  'user_presave' => 43,
+  'user_view' => 44,
+  'user_delete' => 45,
+  'user_login' => 46,
+  'user_logout' => 47,
+  'comment_insert' => 48,
+  'comment_update' => 49,
+  'comment_presave' => 50,
+  'comment_view' => 51,
+  'comment_delete' => 52,
+  'taxonomy_term_insert' => 53,
+  'taxonomy_term_update' => 54,
+  'taxonomy_term_presave' => 55,
+  'taxonomy_term_delete' => 56,
+  'taxonomy_vocabulary_insert' => 57,
+  'taxonomy_vocabulary_update' => 58,
+  'taxonomy_vocabulary_presave' => 59,
+  'taxonomy_vocabulary_delete' => 60,
 ));
 variable_set('save_continue_event', 'Save and add fields');
 variable_set('save_continue_resource', 'Save and add fields');
@@ -642,12 +676,12 @@ variable_set('signup_node_default_state_resource', 'disabled');
 variable_set('site_403', '');
 variable_set('site_404', '');
 variable_set('site_default_country', '');
-variable_set('site_frontpage', 'node');
+variable_set('site_frontpage', 'home');
 variable_set('site_mail', 'admin@example.com');
 variable_set('site_name', 'WhiteLabel');
 variable_set('site_slogan', '');
 variable_set('theme_default', 'bootstrap');
-variable_set('update_last_check', 1374493671);
+variable_set('update_last_check', 1374585464);
 variable_set('update_last_email_notification', 1374491556);
 variable_set('update_notify_emails', array (
   0 => 'admin@example.com',

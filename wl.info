@@ -1,6 +1,6 @@
-; Packaging information for wequest
-name = "wequest"
-description = ""
+; Packaging information for wl
+name = "wl"
+description = "wl"
 exclusive = "1"
 core = "7.x"
 ; ----------
@@ -51,14 +51,17 @@ dependencies[] = date_tools
 dependencies[] = date_views
 ; Fields
 dependencies[] = addressfield
+dependencies[] = entityreference
+dependencies[] = field_collection
 dependencies[] = field_group
 dependencies[] = geofield
+dependencies[] = vud_field
 ; Geolocation
 dependencies[] = geolocation
 dependencies[] = geolocation_googlemaps
 dependencies[] = geolocation_html5
-dependencies[] = geolocation_views
 dependencies[] = geolocation_proximity
+dependencies[] = geolocation_views
 ; Mail
 dependencies[] = privatemsg
 dependencies[] = privatemsg_filter
@@ -69,25 +72,32 @@ dependencies[] = og
 ; Other
 dependencies[] = entity
 dependencies[] = entity_token
+dependencies[] = entityreference_autocomplete
+dependencies[] = field_inspector
 dependencies[] = geophp
+dependencies[] = module_filter
 dependencies[] = pathauto
-dependencies[] = profile2
-dependencies[] = profile2_page
+dependencies[] = role_delegation
 dependencies[] = taxonomy_dupecheck
 dependencies[] = token
 dependencies[] = wequest_style
+dependencies[] = wq_project
+dependencies[] = xautoload
 ; Panels
 dependencies[] = panels
 dependencies[] = panels_ipe
+; Registration
+dependencies[] = registration
+; Relation
+dependencies[] = relation_endpoint
 ; Rules
 dependencies[] = rules
+dependencies[] = rules_admin
 dependencies[] = voting_rules
 ; Signup
 dependencies[] = signup
 dependencies[] = signup_confirm_email
 dependencies[] = signup_roles
-; Entity
-dependencies[] = registration
 ; User interface
 dependencies[] = autocomplete_deluxe
 dependencies[] = imce_wysiwyg
@@ -99,12 +109,21 @@ dependencies[] = userpoints_autoapprove
 dependencies[] = userpoints_donation
 dependencies[] = userpoints_nc
 dependencies[] = userpoints_rules
+; VIMN
+dependencies[] = vimn_entities
 ; Views
 dependencies[] = views
 dependencies[] = views_bulk_operations
 dependencies[] = views_ui
 ; Voting
-dependencies[] = fivestar
-dependencies[] = rate
 dependencies[] = votingapi
+dependencies[] = vud
+dependencies[] = vud_node
+; WL
+dependencies[] = wl_event
+dependencies[] = wl_project
+dependencies[] = wl_resource
+dependencies[] = wl_skill
+dependencies[] = wl_user
+dependencies[] = wl_variables
 
