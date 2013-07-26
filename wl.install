@@ -113,7 +113,7 @@ function wl_install() {
 
  // Enable VIMN modules
   module_enable(array(
-    'wl_project',
+  //  'wl_project',
     'wl_event',
     'wl_skill',
     'wl_resource',
@@ -122,6 +122,7 @@ function wl_install() {
     'wl_lookup',
     'wl_style',
      'wl_variables',
+     'wl_panels',
   ));
 
   // Clear the cache
@@ -144,10 +145,11 @@ user_role_save($role);
 
   $grant = array('access content', 'access comments', 'create project');
 user_role_grant_permissions($role->rid, $grant);
-
+variable_set('additional_settings__active_tab', 'edit-context');
 variable_set('additional_settings__active_tab_event', 'edit-submission');
 variable_set('additional_settings__active_tab_resource', 'edit-comment');
 variable_set('admin_theme', 'adminimal');
+variable_set('anonymous', 'Anonymous');
 variable_set('clean_url', true);
 variable_set('comment_anonymous_event', 0);
 variable_set('comment_default_mode_event', 1);
@@ -156,10 +158,11 @@ variable_set('comment_event', '2');
 variable_set('comment_form_location_event', 1);
 variable_set('comment_preview_event', '1');
 variable_set('comment_subject_field_event', 1);
+variable_set('contact_default_status', 1);
 variable_set('cron_key', 'jZTMC0bI7vnExb8q6OVgU2KIXZW83FU8wtLJJd2Ri7A');
-variable_set('cron_last', 1374585448);
-variable_set('css_js_query_string', 'mqe5h7');
-variable_set('ctools_last_cron', 1374585454);
+variable_set('cron_last', 1374680222);
+variable_set('css_js_query_string', 'mqg4qu');
+variable_set('ctools_last_cron', 1374680223);
 variable_set('date_api_version', '7.2');
 variable_set('date_default_timezone', 'Europe/London');
 variable_set('date_format_privatemsg_current_day', 'g:i a');
@@ -168,6 +171,7 @@ variable_set('date_format_privatemsg_years', 'n/j/y');
 variable_set('default_nodes_main', '10');
 variable_set('drupal_http_request_fails', true);
 variable_set('drupal_private_key', 'X4z3dUXx0VETYYuVQcNKtUhrBOoedlKynzBeKOQlLGo');
+variable_set('email__active_tab', 'edit-email-admin-created');
 variable_set('entityreference:base-tables', array (
   'comment' =>
   array (
@@ -304,6 +308,10 @@ variable_set('field_bundle_settings_node__event', array (
       array (
         'weight' => '5',
       ),
+      'badges' =>
+      array (
+        'weight' => '30',
+      ),
     ),
     'display' =>
     array (
@@ -374,23 +382,17 @@ variable_set('field_bundle_settings_node__project', array (
 ));
 variable_set('field_bundle_settings_registration__participant', array (
 ));
-variable_set('field_bundle_settings_relation__membership', array (
-  'view_modes' =>
-  array (
-  ),
-  'extra_fields' =>
-  array (
-    'form' =>
-    array (
-    ),
-    'display' =>
-    array (
-    ),
-  ),
-));
 variable_set('field_bundle_settings_user__user', array (
   'view_modes' =>
   array (
+    'full' =>
+    array (
+      'custom_settings' => false,
+    ),
+    'token' =>
+    array (
+      'custom_settings' => false,
+    ),
   ),
   'extra_fields' =>
   array (
@@ -420,9 +422,37 @@ variable_set('field_bundle_settings_user__user', array (
       array (
         'weight' => '5',
       ),
+      'picture' =>
+      array (
+        'weight' => '5',
+      ),
     ),
     'display' =>
     array (
+      'privatemsg_send_new_message' =>
+      array (
+        'default' =>
+        array (
+          'weight' => '9',
+          'visible' => true,
+        ),
+      ),
+      'summary' =>
+      array (
+        'default' =>
+        array (
+          'weight' => '8',
+          'visible' => true,
+        ),
+      ),
+      'userpoints' =>
+      array (
+        'default' =>
+        array (
+          'weight' => '3',
+          'visible' => true,
+        ),
+      ),
     ),
   ),
 ));
@@ -512,7 +542,7 @@ variable_set('imce_profiles', array (
     ),
   ),
 ));
-variable_set('install_profile', 'wl');
+variable_set('install_profile', 'wequest');
 variable_set('install_task', 'done');
 variable_set('install_time', 1371722537);
 variable_set('menu_expanded', array (
@@ -576,7 +606,7 @@ variable_set('menu_options_resource', array (
 variable_set('menu_parent_event', 'main-menu:0');
 variable_set('menu_parent_resource', 'main-menu:0');
 variable_set('node_admin_theme', 1);
-variable_set('node_cron_last', '1373386336');
+variable_set('node_cron_last', '1374669460');
 variable_set('node_options_event', array (
   0 => 'status',
   1 => 'promote',
@@ -604,6 +634,7 @@ variable_set('path_alias_whitelist', array (
   'user' => true,
 ));
 variable_set('privatemsg_filter_inbox_tag', '1');
+variable_set('registration_role_roles', '4');
 variable_set('rules_empty_sets', array (
   'field_collection_item_insert' => 0,
   'field_collection_item_update' => 1,
@@ -669,6 +700,22 @@ variable_set('rules_empty_sets', array (
 ));
 variable_set('save_continue_event', 'Save and add fields');
 variable_set('save_continue_resource', 'Save and add fields');
+variable_set('sharethis_button_option', 'stbc_button');
+variable_set('sharethis_comments', 0);
+variable_set('sharethis_late_load', 0);
+variable_set('sharethis_location', 'content');
+variable_set('sharethis_node_option', 'event,resource,skill,0');
+variable_set('sharethis_option_extras', array (
+  'Google Plus One:plusone' => 0,
+  'Facebook Like:fblike' => 0,
+));
+variable_set('sharethis_publisherID', 'dr-87b0fa6e-8020-b61b-bbc5-2f0770b9af19');
+variable_set('sharethis_service_option', '"Tweet:twitter","Facebook:facebook","ShareThis:sharethis"');
+variable_set('sharethis_teaser_option', 0);
+variable_set('sharethis_twitter_handle', '');
+variable_set('sharethis_twitter_suffix', '');
+variable_set('sharethis_weight', '10');
+variable_set('sharethis_widget_option', 'st_direct');
 variable_set('signup_date_field_event', '0');
 variable_set('signup_date_field_resource', '0');
 variable_set('signup_node_default_state_event', 'disabled');
@@ -681,8 +728,8 @@ variable_set('site_mail', 'admin@example.com');
 variable_set('site_name', 'WhiteLabel');
 variable_set('site_slogan', '');
 variable_set('theme_default', 'bootstrap');
-variable_set('update_last_check', 1374585464);
-variable_set('update_last_email_notification', 1374491556);
+variable_set('update_last_check', 1374680233);
+variable_set('update_last_email_notification', 1374596562);
 variable_set('update_notify_emails', array (
   0 => 'admin@example.com',
 ));
@@ -708,8 +755,112 @@ variable_set('userpoints_nc_ownership_deduct_resource', 1);
 variable_set('userpoints_nc_points_event', '0');
 variable_set('userpoints_nc_points_resource', '0');
 variable_set('user_admin_role', '3');
-variable_set('views_block_hashes', array (
-  '9cf22433e0efbd8b206c8e4c2edb177c' => 'workbench_recent_content-block_1',
-));
+variable_set('user_cancel_method', 'user_cancel_delete');
+variable_set('user_email_verification', 1);
+variable_set('user_mail_cancel_confirm_body', '[user:name],
 
+A request to cancel your account has been made at [site:name].
+
+You may now cancel your account on [site:url-brief] by clicking this link or copying and pasting it into your browser:
+
+[user:cancel-url]
+
+NOTE: The cancellation of your account is not reversible.
+
+This link expires in one day and nothing will happen if it is not used.
+
+--  [site:name] team');
+variable_set('user_mail_cancel_confirm_subject', 'Account cancellation request for [user:name] at [site:name]');
+variable_set('user_mail_password_reset_body', '[user:name],
+
+A request to reset the password for your account has been made at [site:name].
+
+You may now log in by clicking this link or copying and pasting it to your browser:
+
+[user:one-time-login-url]
+
+This link can only be used once to log in and will lead you to a page where you can set your password. It expires after one day and nothing will happen if it\'s not used.
+
+--  [site:name] team');
+variable_set('user_mail_password_reset_subject', 'Replacement login information for [user:name] at [site:name]');
+variable_set('user_mail_register_admin_created_body', '[user:name],
+
+A site administrator at [site:name] has created an account for you. You may now log in by clicking this link or copying and pasting it to your browser:
+
+[user:one-time-login-url]
+
+This link can only be used once to log in and will lead you to a page where you can set your password.
+
+After setting your password, you will be able to log in at [site:login-url] in the future using:
+
+username: [user:name]
+password: Your password
+
+--  [site:name] team');
+variable_set('user_mail_register_admin_created_subject', 'An administrator created an account for you at [site:name]');
+variable_set('user_mail_register_no_approval_required_body', '[user:name],
+
+Thank you for registering at [site:name]. You may now log in by clicking this link or copying and pasting it to your browser:
+
+[user:one-time-login-url]
+
+This link can only be used once to log in and will lead you to a page where you can set your password.
+
+After setting your password, you will be able to log in at [site:login-url] in the future using:
+
+username: [user:name]
+password: Your password
+
+--  [site:name] team');
+variable_set('user_mail_register_no_approval_required_subject', 'Account details for [user:name] at [site:name]');
+variable_set('user_mail_register_pending_approval_body', '[user:name],
+
+Thank you for registering at [site:name]. Your application for an account is currently pending approval. Once it has been approved, you will receive another e-mail containing information about how to log in, set your password, and other details.
+
+
+--  [site:name] team');
+variable_set('user_mail_register_pending_approval_subject', 'Account details for [user:name] at [site:name] (pending admin approval)');
+variable_set('user_mail_status_activated_body', '[user:name],
+
+Your account at [site:name] has been activated.
+
+You may now log in by clicking this link or copying and pasting it into your browser:
+
+[user:one-time-login-url]
+
+This link can only be used once to log in and will lead you to a page where you can set your password.
+
+After setting your password, you will be able to log in at [site:login-url] in the future using:
+
+username: [user:name]
+password: Your password
+
+--  [site:name] team');
+variable_set('user_mail_status_activated_notify', 1);
+variable_set('user_mail_status_activated_subject', 'Account details for [user:name] at [site:name] (approved)');
+variable_set('user_mail_status_blocked_body', '[user:name],
+
+Your account on [site:name] has been blocked.
+
+--  [site:name] team');
+variable_set('user_mail_status_blocked_notify', 0);
+variable_set('user_mail_status_blocked_subject', 'Account details for [user:name] at [site:name] (blocked)');
+variable_set('user_mail_status_canceled_body', '[user:name],
+
+Your account on [site:name] has been canceled.
+
+--  [site:name] team');
+variable_set('user_mail_status_canceled_notify', 0);
+variable_set('user_mail_status_canceled_subject', 'Account details for [user:name] at [site:name] (canceled)');
+variable_set('user_pictures', 1);
+variable_set('user_picture_default', '');
+variable_set('user_picture_dimensions', '85x85');
+variable_set('user_picture_file_size', '30');
+variable_set('user_picture_guidelines', '');
+variable_set('user_picture_path', 'pictures');
+variable_set('user_picture_style', '');
+variable_set('user_register', '2');
+variable_set('user_signatures', 0);
+variable_set('views_block_hashes', array (
+));
 }
