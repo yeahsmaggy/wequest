@@ -16,7 +16,9 @@ function wl_event_install() {
     'locked' => TRUE
   );
   // set default values for anything not explicitly defined in the above array
+//Sets the default values for a node type.
   $content_type = node_type_set_defaults($type);
+  //Saves a node type to the database
   node_type_save($content_type);
   // create the content type$
 $field = array(
@@ -514,15 +516,18 @@ function wl_event_uninstall() {
     $nids[] = $row->nid;
   }
   node_delete_multiple($nids);
-  $instances = field_info_instances('node', 'wl_event');
+  //Retrieves information about field instances
+  $instances = field_info_instances('node', 'event');
+  //Marks a field and its instances and data for deletion.
   foreach ($instances as $instance) {
     field_delete_field($instance);
   }
+  //Deletes a node type from the database.
   node_type_delete('event');
   // delete the content type
   variable_del('node_preview_event');
   //delete more vairables
-  // node type rebuilds
+//Updates the database cache of node types.
   node_types_rebuild();
   // rebuild the menus
   menu_rebuild();

@@ -2,7 +2,6 @@
 function wl_user_install() {
   //this module is currently adding fields to the user profile to extend it instead of using the bizarre profile2 module
   //we have to be careful with adding and removing fields with this module due to losing user data
-  watchdog('wl_user', 'enable', NULL, WATCHDOG_EMERGENCY, NULL);
   //you need to include this translation function
   $t = get_t();
   //watchdog('wl_user', 'install', NULL, WATCHDOG_EMERGENCY, NULL);
@@ -495,7 +494,7 @@ function wl_user_uninstall() {
    */
   //variable_del('');
 
-    $instances = field_info_instances('entity', 'wl_user');
+    $instances = field_info_instances('entity', 'user');
   foreach ($instances as $instance) {
     field_delete_field($instance);
   }

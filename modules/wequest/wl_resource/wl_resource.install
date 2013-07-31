@@ -381,7 +381,7 @@ function wl_resource_uninstall() {
   }
   node_delete_multiple($nids);
 
-  $instances = field_info_instances('node', 'wl_resource');
+  $instances = field_info_instances('node', 'resource');
   foreach ($instances as $instance) {
     field_delete_field($instance);
   }

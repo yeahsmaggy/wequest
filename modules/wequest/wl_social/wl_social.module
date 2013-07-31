@@ -1,16 +1,16 @@
 <?php
 
-function wequest_social_ctools_plugin_directory($module, $plugin) {
+function wl_social_ctools_plugin_directory($module, $plugin) {
   // We'll be nice and limit scandir() calls.
   if ($module == 'page_manager' && $plugin == 'content_types' || $module == 'ctools') {
     return 'plugins/' . $plugin;
   }
 }
 
-function wequest_social_theme($existing, $type, $theme, $path){
+function wl_social_theme($existing, $type, $theme, $path){
   return array(
-    'wequest_social' => array(
-        'template' => 'wequest-social',
+    'wl_social' => array(
+        'template' => 'wl-social',
         'path' => $path . '/templates'
        ),
     );

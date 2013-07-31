@@ -1,55 +1,36 @@
 <?php
 /**
- * Implements hook_form_alter().
- */
-// function wl_event_form_alter(&$form, &$form_state, $form_id) {
-//    *if (isset($form['type']) && $form['type']['#value'] . '_node_settings' == $form_id) {
-//    *  $form['workflow']['upload_' . $form['type']['#value']] = array(
-//    *    '#type' => 'radios',
-//    *    '#title' => t('Attachments'),
-//    *    '#default_value' => variable_get('upload_' . $form['type']['#value'], 1),
-//    *    '#options' => array(t('Disabled'), t('Enabled')),
-//    * );
-//    *}
-//   $form[''] = array(
-//     '#type' => '',
-//     '#title' => t(''),
-//     '#default_value' => $settings[''],
-//     '#required' => ,
-//     '#element_validate' => array(''),
-//     '#description' => t(''),
-//   );
-// }
-/**
  * Implements hook_menu().
  */
-function wl_event_menu() {
-  $items = array();
-  $items['wl_event/user/%'] = array(
-    'title' => t('project call back'),
-    'page callback' => '_wl_event_userlookup',
-    'page arguments' => array(
-      0,
-      1,
-      2
-    ),
-    'access arguments' => array(
-      'publish content'
-    ),
-    'type' => MENU_CALLBACK
-  );
-  return $items;
-}
-function _wl_event_userlookup($arg1, $arg2, $arg3) {
-  $query = new EntityFieldQuery();
-  $query->entityCondition('entity_type', 'node')
-  ->entityCondition('bundle', 'project')
-  ->propertyCondition('status', 1)
-  ->propertyCondition('uid', $arg3, '=');
-  $results = $query->execute();
-  header('Content-Type: application/json');
-  $data = drupal_json_encode($results);
-  echo $data;
-}
+// can be used to do a lookup on a menu path to return json
+// probably entity reference autocomplete does a similar thing
+// function wl_event_menu() {
+//   $items = array();
+//   $items['wl_event/user/%'] = array(
+//     'title' => t('project call back'),
+//     'page callback' => '_wl_event_userlookup',
+//     'page arguments' => array(
+//       0,
+//       1,
+//       2
+//     ),
+//     'access arguments' => array(
+//       'publish content'
+//     ),
+//     'type' => MENU_CALLBACK
+//   );
+//   return $items;
+// }
+// function _wl_event_userlookup($arg1, $arg2, $arg3) {
+//   $query = new EntityFieldQuery();
+//   $query->entityCondition('entity_type', 'node')
+//   ->entityCondition('bundle', 'project')
+//   ->propertyCondition('status', 1)
+//   ->propertyCondition('uid', $arg3, '=');
+//   $results = $query->execute();
+//   header('Content-Type: application/json');
+//   $data = drupal_json_encode($results);
+//   echo $data;
+// }
 
 

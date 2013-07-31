@@ -1,0 +1,132 @@
+<?php
+/**
+ * Implements hook_install().
+ */
+function wl_page_install() {
+  //you need to include this translation function
+  $t = get_t();
+  // define the type
+  $type = array(
+    'type' => 'page',
+    'name' => $t('Resource'),
+    'base' => 'node_content',
+    'title_label' => $t('Name of Resource'),
+    'custom' => FALSE,
+    'locked' => TRUE
+  );
+  // set default values for anything not explicitly defined in the above array
+  $content_type = node_type_set_defaults($type);
+  // create the content type
+  node_type_save($content_type);
+  //create all the fields
+  // foreach (_wl_page_fields() as $field) {
+  //   field_create_field($field);
+  // }
+  // //create all the instances
+  // foreach (_wl_page_instances() as $instance) {
+  //   $instance['entity_type'] = 'node';
+  //   $instance['bundle'] = 'page';
+  //   field_create_instance($instance);
+  // }
+$field = array(
+  'translatable' => '0',
+  'settings' => array(),
+  'field_name' => 'body',
+  'type' => 'text_with_summary',
+  'active' => '1',
+  'locked' => '0',
+  'cardinality' => '1',
+);
+field_create_field($field);
+
+$instance = array(
+  'label' => 'Body',
+  'widget' => array(
+    'type' => 'text_textarea_with_summary',
+    'settings' => array(
+      'rows' => 20,
+      'summary_rows' => 5,
+    ),
+    'weight' => 31,
+  ),
+  'settings' => array(
+    'display_summary' => TRUE,
+    'text_processing' => 1,
+    'user_register_form' => FALSE,
+  ),
+  'display' => array(
+    'default' => array(
+      'label' => 'hidden',
+      'type' => 'text_default',
+      'settings' => array(),
+      'weight' => 0,
+    ),
+    'teaser' => array(
+      'label' => 'hidden',
+      'type' => 'text_summary_or_trimmed',
+      'settings' => array(
+        'trim_length' => 600,
+      ),
+      'weight' => 0,
+    ),
+    'grid_thumbnail' => array(
+      'type' => 'hidden',
+      'label' => 'above',
+      'settings' => array(),
+      'weight' => 0,
+    ),
+  ),
+  'required' => FALSE,
+  'description' => '',
+  'field_name' => 'body',
+  'entity_type' => 'node',
+  'bundle' => 'page',
+  'default_value' => NULL,
+);
+field_create_instance($instance);
+
+
+}
+// function _wl_page_fields() {
+//  $t = get_t();
+//   $fields = array(
+//   );
+//   return $fields;
+// }
+// function _wl_page_instances() {
+//   $t = get_t();
+//   $instances = array(
+//   );
+//   return $instances;
+// }
+
+function wl_page_uninstall() {
+  $sql = 'SELECT nid FROM {node} n WHERE n.type = :type';
+  $result = db_query($sql, array(
+    ':type' => 'wl_page'
+  ));
+  $nids = array();
+  foreach ($result as $row) {
+    $nids[] = $row->nid;
+  }
+  node_delete_multiple($nids);
+
+  $instances = field_info_instances('node', 'wl_page');
+  foreach ($instances as $instance) {
+    field_delete_field($instance);
+  }
+
+  // foreach (array_keys(_wl_page_fields()) as $field) {
+  //   field_delete_field($field);
+  // }
+  node_type_delete('page');
+  // delete the content type
+  variable_del('node_preview_page');
+  // node type rebuilds
+  node_types_rebuild();
+  // rebuild the menus
+  menu_rebuild();
+  // Purge all field information
+  // http://api.drupal.org/api/function/field_purge_batch/7
+  field_purge_batch(1000);
+}
