@@ -128,10 +128,13 @@ dependencies[] = votingapi
 ;dependencies[] = vud_node
 ; WL
 dependencies[] = wl_event
-dependencies[] = wl_project
+dependencies[] = wl_geolocation
+dependencies[] = wl_lookup
+dependencies[] = wl_page
+dependencies[] = wl_panels
 dependencies[] = wl_resource
 dependencies[] = wl_skill
+dependencies[] = wl_social
 dependencies[] = wl_style
 dependencies[] = wl_user
 dependencies[] = wl_variables
-

@@ -20,3 +20,9 @@ includes[] = "drupal-org.make"
 # projects[vud][version] = "" ; TODO add version
 # projects[vud][subdir] = "custom"
 
+
+; Install profile
+projects[wl][type] = "profile"
+projects[wl][download][type] = "git"
+projects[wl][download][url] = "git@github.com:yeahsmaggy/wequest.git"
+projects[wl][download][branch] = "master"
