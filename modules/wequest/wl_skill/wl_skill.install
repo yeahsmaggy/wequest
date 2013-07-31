@@ -24,99 +24,100 @@ function wl_skill_install() {
   //create all the fields
   // foreach (_wl_skill_fields() as $field) {
   //   field_create_field($field);
+
   // }
-  //create all the instances
-  // foreach (_wl_skill_instances() as $instance) {
-  //   $instance['entity_type'] = 'node';
-  //   $instance['bundle'] = 'skill';
-  //   field_create_instance($instance);
-  // }
-  //create the vocabulary
-  //
-  foreach (_wl_skill_vocabularies() as $vocabulary) {
-    _wl_skill_create_vocabulary($vocabulary);
-  }
-}
-function _wl_skill_fields() {
-  //create an array of all the fields
-  //I haven't include the date field because this will probably be part of the sign
-  // who is the organise needs to be an auto lookup field on people who are associated with this skill.
-  // There needs to be a field collection or entity reference field that references users who are associated with this skill.
-  // Users needs to be able to associate themselves with a skill.
-  // skills are separate from events. Events are instances of a skill in progress
-  $t = get_t();
-  $fields = array(
-    'field_skill_description' => array(
-      'translatable' => '0',
-      'settings' => array(),
-      'field_name' => 'field_skill_description',
-      'type' => 'text_long',
-      'active' => '1',
-      'locked' => '0',
-      'cardinality' => '1'
-    ),
-    'field_skill_image' => array(
-      'translatable' => '0',
-      'settings' => array(
-        'uri_scheme' => 'public',
-        'default_image' => 0,
-        'profile2_private' => FALSE
-      ),
-      'field_name' => 'field_skill_image',
-      'type' => 'image',
-      'active' => '1',
-      'locked' => '0',
-      'cardinality' => '3'
-    ),
-    'field_skill_categories' => array(
-      'settings' => array(
-        'allowed_values' => array(
-          0 => array(
-            'vocabulary' => 'wl_skill_skill',
-            'parent' => 0
-          )
-        )
-      ),
-      'translatable' => '0',
-      'field_name' => 'field_skill_categories',
-      'type' => 'taxonomy_term_reference',
-      'active' => '1',
-      'locked' => '0',
-      'cardinality' => '-1'
-    ),
-    'field_experience_level' => array(
-      'translatable' => '0',
-      'settings' => array(
-        'allowed_values' => array(
-          'Expert ' => ' Expert',
-          'Advanced ' => ' Advanced',
-          'Intermediate ' => ' Intermediate',
-          'Beginner ' => ' Beginner'
-        ),
-        'allowed_values_function' => ''
-      )
-    ),
-    'field_experience_level' => array(
-      'field_name' => 'field_experience_level',
-      'type' => 'list_text',
-      'active' => '1',
-      'locked' => '0',
-      'cardinality' => '-1'
-    ),
-    'field_time_practicing' => array(
-      'translatable' => '0',
-      'settings' => array(),
-      'field_name' => 'field_time_practicing',
-      'type' => 'number_integer',
-      'active' => '1',
-      'locked' => '0',
-      'cardinality' => '1'
-    )
-  );
-  return $fields;
-}
-function _wl_skill_instances() {
-  $t = get_t();
+//   create all the instances
+//   foreach (_wl_skill_instances() as $instance) {
+//     $instance['entity_type'] = 'node';
+//     $instance['bundle'] = 'skill';
+//     field_create_instance($instance);
+//   }
+//   //create the vocabulary
+//   //
+//   foreach (_wl_skill_vocabularies() as $vocabulary) {
+//     _wl_skill_create_vocabulary($vocabulary);
+//   }
+// }
+// function _wl_skill_fields() {
+//   //create an array of all the fields
+//   //I haven't include the date field because this will probably be part of the sign
+//   // who is the organise needs to be an auto lookup field on people who are associated with this skill.
+//   // There needs to be a field collection or entity reference field that references users who are associated with this skill.
+//   // Users needs to be able to associate themselves with a skill.
+//   // skills are separate from events. Events are instances of a skill in progress
+//   $t = get_t();
+//   $fields = array(
+//     'field_skill_description' => array(
+//       'translatable' => '0',
+//       'settings' => array(),
+//       'field_name' => 'field_skill_description',
+//       'type' => 'text_long',
+//       'active' => '1',
+//       'locked' => '0',
+//       'cardinality' => '1'
+//     ),
+//     'field_skill_image' => array(
+//       'translatable' => '0',
+//       'settings' => array(
+//         'uri_scheme' => 'public',
+//         'default_image' => 0,
+//         'profile2_private' => FALSE
+//       ),
+//       'field_name' => 'field_skill_image',
+//       'type' => 'image',
+//       'active' => '1',
+//       'locked' => '0',
+//       'cardinality' => '3'
+//     ),
+//     'field_skill_categories' => array(
+//       'settings' => array(
+//         'allowed_values' => array(
+//           0 => array(
+//             'vocabulary' => 'wl_skill_skill',
+//             'parent' => 0
+//           )
+//         )
+//       ),
+//       'translatable' => '0',
+//       'field_name' => 'field_skill_categories',
+//       'type' => 'taxonomy_term_reference',
+//       'active' => '1',
+//       'locked' => '0',
+//       'cardinality' => '-1'
+//     ),
+//     'field_experience_level' => array(
+//       'translatable' => '0',
+//       'settings' => array(
+//         'allowed_values' => array(
+//           'Expert ' => ' Expert',
+//           'Advanced ' => ' Advanced',
+//           'Intermediate ' => ' Intermediate',
+//           'Beginner ' => ' Beginner'
+//         ),
+//         'allowed_values_function' => ''
+//       )
+//     ),
+//     'field_experience_level' => array(
+//       'field_name' => 'field_experience_level',
+//       'type' => 'list_text',
+//       'active' => '1',
+//       'locked' => '0',
+//       'cardinality' => '-1'
+//     ),
+//     'field_time_practicing' => array(
+//       'translatable' => '0',
+//       'settings' => array(),
+//       'field_name' => 'field_time_practicing',
+//       'type' => 'number_integer',
+//       'active' => '1',
+//       'locked' => '0',
+//       'cardinality' => '1'
+//     )
+//   );
+//   return $fields;
+// }
+// function _wl_skill_instances() {
+//   $t = get_t();
 
 $field = array(
   'translatable' => '0',
@@ -128,6 +129,7 @@ $field = array(
   'cardinality' => '1',
 );
 field_create_field($field);
+
 
 $instance = array(
   'label' => 'Description',
@@ -196,6 +198,7 @@ $field = array(
   'cardinality' => '3',
 );
 field_create_field($field);
+
 
 $instance = array(
   'label' => 'Image',
@@ -271,6 +274,7 @@ $field = array(
 );
 field_create_field($field);
 
+
 $instance = array(
   'label' => 'Skill tags',
   'description' => 'You can add multiple tags using a comma separated list',
@@ -334,6 +338,7 @@ $field = array(
 );
 field_create_field($field);
 
+
 $instance = array(
   'label' => 'Experience level',
   'widget' => array(
@@ -384,6 +389,7 @@ $field = array(
   'cardinality' => '1',
 );
 field_create_field($field);
+
 
 $instance = array(
   'label' => 'Time practicing',

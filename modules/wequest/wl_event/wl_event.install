@@ -32,6 +32,7 @@ $field = array(
 );
 field_create_field($field);
 
+
 $instance = array(
   'label' => 'Event Registration',
   'widget' => array(
@@ -117,6 +118,7 @@ $field = array(
 );
 field_create_field($field);
 
+
 $instance = array(
   'label' => 'Event Date',
   'widget' => array(
@@ -183,6 +185,7 @@ $field = array(
 );
 field_create_field($field);
 
+
 $instance = array(
   'label' => 'Event Description',
   'widget' => array(
@@ -247,6 +250,7 @@ $field = array(
 );
 field_create_field($field);
 
+
 $instance = array(
   'label' => 'Event project',
   'widget' => array(
@@ -298,6 +302,7 @@ field_create_instance($instance);
 //   'cardinality' => '1',
 // );
 // field_create_field($field);
+
 
 // $instance = array(
 //   'label' => 'Event vote',
@@ -358,6 +363,7 @@ $field = array(
 );
 field_create_field($field);
 
+
 $instance = array(
   'label' => 'Event resources',
   'widget' => array(
@@ -413,6 +419,7 @@ $field = array(
 );
 field_create_field($field);
 
+
 $instance = array(
   'label' => 'Event skills',
   'widget' => array(
@@ -463,6 +470,7 @@ field_create_instance($instance);
   'cardinality' => '1',
 );
 field_create_field($field);
+
 
 $instance = array(
   'label' => 'Geolocation',

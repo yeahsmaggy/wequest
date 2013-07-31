@@ -22,6 +22,7 @@ function wl_project_install() {
   //create all the fields
   // foreach (_wl_project_fields() as $field) {
   //   field_create_field($field);
+
   // }
   // //create all the instances
   // foreach (_wl_project_instances() as $instance) {
@@ -40,6 +41,7 @@ function wl_project_install() {
     'cardinality' => '1'
   );
   field_create_field($field);
+
   $instance = array(
     'label' => 'Project',
     'widget' => array(
@@ -102,6 +104,7 @@ function wl_project_install() {
     'cardinality' => '-1'
   );
   field_create_field($field);
+
   $instance = array(
     'default_value' => NULL,
     'description' => 'Are you the main organiser of this event?',
@@ -155,6 +158,7 @@ function wl_project_install() {
     'cardinality' => '3'
   );
   field_create_field($field);
+
   $instance = array(
     'label' => 'Image',
     'widget' => array(
@@ -214,6 +218,7 @@ function wl_project_install() {
     'cardinality' => '1'
   );
   field_create_field($field);
+
   $instance = array(
     'label' => 'Rate',
     'widget' => array(
@@ -273,6 +278,7 @@ function wl_project_install() {
     'cardinality' => '1'
   );
   field_create_field($field);
+
   $instance = array(
     'label' => 'Status',
     'widget' => array(
@@ -319,6 +325,7 @@ function wl_project_install() {
     'cardinality' => '5'
   );
   field_create_field($field);
+
   $instance = array(
     'label' => 'Project gallery',
     'widget' => array(
@@ -371,6 +378,7 @@ function wl_project_install() {
     'cardinality' => '1'
   );
   field_create_field($field);
+
   $instance = array(
     'label' => 'project_image_title',
     'widget' => array(
@@ -414,6 +422,7 @@ function wl_project_install() {
     'cardinality' => '1'
   );
   field_create_field($field);
+
   $instance = array(
     'label' => 'project_image_image',
     'widget' => array(
@@ -466,6 +475,7 @@ function wl_project_install() {
     'cardinality' => '1'
   );
   field_create_field($field);
+
   $instance = array(
     'label' => 'project_image_caption',
     'widget' => array(

@@ -8,9 +8,9 @@ function wl_page_install() {
   // define the type
   $type = array(
     'type' => 'page',
-    'name' => $t('Resource'),
+    'name' => $t('Page'),
     'base' => 'node_content',
-    'title_label' => $t('Name of Resource'),
+    'title_label' => $t('Name of Page'),
     'custom' => FALSE,
     'locked' => TRUE
   );
@@ -21,6 +21,7 @@ function wl_page_install() {
   //create all the fields
   // foreach (_wl_page_fields() as $field) {
   //   field_create_field($field);
+
   // }
   // //create all the instances
   // foreach (_wl_page_instances() as $instance) {
@@ -28,62 +29,63 @@ function wl_page_install() {
   //   $instance['bundle'] = 'page';
   //   field_create_instance($instance);
   // }
-$field = array(
-  'translatable' => '0',
-  'settings' => array(),
-  'field_name' => 'body',
-  'type' => 'text_with_summary',
-  'active' => '1',
-  'locked' => '0',
-  'cardinality' => '1',
-);
-field_create_field($field);
+// $field = array(
+//   'translatable' => '0',
+//   'settings' => array(),
+//   'field_name' => 'body',
+//   'type' => 'text_with_summary',
+//   'active' => '1',
+//   'locked' => '0',
+//   'cardinality' => '1',
+// );
+// field_create_field($field);
 
-$instance = array(
-  'label' => 'Body',
-  'widget' => array(
-    'type' => 'text_textarea_with_summary',
-    'settings' => array(
-      'rows' => 20,
-      'summary_rows' => 5,
-    ),
-    'weight' => 31,
-  ),
-  'settings' => array(
-    'display_summary' => TRUE,
-    'text_processing' => 1,
-    'user_register_form' => FALSE,
-  ),
-  'display' => array(
-    'default' => array(
-      'label' => 'hidden',
-      'type' => 'text_default',
-      'settings' => array(),
-      'weight' => 0,
-    ),
-    'teaser' => array(
-      'label' => 'hidden',
-      'type' => 'text_summary_or_trimmed',
-      'settings' => array(
-        'trim_length' => 600,
-      ),
-      'weight' => 0,
-    ),
-    'grid_thumbnail' => array(
-      'type' => 'hidden',
-      'label' => 'above',
-      'settings' => array(),
-      'weight' => 0,
-    ),
-  ),
-  'required' => FALSE,
-  'description' => '',
-  'field_name' => 'body',
-  'entity_type' => 'node',
-  'bundle' => 'page',
-  'default_value' => NULL,
-);
-field_create_instance($instance);
+
+// $instance = array(
+//   'label' => 'Body',
+//   'widget' => array(
+//     'type' => 'text_textarea_with_summary',
+//     'settings' => array(
+//       'rows' => 20,
+//       'summary_rows' => 5,
+//     ),
+//     'weight' => 31,
+//   ),
+//   'settings' => array(
+//     'display_summary' => TRUE,
+//     'text_processing' => 1,
+//     'user_register_form' => FALSE,
+//   ),
+//   'display' => array(
+//     'default' => array(
+//       'label' => 'hidden',
+//       'type' => 'text_default',
+//       'settings' => array(),
+//       'weight' => 0,
+//     ),
+//     'teaser' => array(
+//       'label' => 'hidden',
+//       'type' => 'text_summary_or_trimmed',
+//       'settings' => array(
+//         'trim_length' => 600,
+//       ),
+//       'weight' => 0,
+//     ),
+//     'grid_thumbnail' => array(
+//       'type' => 'hidden',
+//       'label' => 'above',
+//       'settings' => array(),
+//       'weight' => 0,
+//     ),
+//   ),
+//   'required' => FALSE,
+//   'description' => '',
+//   'field_name' => 'body',
+//   'entity_type' => 'node',
+//   'bundle' => 'page',
+//   'default_value' => NULL,
+// );
+// field_create_instance($instance);
 
 
 }

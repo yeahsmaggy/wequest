@@ -8,6 +8,7 @@ function wl_user_install() {
   //create all the fields
   // foreach (_wl_user_fields() as $field) {
   //   field_create_field($field);
+
   // }
   //create all the instances
   // foreach (_wl_user_instances() as $instance) {
@@ -25,6 +26,7 @@ $field = array(
   'cardinality' => '1',
 );
 field_create_field($field);
+
 
 $instance = array(
   'label' => 'User quest',
@@ -86,6 +88,7 @@ $field = array(
   'cardinality' => '3',
 );
 field_create_field($field);
+
 
 $instance = array(
   'label' => 'Image',
@@ -153,6 +156,7 @@ $field = array(
 );
 field_create_field($field);
 
+
 $instance = array(
   'label' => 'Project Skills',
   'widget' => array(
@@ -211,6 +215,7 @@ $field = array(
 );
 field_create_field($field);
 
+
 $instance = array(
   'label' => 'Project Resources',
   'widget' => array(
@@ -262,6 +267,7 @@ $field = array(
   'cardinality' => '1',
 );
 field_create_field($field);
+
 
 $instance = array(
   'label' => 'Geolocation',
@@ -319,6 +325,7 @@ $field = array(
 );
 field_create_field($field);
 
+
 $instance = array(
   'label' => 'public profile',
   'widget' => array(
@@ -364,6 +371,7 @@ $field = array(
 );
 field_create_field($field);
 
+
 $instance = array(
   'label' => 'First Name',
   'widget' => array(
@@ -408,6 +416,7 @@ $field = array(
 );
 field_create_field($field);
 
+
 $instance = array(
   'label' => 'Last Name',
   'widget' => array(
@@ -451,6 +460,7 @@ $field = array(
   'cardinality' => '1',
 );
 field_create_field($field);
+
 
 $instance = array(
   'label' => 'Nickname',

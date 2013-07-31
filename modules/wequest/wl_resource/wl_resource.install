@@ -21,6 +21,7 @@ function wl_resource_install() {
   //create all the fields
   // foreach (_wl_resource_fields() as $field) {
   //   field_create_field($field);
+
   // }
   // //create all the instances
   // foreach (_wl_resource_instances() as $instance) {
@@ -28,55 +29,56 @@ function wl_resource_install() {
   //   $instance['bundle'] = 'resource';
   //   field_create_instance($instance);
   // }
-  $field = array(
-    'translatable' => '0',
-    'settings' => array(),
-    'field_name' => 'body',
-    'type' => 'text_with_summary',
-    'active' => '1',
-    'locked' => '0',
-    'cardinality' => '1'
-  );
-  field_create_field($field);
-  $instance = array(
-    'label' => 'Body',
-    'widget' => array(
-      'type' => 'text_textarea_with_summary',
-      'settings' => array(
-        'rows' => 20,
-        'summary_rows' => 5
-      ),
-      'weight' => '1'
-    ),
-    'settings' => array(
-      'display_summary' => TRUE,
-      'text_processing' => 1,
-      'user_register_form' => FALSE
-    ),
-    'display' => array(
-      'default' => array(
-        'label' => 'hidden',
-        'type' => 'hidden',
-        'weight' => '5',
-        'settings' => array()
-      ),
-      'teaser' => array(
-        'label' => 'hidden',
-        'type' => 'text_summary_or_trimmed',
-        'settings' => array(
-          'trim_length' => 600
-        ),
-        'weight' => 0
-      )
-    ),
-    'required' => FALSE,
-    'description' => '',
-    'field_name' => 'body',
-    'entity_type' => 'node',
-    'bundle' => 'resource',
-    'default_value' => NULL
-  );
-  field_create_instance($instance);
+  // $field = array(
+  //   'translatable' => '0',
+  //   'settings' => array(),
+  //   'field_name' => 'body',
+  //   'type' => 'text_with_summary',
+  //   'active' => '1',
+  //   'locked' => '0',
+  //   'cardinality' => '1'
+  // );
+  // field_create_field($field);
+
+  // $instance = array(
+  //   'label' => 'Body',
+  //   'widget' => array(
+  //     'type' => 'text_textarea_with_summary',
+  //     'settings' => array(
+  //       'rows' => 20,
+  //       'summary_rows' => 5
+  //     ),
+  //     'weight' => '1'
+  //   ),
+  //   'settings' => array(
+  //     'display_summary' => TRUE,
+  //     'text_processing' => 1,
+  //     'user_register_form' => FALSE
+  //   ),
+  //   'display' => array(
+  //     'default' => array(
+  //       'label' => 'hidden',
+  //       'type' => 'hidden',
+  //       'weight' => '5',
+  //       'settings' => array()
+  //     ),
+  //     'teaser' => array(
+  //       'label' => 'hidden',
+  //       'type' => 'text_summary_or_trimmed',
+  //       'settings' => array(
+  //         'trim_length' => 600
+  //       ),
+  //       'weight' => 0
+  //     )
+  //   ),
+  //   'required' => FALSE,
+  //   'description' => '',
+  //   'field_name' => 'body',
+  //   'entity_type' => 'node',
+  //   'bundle' => 'resource',
+  //   'default_value' => NULL
+  // );
+  // field_create_instance($instance);
   $field = array(
     'translatable' => '0',
     'settings' => array(),
@@ -87,6 +89,7 @@ function wl_resource_install() {
     'cardinality' => '1'
   );
   field_create_field($field);
+
   $instance = array(
     'label' => 'Resource Description',
     'widget' => array(
@@ -140,6 +143,7 @@ function wl_resource_install() {
     'cardinality' => '1'
   );
   field_create_field($field);
+
   $instance = array(
     'label' => 'Resource Type',
     'widget' => array(
@@ -194,6 +198,7 @@ function wl_resource_install() {
     'cardinality' => '-1'
   );
   field_create_field($field);
+
   $instance = array(
     'label' => 'Resource Condition',
     'widget' => array(
@@ -237,6 +242,7 @@ function wl_resource_install() {
     'cardinality' => '1'
   );
   field_create_field($field);
+
   $instance = array(
     'label' => 'Resource Quantity',
     'widget' => array(
@@ -292,6 +298,7 @@ function wl_resource_install() {
     'cardinality' => '-1'
   );
   field_create_field($field);
+
   $instance = array(
     'label' => 'Resource Manufacturer',
     'widget' => array(
