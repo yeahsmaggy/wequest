@@ -57,7 +57,7 @@ dependencies[] = entityreference
 dependencies[] = field_collection
 dependencies[] = field_group
 dependencies[] = geofield
-dependencies[] = vud_field
+;dependencies[] = vud_field
 ; Filter
 dependencies[] = simplehtmldom
 ; Geolocation
@@ -85,8 +85,6 @@ dependencies[] = pathauto
 dependencies[] = role_delegation
 dependencies[] = taxonomy_dupecheck
 dependencies[] = token
-dependencies[] = wequest_style
-dependencies[] = wq_project
 dependencies[] = xautoload
 ; Panels
 dependencies[] = panels
@@ -119,8 +117,6 @@ dependencies[] = userpoints_autoapprove
 dependencies[] = userpoints_donation
 dependencies[] = userpoints_nc
 dependencies[] = userpoints_rules
-; VIMN
-dependencies[] = vimn_entities
 ; Views
 dependencies[] = views
 dependencies[] = views_bootstrap
@@ -128,8 +124,8 @@ dependencies[] = views_bulk_operations
 dependencies[] = views_ui
 ; Voting
 dependencies[] = votingapi
-dependencies[] = vud
-dependencies[] = vud_node
+;dependencies[] = vud
+;dependencies[] = vud_node
 ; WL
 dependencies[] = wl_event
 dependencies[] = wl_project

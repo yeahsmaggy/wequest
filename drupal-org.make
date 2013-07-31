@@ -34,8 +34,8 @@ projects[field_collection][subdir] = "contrib"
 projects[field_group][version] = "1.1"
 projects[field_group][subdir] = "contrib"
 
-projects[geofield][version] = "1.1"
-projects[geofield][subdir] = "contrib"
+# projects[geofield][version] = "1.1"
+# projects[geofield][subdir] = "contrib"
 
 projects[simplehtmldom][version] = "1.12"
 projects[simplehtmldom][subdir] = "contrib"
@@ -157,8 +157,8 @@ projects[views_bootstrap][subdir] = "contrib"
 projects[views_bulk_operations][version] = "3.1"
 projects[views_bulk_operations][subdir] = "contrib"
 
-projects[vote_up_down][version] = "1.0-dio"
-projects[vote_up_down][subdir] = "contrib"
+# projects[vote_up_down][version] = "1.0-dio"
+# projects[vote_up_down][subdir] = "contrib"
 
 projects[votingapi][version] = "2.11"
 projects[votingapi][subdir] = "contrib"
