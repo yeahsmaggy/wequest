@@ -138,3 +138,5 @@ dependencies[] = wl_social
 dependencies[] = wl_style
 dependencies[] = wl_user
 dependencies[] = wl_variables
+
+files[] = wl.profile
