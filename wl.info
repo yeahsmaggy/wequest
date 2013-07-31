@@ -1,11 +1,13 @@
 ; Packaging information for wl
 name = "wl"
-description = "wl"
+description = ""
 exclusive = "1"
 core = "7.x"
 ; ----------
 ; Dependencies
 ; ----------
+; Achievements
+dependencies[] = achievements
 ; Administration
 dependencies[] = admin_menu
 ; Chaos tool suite
@@ -56,6 +58,8 @@ dependencies[] = field_collection
 dependencies[] = field_group
 dependencies[] = geofield
 dependencies[] = vud_field
+; Filter
+dependencies[] = simplehtmldom
 ; Geolocation
 dependencies[] = geolocation
 dependencies[] = geolocation_googlemaps
@@ -74,6 +78,7 @@ dependencies[] = entity
 dependencies[] = entity_token
 dependencies[] = entityreference_autocomplete
 dependencies[] = field_inspector
+dependencies[] = flattr
 dependencies[] = geophp
 dependencies[] = module_filter
 dependencies[] = pathauto
@@ -85,23 +90,28 @@ dependencies[] = wq_project
 dependencies[] = xautoload
 ; Panels
 dependencies[] = panels
+dependencies[] = panels_bootstrap_layouts
 dependencies[] = panels_ipe
+; Payment API
+dependencies[] = pay
+; Payment forms
+dependencies[] = donate
 ; Registration
 dependencies[] = registration
+dependencies[] = registration_role
 ; Relation
 dependencies[] = relation_endpoint
 ; Rules
 dependencies[] = rules
 dependencies[] = rules_admin
 dependencies[] = voting_rules
-; Signup
-dependencies[] = signup
-dependencies[] = signup_confirm_email
-dependencies[] = signup_roles
+; Sharing
+dependencies[] = sharethis
 ; User interface
 dependencies[] = autocomplete_deluxe
 dependencies[] = imce_wysiwyg
 dependencies[] = jquery_update
+dependencies[] = user_badges
 dependencies[] = wysiwyg
 ; Userpoints
 dependencies[] = userpoints
@@ -113,6 +123,7 @@ dependencies[] = userpoints_rules
 dependencies[] = vimn_entities
 ; Views
 dependencies[] = views
+dependencies[] = views_bootstrap
 dependencies[] = views_bulk_operations
 dependencies[] = views_ui
 ; Voting
@@ -124,6 +135,7 @@ dependencies[] = wl_event
 dependencies[] = wl_project
 dependencies[] = wl_resource
 dependencies[] = wl_skill
+dependencies[] = wl_style
 dependencies[] = wl_user
 dependencies[] = wl_variables
 
