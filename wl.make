@@ -34,8 +34,8 @@ projects[field_collection][subdir] = "contrib"
 projects[field_group][version] = "1.1"
 projects[field_group][subdir] = "contrib"
 
-# projects[geofield][version] = "1.1"
-# projects[geofield][subdir] = "contrib"
+projects[geofield][version] = "1.1"
+projects[geofield][subdir] = "contrib"
 
 projects[simplehtmldom][version] = "1.12"
 projects[simplehtmldom][subdir] = "contrib"
