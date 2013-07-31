@@ -145,9 +145,6 @@ projects[userpoints_contrib][subdir] = "contrib"
 projects[userpoints_nc][version] = "1.0"
 projects[userpoints_nc][subdir] = "contrib"
 
-projects[vimn_modules][version] = "mx-dev"
-projects[vimn_modules][subdir] = "contrib"
-
 projects[views][version] = "3.7"
 projects[views][subdir] = "contrib"
 
