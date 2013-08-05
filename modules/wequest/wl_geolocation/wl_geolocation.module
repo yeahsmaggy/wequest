@@ -1,1 +1,13 @@
 <?php
+/**
+ * Implements hook_views_api().
+ */
+function wl_geolocation_views_api($module, $api) {
+  if ($module == 'views' && $api == 'views_default') {
+    return array('version' => 2);
+  }
+  return array(
+    'api' => 3,
+    'template path' => drupal_get_path('module', 'wl_geolocation') . '/templates',
+  );
+}
