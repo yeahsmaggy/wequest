@@ -1,4 +1,18 @@
 <?php
+
+/**
+ * Implements hook_views_api().
+ */
+function wl_event_views_api($module, $api) {
+  if ($module == 'views' && $api == 'views_default') {
+    return array('version' => 2);
+  }
+  return array(
+    'api' => 3,
+    'template path' => drupal_get_path('module', 'wl_event') . '/templates',
+  );
+}
+
 /**
  * Implements hook_menu().
  */
