@@ -32,11 +32,10 @@ $field = array(
 );
 field_create_field($field);
 
-
 $instance = array(
   'label' => 'Event Registration',
   'widget' => array(
-    'weight' => '3',
+    'weight' => '9',
     'type' => 'registration_select',
     'active' => 0,
     'settings' => array(),
@@ -65,14 +64,20 @@ $instance = array(
   ),
   'display' => array(
     'default' => array(
-      'label' => 'above',
+      'label' => 'hidden',
       'type' => 'registration_default',
-      'weight' => '5',
+      'weight' => '3',
       'settings' => array(
         'label' => ' ',
       ),
     ),
     'teaser' => array(
+      'type' => 'hidden',
+      'label' => 'above',
+      'settings' => array(),
+      'weight' => 0,
+    ),
+    'grid_thumbnail' => array(
       'type' => 'hidden',
       'label' => 'above',
       'settings' => array(),
@@ -118,11 +123,10 @@ $field = array(
 );
 field_create_field($field);
 
-
 $instance = array(
   'label' => 'Event Date',
   'widget' => array(
-    'weight' => '4',
+    'weight' => '3',
     'type' => 'date_popup',
     'active' => 1,
     'settings' => array(
@@ -145,9 +149,9 @@ $instance = array(
   ),
   'display' => array(
     'default' => array(
-      'label' => 'above',
+      'label' => 'hidden',
       'type' => 'date_default',
-      'weight' => '4',
+      'weight' => '2',
       'settings' => array(
         'format_type' => 'long',
         'multiple_number' => '',
@@ -158,6 +162,12 @@ $instance = array(
       ),
     ),
     'teaser' => array(
+      'type' => 'hidden',
+      'label' => 'above',
+      'settings' => array(),
+      'weight' => 0,
+    ),
+    'grid_thumbnail' => array(
       'type' => 'hidden',
       'label' => 'above',
       'settings' => array(),
@@ -174,26 +184,23 @@ field_create_instance($instance);
 
 $field = array(
   'translatable' => '0',
-  'settings' => array(
-    'max_length' => '255',
-  ),
-  'field_name' => 'field_event_description',
-  'type' => 'text',
+  'settings' => array(),
+  'field_name' => 'field_wl_event_description',
+  'type' => 'text_long',
   'active' => '1',
   'locked' => '0',
   'cardinality' => '1',
 );
 field_create_field($field);
 
-
 $instance = array(
   'label' => 'Event Description',
   'widget' => array(
     'weight' => '2',
-    'type' => 'text_textfield',
+    'type' => 'text_textarea',
     'active' => 1,
     'settings' => array(
-      'size' => '60',
+      'rows' => '5',
     ),
   ),
   'settings' => array(
@@ -202,7 +209,7 @@ $instance = array(
   ),
   'display' => array(
     'default' => array(
-      'label' => 'above',
+      'label' => 'hidden',
       'type' => 'text_default',
       'weight' => '1',
       'settings' => array(),
@@ -213,11 +220,141 @@ $instance = array(
       'settings' => array(),
       'weight' => 0,
     ),
+    'grid_thumbnail' => array(
+      'type' => 'hidden',
+      'label' => 'above',
+      'settings' => array(),
+      'weight' => 0,
+    ),
+  ),
+  'required' => 1,
+  'description' => 'Write a description of the event that you would like to do.',
+  'default_value' => NULL,
+  'field_name' => 'field_wl_event_description',
+  'entity_type' => 'node',
+  'bundle' => 'event',
+);
+field_create_instance($instance);
+
+$field = array(
+  'translatable' => '0',
+  'settings' => array(
+    'uri_scheme' => 'public',
+    'default_image' => 0,
+  ),
+  'field_name' => 'field_wl_event_image',
+  'type' => 'image',
+  'active' => '1',
+  'locked' => '0',
+  'cardinality' => '1',
+);
+field_create_field($field);
+
+$instance = array(
+  'label' => 'Event Image',
+  'widget' => array(
+    'weight' => '0',
+    'type' => 'image_image',
+    'active' => 1,
+    'settings' => array(
+      'progress_indicator' => 'throbber',
+      'preview_image_style' => 'medium',
+    ),
+  ),
+  'settings' => array(
+    'file_directory' => '',
+    'file_extensions' => 'png gif jpg jpeg',
+    'max_filesize' => '4096',
+    'max_resolution' => '1280x1024',
+    'min_resolution' => '640x480',
+    'alt_field' => 0,
+    'title_field' => 1,
+    'default_image' => 0,
+    'user_register_form' => FALSE,
+  ),
+  'display' => array(
+    'default' => array(
+      'label' => 'hidden',
+      'type' => 'image',
+      'weight' => '0',
+      'settings' => array(
+        'image_style' => 'large',
+        'image_link' => 'content',
+      ),
+    ),
+    'teaser' => array(
+      'type' => 'hidden',
+      'label' => 'above',
+      'settings' => array(),
+      'weight' => 0,
+    ),
+    'grid_thumbnail' => array(
+      'type' => 'hidden',
+      'label' => 'above',
+      'settings' => array(),
+      'weight' => 0,
+    ),
   ),
   'required' => 0,
-  'description' => '',
+  'description' => 'Upload an image that represents the event.',
+  'field_name' => 'field_wl_event_image',
+  'entity_type' => 'node',
+  'bundle' => 'event',
+);
+field_create_instance($instance);
+
+$field = array(
+  'translatable' => '0',
+  'settings' => array(),
+  'field_name' => 'field_wl_event_geolocation',
+  'type' => 'geolocation_latlng',
+  'active' => '1',
+  'locked' => '0',
+  'cardinality' => '1',
+);
+field_create_field($field);
+
+$instance = array(
+  'label' => 'Event location',
+  'widget' => array(
+    'weight' => '4',
+    'type' => 'geolocation_googlemap',
+    'active' => 0,
+    'settings' => array(),
+  ),
+  'settings' => array(
+    'user_register_form' => FALSE,
+  ),
+  'display' => array(
+    'default' => array(
+      'label' => 'hidden',
+      'type' => 'geolocation_googlemaps_static',
+      'weight' => '4',
+      'settings' => array(
+        'map_dimensions' => '300x300',
+        'marker_icon' => '',
+        'map_imageformat' => 'png8',
+        'map_maptype' => 'roadmap',
+        'map_zoomlevel' => '14',
+      ),
+    ),
+    'teaser' => array(
+      'type' => 'hidden',
+      'label' => 'above',
+      'settings' => array(),
+      'weight' => 0,
+    ),
+    'grid_thumbnail' => array(
+      'type' => 'hidden',
+      'label' => 'above',
+      'settings' => array(),
+      'weight' => 0,
+    ),
+  ),
+  'required' => 0,
+  'description' => 'If you have a location for the event, provide it here.',
   'default_value' => NULL,
-  'field_name' => 'field_event_description',
+  'field_name' => 'field_wl_event_geolocation',
   'entity_type' => 'node',
   'bundle' => 'event',
 );
@@ -230,7 +367,7 @@ $field = array(
     'handler' => 'base',
     'handler_settings' => array(
       'target_bundles' => array(
-        'project' => 'project',
+        'resource' => 'resource',
       ),
       'sort' => array(
         'type' => 'none',
@@ -242,20 +379,19 @@ $field = array(
       ),
     ),
   ),
-  'field_name' => 'field_event_project',
+  'field_name' => 'field_wl_event_acquired_resource',
   'type' => 'entityreference',
   'active' => '1',
   'locked' => '0',
-  'cardinality' => '1',
+  'cardinality' => '-1',
 );
 field_create_field($field);
 
-
 $instance = array(
-  'label' => 'Event project',
+  'label' => 'Acquired Resources',
   'widget' => array(
-    'weight' => '1',
-    'type' => 'entityreference_autocomplete',
+    'weight' => '5',
+    'type' => 'entityreference_autocomplete_tags',
     'active' => 1,
     'settings' => array(
       'match_operator' => 'CONTAINS',
@@ -269,9 +405,11 @@ $instance = array(
   'display' => array(
     'default' => array(
       'label' => 'above',
-      'type' => 'hidden',
-      'weight' => '6',
-      'settings' => array(),
+      'type' => 'entityreference_label',
+      'weight' => '5',
+      'settings' => array(
+        'link' => FALSE,
+      ),
     ),
     'teaser' => array(
       'type' => 'hidden',
@@ -279,71 +417,21 @@ $instance = array(
       'settings' => array(),
       'weight' => 0,
     ),
+    'grid_thumbnail' => array(
+      'type' => 'hidden',
+      'label' => 'above',
+      'settings' => array(),
+      'weight' => 0,
+    ),
   ),
   'required' => 0,
-  'description' => 'Please select the project that you are creator / admin of in order to associate this event with that project.',
+  'description' => 'Please reference the resources here that you already have acquired for your event. You may have added them, or negotiated with another user who has provided them for the event.',
   'default_value' => NULL,
-  'field_name' => 'field_event_project',
+  'field_name' => 'field_wl_event_acquired_resource',
   'entity_type' => 'node',
   'bundle' => 'event',
 );
 field_create_instance($instance);
-
-// $field = array(
-//   'translatable' => '0',
-//   'settings' => array(
-//     'vud_widget' => 'updown',
-//     'votingapi_tag' => 'vote',
-//   ),
-//   'field_name' => 'field_event_vote',
-//   'type' => 'vud_field',
-//   'active' => '1',
-//   'locked' => '0',
-//   'cardinality' => '1',
-// );
-// field_create_field($field);
-
-
-// $instance = array(
-//   'label' => 'Event vote',
-//   'widget' => array(
-//     'weight' => '6',
-//     'type' => 'vud_field_default_widget',
-//     'active' => 0,
-//     'settings' => array(),
-//   ),
-//   'settings' => array(
-//     'vud_widget' => 'upanddown',
-//     'votingapi_tag' => 'vote',
-//     'user_register_form' => FALSE,
-//   ),
-//   'display' => array(
-//     'default' => array(
-//       'label' => 'above',
-//       'type' => 'default',
-//       'weight' => '0',
-//       'settings' => array(),
-//     ),
-//     'teaser' => array(
-//       'type' => 'hidden',
-//       'label' => 'above',
-//       'settings' => array(),
-//       'weight' => 0,
-//     ),
-//   ),
-//   'required' => 0,
-//   'description' => '',
-//   'default_value' => array(
-//     0 => array(
-//       'vud_widget' => 'updown',
-//       'votingapi_tag' => 'vote',
-//     ),
-//   ),
-//   'field_name' => 'field_event_vote',
-//   'entity_type' => 'node',
-//   'bundle' => 'event',
-// );
-// field_create_instance($instance);
 
 $field = array(
   'translatable' => '0',
@@ -355,7 +443,7 @@ $field = array(
       ),
     ),
   ),
-  'field_name' => 'field_event_resources',
+  'field_name' => 'field_wl_event_required_resource',
   'type' => 'taxonomy_term_reference',
   'active' => '1',
   'locked' => '0',
@@ -363,16 +451,15 @@ $field = array(
 );
 field_create_field($field);
 
-
 $instance = array(
-  'label' => 'Event resources',
+  'label' => 'Required Resources',
   'widget' => array(
-    'weight' => '31',
-    'type' => 'autocomplete_deluxe_taxonomy',
-    'active' => 1,
+    'weight' => '6',
+    'type' => 'taxonomy_autocomplete',
+    'active' => 0,
     'settings' => array(
-      'size' => '60',
-      'autocomplete_deluxe_path' => 'autocomplete_deluxe/taxonomy',
+      'size' => 60,
+      'autocomplete_path' => 'taxonomy/autocomplete',
     ),
   ),
   'settings' => array(
@@ -382,7 +469,7 @@ $instance = array(
     'default' => array(
       'label' => 'above',
       'type' => 'taxonomy_term_reference_link',
-      'weight' => '2',
+      'weight' => '6',
       'settings' => array(),
     ),
     'teaser' => array(
@@ -391,11 +478,17 @@ $instance = array(
       'settings' => array(),
       'weight' => 0,
     ),
+    'grid_thumbnail' => array(
+      'type' => 'hidden',
+      'label' => 'above',
+      'settings' => array(),
+      'weight' => 0,
+    ),
   ),
   'required' => 0,
-  'description' => '',
+  'description' => 'Add tags here for the kind of resources you need so we can match resources in the system against your event. Comma separated.',
   'default_value' => NULL,
-  'field_name' => 'field_event_resources',
+  'field_name' => 'field_wl_event_required_resource',
   'entity_type' => 'node',
   'bundle' => 'event',
 );
@@ -406,12 +499,12 @@ $field = array(
   'settings' => array(
     'allowed_values' => array(
       0 => array(
-        'vocabulary' => 'wl_skill_skill',
+        'vocabulary' => 'skills',
         'parent' => '0',
       ),
     ),
   ),
-  'field_name' => 'field_event_skills',
+  'field_name' => 'field_wl_event_required_skills',
   'type' => 'taxonomy_term_reference',
   'active' => '1',
   'locked' => '0',
@@ -419,16 +512,15 @@ $field = array(
 );
 field_create_field($field);
 
-
 $instance = array(
-  'label' => 'Event skills',
+  'label' => 'Required Skills',
   'widget' => array(
-    'weight' => '32',
-    'type' => 'autocomplete_deluxe_taxonomy',
-    'active' => 1,
+    'weight' => '8',
+    'type' => 'taxonomy_autocomplete',
+    'active' => 0,
     'settings' => array(
-      'size' => '60',
-      'autocomplete_deluxe_path' => 'autocomplete_deluxe/taxonomy',
+      'size' => 60,
+      'autocomplete_path' => 'taxonomy/autocomplete',
     ),
   ),
   'settings' => array(
@@ -438,7 +530,7 @@ $instance = array(
     'default' => array(
       'label' => 'above',
       'type' => 'taxonomy_term_reference_link',
-      'weight' => '3',
+      'weight' => '8',
       'settings' => array(),
     ),
     'teaser' => array(
@@ -447,37 +539,60 @@ $instance = array(
       'settings' => array(),
       'weight' => 0,
     ),
+    'grid_thumbnail' => array(
+      'type' => 'hidden',
+      'label' => 'above',
+      'settings' => array(),
+      'weight' => 0,
+    ),
   ),
   'required' => 0,
-  'description' => '',
+  'description' => 'Please add tags for the skills that you need for your event and we will match them against available skills in the system. Comma separated.',
   'default_value' => NULL,
-  'field_name' => 'field_event_skills',
+  'field_name' => 'field_wl_event_required_skills',
   'entity_type' => 'node',
   'bundle' => 'event',
 );
 field_create_instance($instance);
 
-
-    $field = array(
+$field = array(
   'translatable' => '0',
   'settings' => array(
-    'profile2_private' => 0,
+    'target_type' => 'node',
+    'handler' => 'base',
+    'handler_settings' => array(
+      'target_bundles' => array(
+        'skill' => 'skill',
+      ),
+      'sort' => array(
+        'type' => 'none',
+      ),
+      'behaviors' => array(
+        'views-select-list' => array(
+          'status' => 0,
+        ),
+      ),
+    ),
   ),
-  'field_name' => 'field_event_geolocation',
-  'type' => 'geolocation_latlng',
+  'field_name' => 'field_wl_event_acquired_skills',
+  'type' => 'entityreference',
   'active' => '1',
   'locked' => '0',
   'cardinality' => '1',
 );
 field_create_field($field);
 
-
 $instance = array(
-  'label' => 'Geolocation',
+  'label' => 'Acquired Skills',
   'widget' => array(
-    'type' => 'geolocation_googlemap',
-    'weight' => '11',
-    'settings' => array(),
+    'weight' => '7',
+    'type' => 'entityreference_autocomplete_tags',
+    'active' => 1,
+    'settings' => array(
+      'match_operator' => 'CONTAINS',
+      'size' => '60',
+      'path' => '',
+    ),
   ),
   'settings' => array(
     'user_register_form' => FALSE,
@@ -485,14 +600,10 @@ $instance = array(
   'display' => array(
     'default' => array(
       'label' => 'above',
-      'type' => 'geolocation_googlemaps_static',
-      'weight' => '6',
+      'type' => 'entityreference_label',
+      'weight' => '7',
       'settings' => array(
-        'map_dimensions' => '300x300',
-        'marker_icon' => '',
-        'map_imageformat' => 'png8',
-        'map_maptype' => 'roadmap',
-        'map_zoomlevel' => '15',
+        'link' => FALSE,
       ),
     ),
     'teaser' => array(
@@ -501,16 +612,78 @@ $instance = array(
       'settings' => array(),
       'weight' => 0,
     ),
+    'grid_thumbnail' => array(
+      'type' => 'hidden',
+      'label' => 'above',
+      'settings' => array(),
+      'weight' => 0,
+    ),
   ),
-  'required' => FALSE,
-  'description' => '',
-  'field_name' => 'field_event_geolocation',
-  'entity_type' => 'node',
-  'bundle' => 'project',
+  'required' => 0,
+  'description' => 'Please add skills here that you have acquired for the event or have been donated by a user added to the event.',
   'default_value' => NULL,
+  'field_name' => 'field_wl_event_acquired_skills',
+  'entity_type' => 'node',
+  'bundle' => 'event',
 );
 field_create_instance($instance);
 
+$field = array(
+  'translatable' => '0',
+  'settings' => array(
+    'allowed_values' => array(
+      'Private ' => ' Private',
+      'Public ' => ' Public',
+    ),
+    'allowed_values_function' => '',
+  ),
+  'field_name' => 'field_wl_event_privacy',
+  'type' => 'list_text',
+  'active' => '1',
+  'locked' => '0',
+  'cardinality' => '1',
+);
+field_create_field($field);
+
+$instance = array(
+  'label' => 'Event Privacy',
+  'widget' => array(
+    'weight' => '12',
+    'type' => 'options_select',
+    'active' => 1,
+    'settings' => array(),
+  ),
+  'settings' => array(
+    'user_register_form' => FALSE,
+  ),
+  'display' => array(
+    'default' => array(
+      'label' => 'hidden',
+      'type' => 'list_default',
+      'weight' => '9',
+      'settings' => array(),
+    ),
+    'teaser' => array(
+      'type' => 'hidden',
+      'label' => 'above',
+      'settings' => array(),
+      'weight' => 0,
+    ),
+    'grid_thumbnail' => array(
+      'type' => 'hidden',
+      'label' => 'above',
+      'settings' => array(),
+      'weight' => 0,
+    ),
+  ),
+  'required' => 0,
+  'description' => 'Is this a private or public event?',
+  'default_value' => NULL,
+  'field_name' => 'field_wl_event_privacy',
+  'entity_type' => 'node',
+  'bundle' => 'event',
+);
+field_create_instance($instance);
 
 
 }

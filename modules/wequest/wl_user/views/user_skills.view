@@ -1,10 +1,10 @@
 <?php
 $view = new view();
-$view->name = 'skills';
+$view->name = 'user_skills';
 $view->description = '';
 $view->tag = 'default';
 $view->base_table = 'node';
-$view->human_name = 'Skills';
+$view->human_name = 'User Skills';
 $view->core = 7;
 $view->api_version = '3.0';
 $view->disabled = FALSE; /* Edit this to true to make a default view disabled initially */
@@ -17,7 +17,8 @@ $handler->display->display_options['cache']['type'] = 'none';
 $handler->display->display_options['query']['type'] = 'views_query';
 $handler->display->display_options['exposed_form']['type'] = 'basic';
 $handler->display->display_options['pager']['type'] = 'full';
-$handler->display->display_options['style_plugin'] = 'default';
+$handler->display->display_options['style_plugin'] = 'views_bootstrap_grid_plugin_style';
+$handler->display->display_options['style_options']['columns'] = '4';
 $handler->display->display_options['row_plugin'] = 'entity';
 $handler->display->display_options['row_options']['view_mode'] = 'teaser';
 /* Relationship: Content: Author */

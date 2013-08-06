@@ -12,22 +12,26 @@ function wl_style_entity_info_alter(&$entity_info) {
     'label' => 'Grid thumbnail display',
     'custom settings' => 'TRUE'
   );
-}
-function wl_style_view($node, $view_mode) {
-  if ($view_mode == 'grid_thumbnail') {
-    // add some additional variables for template
-    $node->content['#theme'] = 'wl_inventory_view';
-  }
-}
-// in our hook theme
-function wl_style_theme($existing, $type, $theme, $path) {
-  return array(
-    'wl_inventory_view' => array(
-      'template' => 'wl-inventory-view',
-      'path' => $path . '/templates',
-      'variables' => array(
-        'vars' => NULL
-      )
-    )
+  $entity_info['node']['view modes']['event_resource_listing'] = array(
+    'label' => 'Event Resource Listing',
+    'custom settings' => 'TRUE'
   );
 }
+// function wl_style_view($node, $view_mode) {
+//   if ($view_mode == 'grid_thumbnail') {
+//     // add some additional variables for template
+//     $node->content['#theme'] = 'wl_inventory_view';
+//   }
+// }
+// // in our hook theme
+// function wl_style_theme($existing, $type, $theme, $path) {
+//   return array(
+//     'wl_inventory_view' => array(
+//       'template' => 'wl-inventory-view',
+//       'path' => $path . '/templates',
+//       'variables' => array(
+//         'vars' => NULL
+//       )
+//     )
+//   );
+// }

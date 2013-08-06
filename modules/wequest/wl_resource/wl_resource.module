@@ -1,7 +1,1 @@
 <?php
-
-function test_delete_fields(){
-
-  $data=field_info_instances("node",$source_node_type);
-  print_r($data);
-}
