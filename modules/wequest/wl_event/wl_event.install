@@ -77,6 +77,12 @@ $instance = array(
       'settings' => array(),
       'weight' => 0,
     ),
+    'event_resource_listing' => array(
+      'label' => 'above',
+      'type' => 'hidden',
+      'weight' => '9',
+      'settings' => array(),
+    ),
     'grid_thumbnail' => array(
       'type' => 'hidden',
       'label' => 'above',
@@ -167,6 +173,12 @@ $instance = array(
       'settings' => array(),
       'weight' => 0,
     ),
+    'event_resource_listing' => array(
+      'label' => 'above',
+      'type' => 'hidden',
+      'weight' => '6',
+      'settings' => array(),
+    ),
     'grid_thumbnail' => array(
       'type' => 'hidden',
       'label' => 'above',
@@ -212,6 +224,12 @@ $instance = array(
       'label' => 'hidden',
       'type' => 'text_default',
       'weight' => '1',
+      'settings' => array(),
+    ),
+    'event_resource_listing' => array(
+      'label' => 'above',
+      'type' => 'hidden',
+      'weight' => '7',
       'settings' => array(),
     ),
     'teaser' => array(
@@ -282,6 +300,15 @@ $instance = array(
         'image_link' => 'content',
       ),
     ),
+    'event_resource_listing' => array(
+      'label' => 'above',
+      'type' => 'image',
+      'weight' => '8',
+      'settings' => array(
+        'image_style' => 'thumbnail',
+        'image_link' => '',
+      ),
+    ),
     'teaser' => array(
       'type' => 'hidden',
       'label' => 'above',
@@ -337,6 +364,12 @@ $instance = array(
         'map_maptype' => 'roadmap',
         'map_zoomlevel' => '14',
       ),
+    ),
+    'event_resource_listing' => array(
+      'label' => 'above',
+      'type' => 'hidden',
+      'weight' => '5',
+      'settings' => array(),
     ),
     'teaser' => array(
       'type' => 'hidden',
@@ -411,6 +444,12 @@ $instance = array(
         'link' => FALSE,
       ),
     ),
+    'event_resource_listing' => array(
+      'label' => 'above',
+      'type' => 'hidden',
+      'weight' => '4',
+      'settings' => array(),
+    ),
     'teaser' => array(
       'type' => 'hidden',
       'label' => 'above',
@@ -472,6 +511,12 @@ $instance = array(
       'weight' => '6',
       'settings' => array(),
     ),
+    'event_resource_listing' => array(
+      'label' => 'above',
+      'type' => 'taxonomy_term_reference_link',
+      'weight' => '0',
+      'settings' => array(),
+    ),
     'teaser' => array(
       'type' => 'hidden',
       'label' => 'above',
@@ -531,6 +576,12 @@ $instance = array(
       'label' => 'above',
       'type' => 'taxonomy_term_reference_link',
       'weight' => '8',
+      'settings' => array(),
+    ),
+    'event_resource_listing' => array(
+      'label' => 'above',
+      'type' => 'taxonomy_term_reference_link',
+      'weight' => '1',
       'settings' => array(),
     ),
     'teaser' => array(
@@ -606,6 +657,12 @@ $instance = array(
         'link' => FALSE,
       ),
     ),
+    'event_resource_listing' => array(
+      'label' => 'above',
+      'type' => 'hidden',
+      'weight' => '2',
+      'settings' => array(),
+    ),
     'teaser' => array(
       'type' => 'hidden',
       'label' => 'above',
@@ -661,6 +718,12 @@ $instance = array(
       'label' => 'hidden',
       'type' => 'list_default',
       'weight' => '9',
+      'settings' => array(),
+    ),
+    'event_resource_listing' => array(
+      'label' => 'above',
+      'type' => 'hidden',
+      'weight' => '3',
       'settings' => array(),
     ),
     'teaser' => array(
