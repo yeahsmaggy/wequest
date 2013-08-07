@@ -332,51 +332,18 @@ function wl_resource_install() {
     'bundle' => 'resource'
   );
   field_create_instance($instance);
+
+
+
+taxonomy_vocabulary_save((object) array(
+  'name' => 'Resources',
+  'machine_name' => 'resources',
+));
+
 }
-// function _wl_resource_fields() {
-//  $t = get_t();
-//   $fields = array(
-//   );
-//   return $fields;
-// }
-// function _wl_resource_instances() {
-//   $t = get_t();
-//   $instances = array(
-//   );
-//   return $instances;
-// }
-function _wl_resource_vocabularies() {
-  $t = get_t();
-  //this might want to include other categories for the resource like
-  //manufacturer. People can add more manufacturers...
-  //What should be a taxonomy term and what should be a select list?
-  return array(
-    'wl_resource_resource' => array(
-      'name' => $t('Resource category'),
-      'machine_name' => 'wl_resource_resource',
-      'module' => 'wl_resource',
-      'terms' => array(
-        'Brick',
-        'Drill',
-        'Hammer',
-        '3D Printer',
-        'Laptop',
-        'Arduino',
-        'Resin',
-        'Lubricant',
-        'Tape',
-        'Concrete',
-        'Sand',
-        'Water',
-        'Silicon',
-        'Spirit',
-        'Glue',
-        'Card',
-        'Zinc'
-      )
-    )
-  );
-}
+
+
+
 function wl_resource_uninstall() {
   $sql = 'SELECT nid FROM {node} n WHERE n.type = :type';
   $result = db_query($sql, array(
