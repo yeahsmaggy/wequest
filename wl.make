@@ -49,7 +49,7 @@ projects[geolocation_proximity][subdir] = "contrib"
 projects[geolocation_views][version] = "1.x-dev"
 projects[geolocation_views][subdir] = "contrib"
 
-projects[privatemsg][version] = "1.3"
+projects[privatemsg][version] = "1.4"
 projects[privatemsg][subdir] = "contrib"
 
 projects[imce][version] = "1.7"
@@ -61,7 +61,7 @@ projects[og][subdir] = "contrib"
 projects[entity][version] = "1.1"
 projects[entity][subdir] = "contrib"
 
-projects[entityreference_autocomplete][version] = "1.0"
+projects[entityreference_autocomplete][version] = "1.1"
 projects[entityreference_autocomplete][subdir] = "contrib"
 
 projects[field_inspector][version] = "1.0-beta2"
@@ -88,7 +88,7 @@ projects[taxonomy_dupecheck][subdir] = "contrib"
 projects[token][version] = "1.5"
 projects[token][subdir] = "contrib"
 
-projects[xautoload][version] = "3.1"
+projects[xautoload][version] = "3.2"
 projects[xautoload][subdir] = "contrib"
 
 projects[panels][version] = "3.3"
@@ -121,7 +121,7 @@ projects[voting_rules][subdir] = "contrib"
 projects[sharethis][version] = "2.5"
 projects[sharethis][subdir] = "contrib"
 
-projects[autocomplete_deluxe][version] = "2.0-beta2"
+projects[autocomplete_deluxe][version] = "2.0-beta3"
 projects[autocomplete_deluxe][subdir] = "contrib"
 
 projects[imce_wysiwyg][version] = "1.0"
@@ -164,7 +164,7 @@ projects[votingapi][subdir] = "contrib"
 
 ; bootstrap
 projects[bootstrap][type] = "theme"
-projects[bootstrap][version] = "2.0"
+projects[bootstrap][version] = "2.1"
 projects[bootstrap][subdir] = "contrib"
 
 ; adminimal_theme
