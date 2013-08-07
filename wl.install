@@ -1054,4 +1054,35 @@ variable_set('user_register', '1');
 variable_set('user_signatures', 0);
 variable_set('views_block_hashes', array (
 ));
+
+
+//menu items
+
+// Add menu items to main menu
+  $main_menu_items = array(
+    array(
+      'link_title' => t('Events'),
+      'link_path' => 'events',
+      'menu_name' => 'main-menu',
+    ),
+    array(
+      'link_title' => t('Skills'),
+      'link_path' => 'skills',
+      'menu_name' => 'main-menu',
+    ),
+    array(
+      'link_title' => t('Resources'),
+      'link_path' => 'resources',
+      'menu_name' => 'main-menu',
+    ),
+    array(
+      'link_title' => t('Add Event'),
+      'link_path' => 'node/add/event',
+      'menu_name' => 'main-menu',
+    ),
+  );
+  foreach ($main_menu_items as $item) {
+    menu_link_save($item);
+  }
+
 }
