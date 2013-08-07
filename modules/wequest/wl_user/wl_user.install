@@ -16,59 +16,7 @@ function wl_user_install() {
   //   $instance['bundle'] = 'user';
   //   field_create_instance($instance);
   // }
-$field = array(
-  'no_ui' => TRUE,
-  'translatable' => '0',
-  'settings' => array(),
-  'field_name' => 'group_audience',
-  'type' => 'group',
-  'active' => '1',
-  'locked' => '0',
-  'cardinality' => '-1',
-);
-field_create_field($field);
 
-$instance = array(
-  'label' => 'Groups audience',
-  'default_value_function' => 'og_field_audience_default_value',
-  'view modes' => array(
-    'full' => array(
-      'label' => 'Full',
-      'type' => 'og_list_default',
-      'custom settings' => FALSE,
-    ),
-    'teaser' => array(
-      'label' => 'Teaser',
-      'type' => 'og_list_default',
-      'custom settings' => FALSE,
-    ),
-  ),
-  'settings' => array(
-    'user_register_form' => FALSE,
-  ),
-  'display' => array(
-    'default' => array(
-      'label' => 'hidden',
-      'type' => 'hidden',
-      'weight' => '5',
-      'settings' => array(),
-    ),
-  ),
-  'widget' => array(
-    'type' => 'group_audience',
-    'settings' => array(
-      'opt_group' => 'auto',
-    ),
-    'weight' => '10',
-  ),
-  'required' => FALSE,
-  'description' => '',
-  'field_name' => 'group_audience',
-  'entity_type' => 'user',
-  'bundle' => 'user',
-  'default_value' => NULL,
-);
-field_create_instance($instance);
 
 $field = array(
   'translatable' => '0',
