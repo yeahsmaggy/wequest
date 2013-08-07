@@ -952,7 +952,17 @@ Your account on [site:name] has been canceled.
       'link_title' => t('Add Event'),
       'link_path' => 'node/add/event',
       'menu_name' => 'main-menu'
-    )
+    ),
+    array(
+      'link_title' => t('Add Resource'),
+      'link_path' => 'node/add/resource',
+      'menu_name' => 'main-menu'
+    ),
+    array(
+      'link_title' => t('Add Skill'),
+      'link_path' => 'node/add/skill',
+      'menu_name' => 'main-menu'
+    ),
   );
   foreach ($main_menu_items as $item) {
     menu_link_save($item);
