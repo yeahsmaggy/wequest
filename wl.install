@@ -979,4 +979,39 @@ Your account on [site:name] has been canceled.
       ':t' => $title
     ));
   }
+
+  // Create a default role for site administrators.
+  // Do this at the end of install so all permissions are available to be assigned.
+  $admin_role = new stdClass();
+  $admin_role->name = 'administrator';
+  $admin_role->weight = 2;
+  user_role_save($admin_role);
+  user_role_grant_permissions($admin_role->rid, array_keys(module_invoke_all('permission')));
+  // Set this as the administrator role.
+  variable_set('user_admin_role', $admin_role->rid);
+
+  // Assign user 1 the "administrator" role.
+  db_insert('users_roles')
+    ->fields(array('uid' => 1, 'rid' => $admin_role->rid))
+    ->execute();
+
+  $roles = array(
+    'site builder' => array(
+      'access content',
+    ),
+    'editor' => array(
+      'access content',
+    ),
+    'contributor' => array(
+      'access content',
+    ),
+  );
+  $role_weight = 3;
+  foreach ($roles as $role_name => $role_perms) {
+    $role = new stdClass();
+    $role->name = $role_name;
+    $role->weight = $role_weight++;
+    user_role_save($role);
+    user_role_grant_permissions($role->rid, $role_perms);
+  }
 }
