@@ -112,6 +112,7 @@ function wl_install() {
   node_access_needs_rebuild(FALSE);
   // ignore any other install messages
   drupal_get_messages();
+  //variables export
   variable_set('additional_settings__active_tab', 'edit-context');
   variable_set('additional_settings__active_tab_event', 'edit-display');
   variable_set('additional_settings__active_tab_page', 'edit-comment');
@@ -143,8 +144,8 @@ function wl_install() {
   variable_set('comment_subject_field_skill', 0);
   variable_set('contact_default_status', 1);
   variable_set('cron_key', 'jZTMC0bI7vnExb8q6OVgU2KIXZW83FU8wtLJJd2Ri7A');
-  variable_set('cron_last', 1375859595);
-  variable_set('css_js_query_string', 'mr4gj6');
+  variable_set('cron_last', 1375867328);
+  variable_set('css_js_query_string', 'mr5m0w');
   variable_set('ctools_last_cron', 1375831784);
   variable_set('date_api_version', '7.2');
   variable_set('date_default_timezone', 'Europe/London');
@@ -535,7 +536,7 @@ function wl_install() {
   ));
   variable_set('install_profile', 'wl');
   variable_set('install_task', 'done');
-  variable_set('install_time', 1375738957);
+  variable_set('install_time', 1375867328);
   variable_set('menu_expanded', array());
   variable_set('menu_masks', array(
     0 => 507,
@@ -568,20 +569,19 @@ function wl_install() {
     27 => 30,
     28 => 29,
     29 => 28,
-    30 => 27,
-    31 => 24,
-    32 => 21,
-    33 => 15,
-    34 => 14,
-    35 => 13,
-    36 => 12,
-    37 => 11,
-    38 => 7,
-    39 => 6,
-    40 => 5,
-    41 => 3,
-    42 => 2,
-    43 => 1
+    30 => 24,
+    31 => 21,
+    32 => 15,
+    33 => 14,
+    34 => 13,
+    35 => 12,
+    36 => 11,
+    37 => 7,
+    38 => 6,
+    39 => 5,
+    40 => 3,
+    41 => 2,
+    42 => 1
   ));
   variable_set('menu_options_event', array(
     0 => 'main-menu'
@@ -775,7 +775,7 @@ function wl_install() {
   variable_set('taxonomy_csv_vocabulary_id', '0');
   variable_set('taxonomy_csv_vocabulary_target', 'autocreate');
   variable_set('theme_default', 'bootstrap');
-  variable_set('update_last_check', 1375859602);
+  variable_set('update_last_check', 1375867390);
   variable_set('update_last_email_notification', 1375831784);
   variable_set('update_notify_emails', array(
     0 => 'admin@example.com'
