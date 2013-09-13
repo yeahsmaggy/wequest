@@ -133,7 +133,8 @@ dependencies[] = wl_lookup
 dependencies[] = wl_page
 dependencies[] = wl_panels
 dependencies[] = wl_resource
-dependencies[] = wl_skill
+;disabling skill until we have sorted out resources
+;dependencies[] = wl_skill
 dependencies[] = wl_social
 dependencies[] = wl_style
 dependencies[] = wl_user

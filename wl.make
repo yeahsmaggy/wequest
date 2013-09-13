@@ -160,6 +160,9 @@ projects[views_bulk_operations][subdir] = "contrib"
 projects[votingapi][version] = "2.11"
 projects[votingapi][subdir] = "contrib"
 
+projects[agreservations][version] = "2.0-beta3"
+projects[agreservations][subdir] = "contrib"
+
 ; +++++ Themes +++++
 
 ; bootstrap
