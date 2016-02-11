@@ -1,7 +1,16 @@
-WL
-=======
+#Wequest Web App
 
-A resource and skill sharing web app focussed around event.
+>A resource and skill sharing web app focussed around event.
+
+##History
+
+This started as a prototype for my MA final project. 
+
+##Platform
+
+It is based on Drupal 7
+
+##Get started
 
 git clone git@github.com:yeahsmaggy/wequest.git
 
