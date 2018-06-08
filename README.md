@@ -1,12 +1,12 @@
-# Wequest Web App
+# Wequest
 
->A resource and skill sharing web app focussed around event.
+> A resource and skill sharing web app focussed around events.
 
 ## History
 
 This started as a prototype for my MA final project. 
 
-## Prerequisites
+## Prerequisites
 
 - [Drush](https://www.drupal.org/project/drush)
 
@@ -17,7 +17,6 @@ This started as a prototype for my MA final project.
 ## Install
 
 ```git clone git@github.com:yeahsmaggy/wequest.git
-
 cd wequest
 drush make distro.make sandbox --working-copy --no-gitinfofile
 cd into sandbox
