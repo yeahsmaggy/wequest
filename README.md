@@ -6,6 +6,10 @@
 
 This started as a prototype for my MA final project. 
 
+## Prerequisites
+
+- [Drush](https://www.drupal.org/project/drush)
+
 ## Platform
 
 - Drupal 7
@@ -14,13 +18,9 @@ This started as a prototype for my MA final project.
 
 ```git clone git@github.com:yeahsmaggy/wequest.git
 
-cd into wequest folder
-
+cd wequest
 drush make distro.make sandbox --working-copy --no-gitinfofile
-
 cd into sandbox
-
 make a database called wq
-
 drush si wl  --db-url='mysql://root:root@localhost/wq' --site-name=wl
 ```
