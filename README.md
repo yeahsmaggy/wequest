@@ -1,18 +1,18 @@
-#Wequest Web App
+# Wequest Web App
 
 >A resource and skill sharing web app focussed around event.
 
-##History
+## History
 
 This started as a prototype for my MA final project. 
 
-##Platform
+## Platform
 
-It is based on Drupal 7
+- Drupal 7
 
-##Get started
+## Install
 
-git clone git@github.com:yeahsmaggy/wequest.git
+```git clone git@github.com:yeahsmaggy/wequest.git
 
 cd into wequest folder
 
@@ -23,3 +23,4 @@ cd into sandbox
 make a database called wq
 
 drush si wl  --db-url='mysql://root:root@localhost/wq' --site-name=wl
+```
