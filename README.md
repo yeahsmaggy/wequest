@@ -16,7 +16,8 @@ This started as a prototype for my MA final project.
 
 ## Install
 
-```git clone git@github.com:yeahsmaggy/wequest.git
+```
+git clone git@github.com:yeahsmaggy/wequest.git
 cd wequest
 drush make distro.make sandbox --working-copy --no-gitinfofile
 cd into sandbox
